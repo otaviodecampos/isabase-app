@@ -1,0 +1,29 @@
+{
+  "build": {
+    "path": {
+      "build-name": "isabase-app",
+      "build-dir": "isabase/dist",
+      "src-dir": "isabase/src",
+      "app-dir": "isabase/src/app",
+      "concat-output-dir": "isabase/dist/assets/js",
+      "css-dir": "isabase/src/assets/css",
+      "css-output-dir": "isabase/dist/assets/css",
+      "components-dir": [
+        "bower_components/jquery/dist/jquery.js",
+        "semantic/dist/semantic.js",
+        "bower_components/angular/angular.js"
+      ],
+      "themes-dir": "semantic/dist/themes",
+      "themes-output-dir": "isabase/dist/assets/css/themes"
+    },
+    "clean": true,
+    "default": true,
+    "task-dir": "tasks/dist",
+    "task": {
+      "concat": true,
+      "copy": true,
+      "css": true,
+      "themes": true
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "base": "",
+  "paths": {
+    "source": {
+      "config": "isabase/src/semantic/theme.config",
+      "definitions": "semantic/src/definitions/",
+      "site": "semantic/src/site/",
+      "themes": "isabase/src/semantic/themes/"
+    },
+    "output": {
+      "packaged": "semantic/dist/",
+      "uncompressed": "semantic/dist/components/",
+      "compressed": "semantic/dist/components/",
+      "themes": "semantic/dist/themes/"
+    },
+    "clean": "semantic/dist/"
+  },
+  "permission": false,
+  "rtl": false,
+  "version": "2.1.8"
+}

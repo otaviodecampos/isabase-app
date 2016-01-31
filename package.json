@@ -1,0 +1,28 @@
+{
+  "name": "isabase-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "otaviodecampos <otaviodecampos@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "connect": "^3.4.0",
+    "event-stream": "^3.3.2",
+    "gulp": "^3.9.0",
+    "gulp-angular-templatecache": "^1.8.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-less": "^3.0.5",
+    "gulp-ng-json": "0.0.9",
+    "gulp-order": "^1.1.1",
+    "semantic-ui": "^2.1.4",
+    "serve-static": "^1.10.0"
+  },
+  "directories": {
+    "example": "example"
+  },
+  "devDependencies": {},
+  "description": ""
+}
