@@ -1,0 +1,10 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+@media only screen and (min-width: @largeMonitorBreakpoint) {
+    .ui.container {
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+    }
+}

@@ -1,0 +1,10 @@
+{
+  "myapps": "Meus Aplicativos",
+  "apps": "Aplicativos",
+  "name": "Nome",
+  "description": "Descrição",
+  "models": "Modelos",
+  "manage": "Gerenciar",
+  "select-app-message": "Selecione um aplicativo para gerencia-lo.",
+  "new": "Novo"
+}

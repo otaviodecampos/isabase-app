@@ -1,6 +1,6 @@
 .idea/
-node_modules/
-bower_components/
 *.log
-semantic/
-isabase/dist/
+/node_modules/
+/bower_components/
+/semantic/
+/isabase/dist/

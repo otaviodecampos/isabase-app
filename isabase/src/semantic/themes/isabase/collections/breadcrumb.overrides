@@ -1,0 +1,13 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+.ui.container .breadcrumb {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.ui.breadcrumb .active.section {
+    font-weight: normal;
+    color: #868686;
+}

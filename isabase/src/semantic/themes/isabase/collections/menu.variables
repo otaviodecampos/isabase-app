@@ -1,0 +1,8 @@
+/*--------------
+    Inverted
+---------------*/
+
+@invertedBackground: #2ba8e5;
+@invertedBoxShadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+@invertedHoverBackground: none;
+@invertedHoverColor: #ffffff;

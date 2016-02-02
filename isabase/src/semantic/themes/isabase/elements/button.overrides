@@ -1,0 +1,15 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+.ui.labeled.icon.buttons .button, .ui.labeled.icon.button {
+    border-radius: 30px;
+}
+
+.ui.labeled.icon.buttons > .button > .icon, .ui.labeled.icon.button > .icon {
+    border-radius: 30px;
+}
+
+.ui.labeled.icon.buttons .button, .ui.labeled.icon.button {
+    padding-right: 3em !important;
+}

@@ -1,5 +1,9 @@
 {
   "name": "isabase-app",
   "dependencies": [
+    "ui.router",
+    "pascalprecht.translate",
+    "ngResource",
+    "isabase-mock"
   ]
 }

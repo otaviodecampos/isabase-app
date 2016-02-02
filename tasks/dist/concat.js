@@ -3,7 +3,8 @@ var gulp = require('gulp')
     , concat = require('gulp-concat')
     , templateCache = require('gulp-angular-templatecache')
     , es = require('event-stream')
-    , order = require("gulp-order");
+    , order = require("gulp-order")
+    , ngAnnotate = require('gulp-ng-annotate');
 
 module.exports = function () {
 
@@ -33,6 +34,7 @@ module.exports = function () {
         .pipe(order([
             "**/jquery.js",
             "**/angular.js",
+            "**/angular-translate.js",
             "**/semantic.js",
             "**/*.module.json",
             "**/*.module.js",
@@ -42,6 +44,10 @@ module.exports = function () {
             "**/*.js",
             "**/*.tpl.html"
         ]))
+        .pipe(ngAnnotate({
+            add: true,
+            single_quotes: true
+        }))
         .pipe(concat(this.buildName + '.js'))
         .pipe(gulp.dest(this.concatOutputDir));
 }

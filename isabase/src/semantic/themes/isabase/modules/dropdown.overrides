@@ -1,0 +1,7 @@
+/*******************************
+        User Overrides
+*******************************/
+
+.ui.dropdown.item .angle.down.icon {
+    font-size: 1.3em;
+}

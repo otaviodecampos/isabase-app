@@ -1,0 +1,6 @@
+/*******************************
+     User Global Variables
+*******************************/
+@emSize: 15px;
+@fontSize: 15px;
+@pageBackground: #e9e9e9;

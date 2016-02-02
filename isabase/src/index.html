@@ -1,91 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="isabase-app">
 <head>
     <meta charset="UTF-8">
     <title>Isabase App Beta</title>
     <link rel="stylesheet" type="text/css" href="/assets/css/isabase-app.css">
 </head>
 <body>
-
-<div class="ui fixed inverted menu top">
-    <div class="ui container">
-        <a href="#" class="header item">
-            <img class="logo" src="assets/images/logo.png">
-        </a>
-        <div class="ui pointing dropdown link item right">
-            <span class="text">otaviodecampos</span>
-            <i class="angle down icon"></i>
-            <div class="menu">
-                <div class="item">Home Goods</div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="ui container">
-    <div class="ui large breadcrumb">
-        <div class="active section">Meus Aplicativos</div>
-    </div>
-</div>
-
-<div class="ui two column doubling stackable grid container">
-    <div class="eleven wide column">
-        <div class="ui raised segment">
-            <h2 class="ui header">
-                Meus Aplicativos
-                <div class="sub header">3 Aplicativos</div>
-            </h2>
-
-            <table class="ui very basic table striped selectable">
-                <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Descrição</th>
-                    <th>Modelos</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>app1</td>
-                    <td>Descrição app1</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td>app2</td>
-                    <td>Descrição app2</td>
-                    <td>5</td>
-                </tr>
-                <tr>
-                    <td>app3</td>
-                    <td>Descrição app3</td>
-                    <td>0</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="five wide column">
-        <div class="ui raised segment">
-            <h3 class="ui header">
-                Gerenciar
-                <div class="sub header">Selecione um aplicativo para gerencia-lo.</div>
-            </h3>
-            <span class="ui container center aligned">
-                <button class="ui labeled icon button fluid blue">
-                    <i class="add circle icon"></i>
-                    Novo
-                </button>
-            </span>
-        </div>
-    </div>
-</div>
-
-<div class="ui vertical footer segment center align">
-    <div class="ui container center aligned">
-        <h4 class="ui header">Isabase beta</h4>
-    </div>
-</div>
-
+<div ui-view="" autoscroll="false"></div>
 <script src="/assets/js/isabase-app.js"></script>
 </body>
 </html>

@@ -1,0 +1,9 @@
+/*******************************
+    User Variable Overrides
+*******************************/
+
+@fontWeight: normal;
+@subHeaderColor: #999999;
+@subHeaderFontSize: 0.92857143rem;
+@h2SubHeaderFontSize: 0.92857143rem;
+@h3SubHeaderFontSize: 0.92857143rem;

@@ -1,0 +1,20 @@
+/*******************************
+           Overrides
+*******************************/
+
+.ui.inverted.menu.top {
+    position: relative;
+}
+
+.ui.inverted.menu .item {
+    font-weight: bold;
+    border: 0 !important;
+}
+
+.ui.inverted.menu .header.item {
+    padding: 24px 0px 28px;
+}
+
+.ui.menu .item:before {
+    display: none;
+}

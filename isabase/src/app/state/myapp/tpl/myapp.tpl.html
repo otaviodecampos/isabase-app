@@ -1,0 +1,41 @@
+<div class="ui two column doubling stackable grid">
+    <div class="eleven wide column">
+        <div class="ui raised segment">
+            <h2 class="ui header">
+                {{ 'myapps' | translate }}
+                <div class="sub header">{{ myAppCtrl.myapps.length }} {{ 'apps' | translate }}</div>
+            </h2>
+
+            <table class="ui very basic table striped selectable">
+                <thead>
+                <tr>
+                    <th>{{ 'name' | translate }}</th>
+                    <th>{{ 'description' | translate }}</th>
+                    <th>{{ 'models' | translate }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="app in myAppCtrl.myapps">
+                    <td>{{ app.name }}</td>
+                    <td>{{ app.description }}</td>
+                    <td>{{ app.models }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="five wide column">
+        <div class="ui raised segment">
+            <h3 class="ui header">
+                {{ 'manage' | translate }}
+                <div class="sub header">{{ 'select-app-message' | translate }}</div>
+            </h3>
+            <span class="ui container center aligned">
+                <button class="ui labeled icon button fluid blue">
+                    <i class="add circle icon"></i>
+                    {{ 'new' | translate }}
+                </button>
+            </span>
+        </div>
+    </div>
+</div>
