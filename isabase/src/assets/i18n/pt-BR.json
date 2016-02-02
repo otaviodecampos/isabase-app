@@ -6,5 +6,8 @@
   "models": "Modelos",
   "manage": "Gerenciar",
   "select-app-message": "Selecione um aplicativo para gerencia-lo.",
-  "new": "Novo"
+  "selected-app-message": "Gerencie o aplicativo selecionado.",
+  "new-app": "Novo",
+  "edit-app": "Editar",
+  "manage-models": "Modelos"
 }

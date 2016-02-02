@@ -6,6 +6,7 @@
 
     /* @ngInject */
     function Controller(MyApp) {
+        this.selected = null;
         this.myapps = MyApp.query();
     }
 
