@@ -7,7 +7,7 @@
     /* @ngInject */
     function Mock(resourceMock, MockUtil, RESOURCE, MYAPP) {
 
-        var url = MockUtil.url('http://api.isabase.com.br/myapp')
+        var url = MockUtil.url(RESOURCE.myapp)
             , data = MockUtil.array(MYAPP)
             , mock = resourceMock(url, data);
 
