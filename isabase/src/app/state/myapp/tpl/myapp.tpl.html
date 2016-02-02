@@ -15,7 +15,8 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-class="{selected: myAppCtrl.selected == app}" ng-click="myAppCtrl.selected = app" ng-repeat="app in myAppCtrl.myapps">
+                <tr class="link" ng-class="{selected: myAppCtrl.selected == app}" ng-click="myAppCtrl.select(app)"
+                    ng-repeat="app in myAppCtrl.myapps">
                     <td>{{ app.name }}</td>
                     <td>{{ app.description }}</td>
                     <td>{{ app.models }}</td>
@@ -27,26 +28,30 @@
     <div class="five wide column">
         <div class="ui raised segment">
             <h3 class="ui header">
+                <i ng-if="myAppCtrl.selected" class="small right aligned trash icon"></i>
                 {{ 'manage' | translate }} <span class="text gray">{{ myAppCtrl.selected.name }}</span>
-                <div class="sub header">
-                    <p ng-if="myAppCtrl.selected == null">{{ 'select-app-message' | translate }}</p>
-                    <p ng-if="myAppCtrl.selected != null">{{ 'selected-app-message' | translate }}</p>
+                <div class="sub header" ng-switch="myAppCtrl.selected == null">
+                    <p ng-switch-when="true">{{ 'select-app-message' | translate }}</p>
+                    <p ng-switch-default>{{ 'selected-app-message' | translate }}</p>
                 </div>
             </h3>
-            <span class="ui container center aligned">
-                <button class="ui labeled icon button fluid blue">
+            <span class="ui container center aligned actions">
+                <div ng-if="myAppCtrl.selected">
+                    <button class="ui fluid action labeled blue button icon">
+                        <i class="edit icon"></i>
+                        {{ 'edit-app' | translate }}
+                    </button>
+                    <button class="ui fluid action labeled blue button icon">
+                        <i class="cubes icon"></i>
+                        {{ 'manage-models' | translate }}
+                    </button>
+                    <div class="ui horizontal divider">
+                        {{ 'or' | translate }}
+                    </div>
+                </div>
+                <button class="ui fluid action labeled blue button icon">
                     <i class="add circle icon"></i>
                     {{ 'new-app' | translate }}
-                </button>
-                <br>
-                <button class="ui labeled icon button fluid blue">
-                    <i class="edit icon"></i>
-                    {{ 'edit-app' | translate }}
-                </button>
-                <br>
-                <button class="ui labeled icon button fluid blue">
-                    <i class="cubes icon"></i>
-                    {{ 'manage-models' | translate }}
                 </button>
             </span>
         </div>

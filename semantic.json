@@ -1,19 +1,19 @@
 {
-  "base": "",
+  "base": "semantic",
   "paths": {
     "source": {
-      "config": "isabase/src/semantic/theme.config",
-      "definitions": "semantic/src/definitions/",
-      "site": "semantic/src/site/",
-      "themes": "isabase/src/semantic/themes/"
+      "config": "src/theme.config",
+      "definitions": "src/definitions/",
+      "site": "src/site/",
+      "themes": "src/themes/"
     },
     "output": {
-      "packaged": "semantic/dist/",
-      "uncompressed": "semantic/dist/components/",
-      "compressed": "semantic/dist/components/",
-      "themes": "semantic/dist/themes/"
+      "packaged": "dist/",
+      "uncompressed": "dist/components/",
+      "compressed": "dist/components/",
+      "themes": "dist/themes/"
     },
-    "clean": "semantic/dist/"
+    "clean": "dist/"
   },
   "permission": false,
   "rtl": false,
