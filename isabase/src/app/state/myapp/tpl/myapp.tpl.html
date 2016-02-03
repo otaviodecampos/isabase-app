@@ -28,7 +28,7 @@
     <div class="five wide column">
         <div class="ui raised segment">
             <h3 class="ui header">
-                <i ng-if="myAppCtrl.selected" class="small right aligned trash icon"></i>
+                <i ng-if="myAppCtrl.selected" ng-click="myAppCtrl.removeSelected()" class="small right aligned trash icon link"></i>
                 {{ 'manage' | translate }} <span class="text gray">{{ myAppCtrl.selected.name }}</span>
                 <div class="sub header" ng-switch="myAppCtrl.selected == null">
                     <p ng-switch-when="true">{{ 'select-app-message' | translate }}</p>
@@ -37,22 +37,22 @@
             </h3>
             <span class="ui container center aligned actions">
                 <div ng-if="myAppCtrl.selected">
-                    <button class="ui fluid action labeled blue button icon">
+                    <a class="ui fluid action labeled blue button icon">
                         <i class="edit icon"></i>
-                        {{ 'edit-app' | translate }}
-                    </button>
-                    <button class="ui fluid action labeled blue button icon">
+                        {{ 'edit' | translate }}
+                    </a>
+                    <a class="ui fluid action labeled blue button icon">
                         <i class="cubes icon"></i>
-                        {{ 'manage-models' | translate }}
-                    </button>
+                        {{ 'models' | translate }}
+                    </a>
                     <div class="ui horizontal divider">
                         {{ 'or' | translate }}
                     </div>
                 </div>
-                <button class="ui fluid action labeled blue button icon">
+                <a ui-sref="app.myapp.edit({ name: 'new' })" class="ui fluid action labeled blue button icon">
                     <i class="add circle icon"></i>
-                    {{ 'new-app' | translate }}
-                </button>
+                    {{ 'create-new' | translate }}
+                </a>
             </span>
         </div>
     </div>

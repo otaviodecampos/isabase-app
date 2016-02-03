@@ -1,3 +1,3 @@
 {
-  "myapp": "http://api.isabase.com.br/myapp/:name"
+  "myapp": "/myapp/:name"
 }

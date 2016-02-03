@@ -7,11 +7,12 @@
     /* @ngInject */
     function Service() {
 
-        this.array = function (array) {
+        this.array = function (array, fieldNameId) {
             var mock = {};
 
             angular.forEach(array, function(item, i) {
-                mock[i] = item;
+                var id = item[fieldNameId];
+                mock[id] = item;
                 item.id = i;
             });
 

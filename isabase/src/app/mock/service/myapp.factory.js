@@ -8,7 +8,7 @@
     function Mock(resourceMock, MockUtil, RESOURCE, MYAPP) {
 
         var url = MockUtil.url(RESOURCE.myapp)
-            , data = MockUtil.array(MYAPP)
+            , data = MockUtil.array(MYAPP, 'name')
             , mock = resourceMock(url, data);
 
         return mock;

@@ -1,5 +1,6 @@
 {
   "myapps": "Meus Aplicativos",
+  "edit-app": "Editar Aplicativo",
   "apps": "Aplicativos",
   "name": "Nome",
   "description": "Descrição",
@@ -7,8 +8,8 @@
   "manage": "Gerenciar",
   "select-app-message": "Selecione um aplicativo para gerencia-lo.",
   "selected-app-message": "Gerencie o aplicativo selecionado.",
-  "new-app": "Crie um novo",
-  "edit-app": "Editar",
-  "manage-models": "Modelos",
+  "create-new": "Crie um novo",
+  "edit": "Editar",
+  "models": "Modelos",
   "or": "Ou"
 }
