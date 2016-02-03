@@ -10,7 +10,7 @@
 
         this.selected = null;
         this.myapps = MyApp.query();
-
+        
         this.select = function(app) {
             if(this.selected == app) {
                 app = null;
@@ -23,8 +23,8 @@
                 var index = that.myapps.indexOf(that.selected);
                 that.myapps.splice(index, 1);
                 that.selected = null;
-            }, function(error) {
-                console.log(error);
+            }, function(e) {
+                console.log(e);
             });
         }
     }

@@ -2,14 +2,25 @@
     'use strict'
 
     angular.module('isabase-app')
-        .factory('MyApp', Service);
+        .factory('MyApp', Factory);
 
     /* @ngInject */
-    function Service($resource, RESOURCE) {
-        return $resource(RESOURCE.myapp, {name: '@name'}, {
+    function Factory($resource, RESOURCE) {
+        
+        var MyApp = $resource(RESOURCE.myapp, {id: '@id'}, {
             update: {method: 'PUT'},
             create: {method: 'POST'}
         });
+        
+        MyApp.prototype.$save = function () {
+            var method = this.$create;
+            if (this.id != undefined)  {
+                method = this.$update;
+            }
+            return method.apply(this, arguments);
+        };
+        
+        return MyApp;
     };
 
 })();
