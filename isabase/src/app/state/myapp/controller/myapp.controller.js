@@ -5,7 +5,7 @@
         .controller('MyAppCtrl', Controller);
 
     /* @ngInject */
-    function Controller(MyApp, $stateParams) {
+    function Controller($stateParams, MyApp, Notification) {
         var that = this;
 
         this.selected = null;
@@ -22,9 +22,10 @@
             this.selected.$remove(function() {
                 var index = that.myapps.indexOf(that.selected);
                 that.myapps.splice(index, 1);
+                Notification.success('myapps', that.selected.name, 'remove-success');
                 that.selected = null;
             }, function(e) {
-                console.log(e);
+                Notification.error('myapps', that.selected.name, 'remove-error');
             });
         }
 

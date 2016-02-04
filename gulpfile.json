@@ -17,6 +17,7 @@
         "bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js",
         "bower_components/angular-mocks/angular-mocks.js",
         "bower_components/restful-ng-mock/build/restful-ng-mock.js",
+        "bower_components/AngularJS-Toaster/toaster.js",
         "bower_components/purl/purl.js",
         "semantic/dist/semantic.js"
       ],

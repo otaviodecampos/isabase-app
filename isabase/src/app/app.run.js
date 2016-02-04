@@ -5,10 +5,11 @@
         .run(Run);
 
     /* @ngInject */
-    function Run($rootScope, Navigation, $stateParams) {
+    function Run($rootScope, $stateParams, APP, Navigation) {
 
-        $rootScope.back = Navigation.back;
         $rootScope.stateParams = $stateParams;
+        $rootScope.app = APP;
+        $rootScope.back = Navigation.back;
 
     };
 

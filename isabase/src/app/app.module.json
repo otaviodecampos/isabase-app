@@ -4,6 +4,7 @@
     "ui.router",
     "pascalprecht.translate",
     "ngResource",
-    "isabase-mock"
+    "isabase-mock",
+    "toaster"
   ]
 }
