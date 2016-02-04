@@ -20,5 +20,8 @@
   "select-model-message": "Selecione um modelo para gerencia-lo.",
   "selected-model-message": "Gerencie o modelo selecionado.",
   "remove-success": "Removido com sucesso.",
-  "remove-error": "Não foi possível remover."
+  "remove-error": "Não foi possível remover.",
+  "save-error": "Não foi possível salvar.",
+  "save-success": "Salvo com sucesso.",
+  "empty-app-name": "Informe um nome para o aplicativo."
 }

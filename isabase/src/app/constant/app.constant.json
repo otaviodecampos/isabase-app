@@ -5,7 +5,7 @@
     "translation-dir": "/assets/i18n"
   },
   "notification": {
-    "timeout": 500000,
+    "timeout": 5000,
     "position-class": "toast-top-right",
     "close-button": true,
     "history": 5
