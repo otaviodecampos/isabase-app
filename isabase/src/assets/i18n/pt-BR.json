@@ -1,6 +1,9 @@
 {
   "myapps": "Meus Aplicativos",
   "edit-app": "Editar Aplicativo",
+  "edit-model": "Editar Modelo",
+  "new-app": "Novo Aplicativo",
+  "new-model": "Novo Modelo",
   "apps": "Aplicativos",
   "name": "Nome",
   "description": "Descrição",
@@ -12,5 +15,8 @@
   "edit": "Editar",
   "models": "Modelos",
   "or": "Ou",
-  "save-changes": "Salvar alterações"
+  "save-changes": "Salvar alterações",
+  "records": "Registros",
+  "select-model-message": "Selecione um modelo para gerencia-lo.",
+  "selected-model-message": "Gerencie o modelo selecionado."
 }

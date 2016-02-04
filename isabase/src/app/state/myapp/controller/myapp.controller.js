@@ -5,12 +5,12 @@
         .controller('MyAppCtrl', Controller);
 
     /* @ngInject */
-    function Controller(MyApp) {
+    function Controller(MyApp, $stateParams) {
         var that = this;
 
         this.selected = null;
         this.myapps = MyApp.query();
-        
+
         this.select = function(app) {
             if(this.selected == app) {
                 app = null;
@@ -26,6 +26,12 @@
             }, function(e) {
                 console.log(e);
             });
+        }
+
+        this.init = function(app) {
+            if(app.id == $stateParams.selected) {
+                that.selected = app;
+            }
         }
     }
 

@@ -7,8 +7,8 @@
     /* @ngInject */
     function Service($state) {
         
-        this.back = function() {
-            $state.go($state.$current.parent.self.name, $state.params);
+        this.back = function(params) {
+            $state.go('^', params);
         };
         
     };

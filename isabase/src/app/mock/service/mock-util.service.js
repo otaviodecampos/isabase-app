@@ -19,10 +19,8 @@
         }
 
         this.url = function (url) {
-            var match = url.match(/\/:\w+/);
-            if(match) {
-                url = url.substring(0, url.indexOf(match[0]));
-            }
+            url = url.replace(/\/:\w+/g, '/?');
+            url = url.substring(0, url.lastIndexOf('/?'));
             return url;
         }
 

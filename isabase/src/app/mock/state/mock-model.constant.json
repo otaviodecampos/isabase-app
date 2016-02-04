@@ -1,0 +1,20 @@
+[
+  {
+    "name": "modelo1",
+    "description": "description modelo1",
+    "records": "0",
+    "appId": 0
+  },
+  {
+    "name": "modelo2",
+    "description": "description modelo2",
+    "records": "0",
+    "appId": 0
+  },
+  {
+    "name": "modelo3",
+    "description": "description modelo3",
+    "records": "0",
+    "appId": 1
+  }
+]

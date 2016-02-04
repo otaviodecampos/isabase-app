@@ -7,15 +7,18 @@
     /* @ngInject */
     function Controller(MyApp, $stateParams, Navigation) {
         var that = this;
-        
-        this.myapp = MyApp.get({id: $stateParams.id});
-        
+        var id = $stateParams.id;
+
+        this.myapp = MyApp.get({id: id});
+
         this.save = function() {
-            this.myapp.$save(function(app) {
-                Navigation.back();
-            }, function(e) {
-                console.log(e);
-            });
+            if(this.myapp.name != undefined) {
+                this.myapp.$save(function(app) {
+                    Navigation.back({selected: id});
+                }, function(e) {
+                    console.log(e);
+                });
+            }
         }
         
         this.remove = function() {
@@ -25,6 +28,7 @@
                 console.log(e);
             });
         }
+
     }
 
 })();

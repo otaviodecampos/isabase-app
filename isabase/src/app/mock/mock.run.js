@@ -5,7 +5,7 @@
         .run(Run);
 
     /* @ngInject */
-    function Run($httpBackend, MyAppMock) {
+    function Run($httpBackend, MyAppMock, ModelMock) {
 
         $httpBackend.whenGET(/^\/assets/).passThrough();
 

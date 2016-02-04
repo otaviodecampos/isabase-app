@@ -12,6 +12,11 @@
                 url: '/myapp',
                 templateUrl: 'isabase-app/myapp.tpl.html',
                 controller: 'MyAppCtrl as myAppCtrl',
+                params: {
+                    selected: {
+                        squash: true
+                    }
+                }
             });
 
     }

@@ -1,3 +1,4 @@
 {
-  "myapp": "/myapp/:id"
+  "myapp": "/app/:id",
+  "model": "/app/:appId/model/:id"
 }
