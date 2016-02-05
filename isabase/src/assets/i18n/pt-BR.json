@@ -1,10 +1,11 @@
 {
-  "myapps": "Meus Aplicativos",
+  "myapp": "Meus Aplicativos",
   "edit-app": "Editar Aplicativo",
   "edit-model": "Editar Modelo",
   "new-app": "Novo Aplicativo",
   "new-model": "Novo Modelo",
   "apps": "Aplicativos",
+  "app": "Aplicativo",
   "name": "Nome",
   "description": "Descrição",
   "models": "Modelos",

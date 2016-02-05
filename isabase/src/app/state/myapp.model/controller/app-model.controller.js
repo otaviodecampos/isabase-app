@@ -5,10 +5,11 @@
         .controller('MyAppModelsCtrl', Controller);
 
     /* @ngInject */
-    function Controller(Model, $stateParams) {
+    function Controller(MyApp, Model, $stateParams) {
         var that = this;
 
         this.selected = null;
+        this.myapp = MyApp.get({id: $stateParams.appId});
         this.models = Model.query({appId: $stateParams.appId});
 
         this.select = function(model) {

@@ -6,6 +6,7 @@
     "ngResource",
     "isabase-mock",
     "toaster",
-    "ngAnimate"
+    "ngAnimate",
+    "ncy-angular-breadcrumb"
   ]
 }

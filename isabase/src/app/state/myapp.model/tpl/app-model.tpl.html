@@ -1,6 +1,7 @@
 <div class="ui two column doubling stackable grid">
     <div class="eleven wide column">
         <div class="ui raised segment">
+            <!--<a class="ui blue right ribbon label">{{ modelCtrl.myapp.name | capitalize }}</a>-->
             <h2 class="ui header">
                 {{ 'models' | translate }}
                 <div class="sub header">{{ modelCtrl.models.length }} {{ 'models' | translate }}</div>
@@ -61,7 +62,7 @@
 
                 <a ui-sref="app.myapp({ selected: stateParams.appId })" class="ui fluid action labeled blue button icon">
                     <i class="list icon"></i>
-                    {{ 'myapps' | translate }}
+                    {{ 'myapp' | translate }}
                 </a>
 
             </span>
