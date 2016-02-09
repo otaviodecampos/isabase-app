@@ -4,4 +4,5 @@
 
 @blue: #2ba8e5;
 @blueHover: #1B9ADA;
+@borderRadius: 30px;
 

@@ -3,7 +3,17 @@
     "name": "modelo1",
     "description": "description modelo1",
     "records": "0",
-    "appId": 0
+    "appId": 0,
+    "fields": [
+      {
+        "name": "campo1",
+        "type": "text"
+      },
+      {
+        "name": "campo2",
+        "type": "decimal"
+      }
+    ]
   },
   {
     "name": "modelo2",
@@ -17,4 +27,5 @@
     "records": "0",
     "appId": 1
   }
+
 ]

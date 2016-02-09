@@ -2,18 +2,19 @@
     <div class="eleven wide column">
         <div class="ui raised segment">
             <h2 class="ui header">
-                {{ editCtrl.myapp.id ? 'edit-app' : 'new-app' | translate }}
+                {{ ctrl.myapp.id != undefined ? 'edit-app' : 'new-app' | translate }}
+                <div class="sub header">{{ ::(ctrl.myapp.id != undefined ? ctrl.myapp.name : '' | capitalize) }}</div>
             </h2>
 
             <div class="ui container stackable grid form margin top">
                 <div class="row middle aligned">
-                    <div class="five wide column right aligned field label">
+                    <div class="five wide column right aligned field label required">
                         <label>{{ 'name' | translate }}</label>    
                     </div>
                     
                     <div class="eleven wide column">
                         <div class="ui fluid input">
-                            <input type="text" ng-model="editCtrl.myapp.name" placeholder="{{ 'name' | translate }}">
+                            <input type="text" ng-model="ctrl.myapp.name" placeholder="{{ 'name' | translate }}">
                         </div>
                     </div>
                 </div>
@@ -25,14 +26,14 @@
                     
                     <div class="eleven wide column">
                         <div class="ui fluid input">
-                            <input type="text" ng-model="editCtrl.myapp.description" placeholder="{{ 'description' | translate }}">
+                            <input type="text" ng-model="ctrl.myapp.description" placeholder="{{ 'description' | translate }}">
                         </div>
                     </div>
                 </div>
                 
                 <div class="row">
                     <div class="eleven wide right floated column">
-                        <a ng-click="editCtrl.save()" class="ui labeled button icon">
+                        <a ng-click="ctrl.save()" class="ui labeled button icon">
                             <i class="save icon"></i>
                             {{ 'save-changes' | translate }}
                         </a>
@@ -46,7 +47,7 @@
     <div class="five wide column">
         <div class="ui raised segment">
             <h3 class="ui header">
-                <i ng-if="editCtrl.myapp.id" ng-click="editCtrl.remove()" class="small right aligned trash icon link"></i>
+                <i ng-if="ctrl.myapp.id" ng-click="ctrl.remove()" class="small right aligned trash icon link"></i>
                 {{ 'manage' | translate }}
                 
                 <div class="sub header">
@@ -55,7 +56,7 @@
             </h3>
             
             <span class="ui container center aligned actions">
-                <a ng-click="back({selected: editCtrl.myapp.id})" class="ui fluid action labeled blue button icon">
+                <a ng-click="back({selected: ctrl.myapp.id})" class="ui fluid action labeled blue button icon">
                     <i class="list icon"></i>
                     {{ 'myapp' | translate }}
                 </a>

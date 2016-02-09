@@ -15,25 +15,31 @@
             var filtered = [];
             var appId = request.pathArgs[0];
             angular.forEach(data, function (item, i) {
-                if(appId == item.appId) {
+                if (appId == item.appId) {
                     filtered.push(item);
                 }
             });
             return filtered;
         });
 
-        mock.getStorage = function(ids, autoCreate) {
+        mock.getStorage = function (ids, autoCreate) {
             var storage = data;
-            if(ids.length > 1) {
+            if (ids.length > 1) {
                 var id = ids[1];
-                angular.forEach(storage, function(item, i) {
-                    if(item.id == id) {
-                        storage = item;
-                        return false;
-                    }
-                });
-                if(storage == data) {
-                    storage = {};
+                if (id == 'new') {
+                    storage = {
+                        appId: ids[0]
+                    };
+                } else {
+                    angular.forEach(storage, function (item, i) {
+                        if (item.id == id) {
+                            storage = item;
+                            return false;
+                        }
+                    });
+                }
+                if (storage == data) {
+                    storage = null;
                 }
             }
             return storage;

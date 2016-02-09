@@ -1,0 +1,51 @@
+<div class="ui modal">
+    <div class="header">
+        {{ ::fieldCtrl.isNew ? 'new-field' : 'edit-field' | translate }}
+    </div>
+    <div class="content">
+
+        <div ui-message ng-if="fieldCtrl.message" class="ui negative message">
+            <i ng-click="fieldCtrl.message = null" class="close icon"></i>
+            <div class="header">
+                {{ 'save-error' | translate }}
+            </div>
+            <p>{{ fieldCtrl.message | translate }}</p>
+        </div>
+
+        <div class="ui container stackable grid form">
+            <div class="row middle aligned">
+                <div class="four wide column right aligned field label required">
+                    <label>{{ 'name' | translate }}</label>
+                </div>
+
+                <div class="seven wide column">
+                    <div class="ui fluid input">
+                        <input type="text" ng-model="fieldCtrl.field.name" placeholder="{{ 'name' | translate }}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui top attached tabular menu margin top">
+                <a ng-click="fieldCtrl.field.type = type.name" ng-repeat="type in fieldCtrl.types" class="item"
+                   ng-class="{ active: fieldCtrl.field.type == type.name}"
+                   data-tab="{{ type.name }}">{{ type.name | translate }}</a>
+            </div>
+
+            <div ng-repeat="type in fieldCtrl.types" class="ui bottom attached tab segment basic"
+                 ng-class="{ active: fieldCtrl.field.type == type.name}" data-tab="{{ type.name }}">
+
+                <div class="ui container stackable grid form">
+                    <div ng-include="'isabase-app/' + field.type + '.tpl.html'" ng-switch="field.type"
+                         ng-repeat="field in type.fields" class="row middle aligned">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui cancel button">{{ 'cancel' | translate }}</div>
+        <div ng-click="fieldCtrl.save($event)" class="ui ok button">{{ 'save' | translate }}</div>
+    </div>
+</div>

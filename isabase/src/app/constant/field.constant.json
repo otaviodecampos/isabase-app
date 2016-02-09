@@ -1,0 +1,80 @@
+[
+  {
+    "name": "boolean",
+    "fields": [
+      {
+        "name": "required",
+        "type": "boolean"
+      }
+    ]
+  },
+  {
+    "name": "data",
+    "fields": [
+      {
+        "name": "required",
+        "type": "boolean"
+      }
+    ]
+  },
+  {
+    "name": "decimal",
+    "fields": [
+      {
+        "name": "required",
+        "type": "boolean"
+      },
+      {
+        "name": "scale",
+        "type": "integer"
+      },
+      {
+        "name": "precision",
+        "type": "integer"
+      }
+    ]
+  },
+  {
+    "name": "integer",
+    "fields": [
+      {
+        "name": "required",
+        "type": "boolean"
+      }
+    ]
+  },
+  {
+    "name": "model",
+    "fields": [
+      {
+        "name": "required",
+        "type": "boolean"
+      },
+      {
+        "name": "collection",
+        "type": "boolean"
+      },
+      {
+        "name": "target",
+        "type": "model"
+      }
+    ]
+  },
+  {
+    "name": "text",
+    "fields": [
+      {
+        "name": "required",
+        "type": "boolean"
+      },
+      {
+        "name": "multipleRows",
+        "type": "boolean"
+      },
+      {
+        "name": "defaultValue",
+        "type": "text"
+      }
+    ]
+  }
+]

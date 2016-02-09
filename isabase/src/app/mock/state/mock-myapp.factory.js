@@ -24,6 +24,27 @@
             return data;
         });
 
+        mock.getStorage = function (ids, autoCreate) {
+            var storage = data;
+            if (ids.length > 0) {
+                var id = ids[0];
+                if (id == 'new') {
+                    storage = {};
+                } else {
+                    angular.forEach(storage, function (item, i) {
+                        if (item.id == id) {
+                            storage = item;
+                            return false;
+                        }
+                    });
+                }
+                if (storage == data) {
+                    storage = null;
+                }
+            }
+            return storage;
+        };
+
         return mock;
     };
 

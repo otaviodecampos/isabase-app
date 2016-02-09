@@ -1,11 +1,11 @@
 <div class="ui two column doubling stackable grid">
     <div class="eleven wide column">
         <div class="ui raised segment">
-            <!--<a class="ui blue right ribbon label">{{ modelCtrl.myapp.name | capitalize }}</a>-->
             <h2 class="ui header">
                 {{ 'models' | translate }}
-                <div class="sub header">{{ modelCtrl.models.length }} {{ 'models' | translate }}</div>
+                <div class="sub header">{{ ctrl.models.length }} {{ 'models' | translate }}</div>
             </h2>
+            <a class="ui absolute floated right ribbon blue label">{{ ctrl.myapp.name | capitalize }}</a>
 
             <table class="ui very basic table striped selectable">
                 <thead>
@@ -16,8 +16,8 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr class="link" ng-init="modelCtrl.init(model)" ng-class="{selected: modelCtrl.selected == model}" ng-click="modelCtrl.select(model)"
-                    ng-repeat="model in modelCtrl.models">
+                <tr class="link" ng-init="ctrl.init(model)" ng-class="{selected: ctrl.selected == model}" ng-click="ctrl.select(model)"
+                    ng-repeat="model in ctrl.models">
                     <td>{{ model.name }}</td>
                     <td>{{ model.description }}</td>
                     <td>{{ model.records }}</td>
@@ -29,18 +29,18 @@
     <div class="five wide column">
         <div class="ui raised segment">
             <h3 class="ui header">
-                <i ng-if="modelCtrl.selected" ng-click="modelCtrl.removeSelected()" class="small right aligned trash icon link"></i>
+                <i ng-if="ctrl.selected" ng-click="ctrl.removeSelected()" class="small right aligned trash icon link"></i>
                 {{ 'manage' | translate }}
 
-                <div class="sub header" ng-switch="modelCtrl.selected == null">
+                <div class="sub header" ng-switch="ctrl.selected == null">
                     <p ng-switch-when="true">{{ 'select-model-message' | translate }}</p>
                     <p ng-switch-default>{{ 'selected-model-message' | translate }}</p>
                 </div>
             </h3>
             
             <span class="ui container center aligned actions">
-                <div ng-if="modelCtrl.selected">
-                    <a ui-sref="app.myapp.models.edit({ id: modelCtrl.selected.id })" class="ui fluid action labeled blue button icon">
+                <div ng-if="ctrl.selected">
+                    <a ui-sref="app.myapp.models.edit({ modelId: ctrl.selected.id })" class="ui fluid action labeled blue button icon">
                         <i class="edit icon"></i>
                         {{ 'edit' | translate }}
                     </a>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
 
-                <a ui-sref="app.myapp.models.edit({ id: 'new' })" class="ui fluid action labeled blue button icon">
+                <a ui-sref="app.myapp.models.edit({ modelId: 'new' })" class="ui fluid action labeled blue button icon">
                     <i class="add circle icon"></i>
                     {{ 'create-new' | translate }}
                 </a>

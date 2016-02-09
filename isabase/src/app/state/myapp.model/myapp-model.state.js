@@ -13,7 +13,7 @@
                 views: {
                     '@app': {
                         templateUrl: 'isabase-app/app-model.tpl.html',
-                        controller: 'MyAppModelsCtrl as modelCtrl'
+                        controller: 'MyAppModelsCtrl as ctrl'
                     }
                 }
             });

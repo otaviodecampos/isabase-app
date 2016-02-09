@@ -13,7 +13,7 @@
                 views: {
                     '@app': {
                         templateUrl: 'isabase-app/app-edit.tpl.html',
-                        controller: 'MyAppEditCtrl as editCtrl'
+                        controller: 'MyAppEditCtrl as ctrl'
                     }
                 }
             });

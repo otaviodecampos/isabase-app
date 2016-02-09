@@ -11,7 +11,7 @@
             .state('app.myapp', {
                 url: '/myapp',
                 templateUrl: 'isabase-app/myapp.tpl.html',
-                controller: 'MyAppCtrl as myAppCtrl',
+                controller: 'MyAppCtrl as ctrl',
                 params: {
                     selected: {
                         squash: true

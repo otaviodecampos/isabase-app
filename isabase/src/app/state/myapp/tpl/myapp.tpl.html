@@ -3,7 +3,7 @@
         <div class="ui raised segment">
             <h2 class="ui header">
                 {{ 'myapp' | translate }}
-                <div class="sub header">{{ myAppCtrl.myapps.length }} {{ 'apps' | translate }}</div>
+                <div class="sub header">{{ ctrl.myapps.length }} {{ 'apps' | translate }}</div>
             </h2>
 
             <table class="ui very basic table striped selectable">
@@ -15,8 +15,8 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr class="link" ng-init="myAppCtrl.init(app)" ng-class="{selected: myAppCtrl.selected == app}" ng-click="myAppCtrl.select(app)"
-                    ng-repeat="app in myAppCtrl.myapps">
+                <tr class="link" ng-init="ctrl.init(app)" ng-class="{selected: ctrl.selected == app}" ng-click="ctrl.select(app)"
+                    ng-repeat="app in ctrl.myapps">
                     <td>{{ app.name }}</td>
                     <td>{{ app.description }}</td>
                     <td>{{ app.models }}</td>
@@ -28,23 +28,23 @@
     <div class="five wide column">
         <div class="ui raised segment">
             <h3 class="ui header">
-                <i ng-if="myAppCtrl.selected" ng-click="myAppCtrl.removeSelected()" class="small right aligned trash icon link"></i>
+                <i ng-if="ctrl.selected" ng-click="ctrl.removeSelected()" class="small right aligned trash icon link"></i>
                 {{ 'manage' | translate }}
                 
-                <div class="sub header" ng-switch="myAppCtrl.selected == null">
+                <div class="sub header" ng-switch="ctrl.selected == null">
                     <p ng-switch-when="true">{{ 'select-app-message' | translate }}</p>
                     <p ng-switch-default>{{ 'selected-app-message' | translate }}</p>
                 </div>
             </h3>
             
             <span class="ui container center aligned actions">
-                <div ng-if="myAppCtrl.selected">
-                    <a ui-sref="app.myapp.edit({ id: myAppCtrl.selected.id })" class="ui fluid action labeled blue button icon">
+                <div ng-if="ctrl.selected">
+                    <a ui-sref="app.myapp.edit({ id: ctrl.selected.id })" class="ui fluid action labeled blue button icon">
                         <i class="edit icon"></i>
                         {{ 'edit' | translate }}
                     </a>
                     
-                    <a ui-sref="app.myapp.models({ appId: myAppCtrl.selected.id })" class="ui fluid action labeled blue button icon">
+                    <a ui-sref="app.myapp.models({ appId: ctrl.selected.id })" class="ui fluid action labeled blue button icon">
                         <i class="cubes icon"></i>
                         {{ 'models' | translate }}
                     </a>

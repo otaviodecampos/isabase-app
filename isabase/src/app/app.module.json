@@ -7,6 +7,7 @@
     "isabase-mock",
     "toaster",
     "ngAnimate",
-    "ncy-angular-breadcrumb"
+    "ncy-angular-breadcrumb",
+    "angular-semantic-ui"
   ]
 }

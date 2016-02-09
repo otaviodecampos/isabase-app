@@ -7,6 +7,7 @@
     /* @ngInject */
     function Controller($stateParams, MyApp, Notification) {
         var that = this;
+        var title = 'myapps';
 
         this.selected = null;
         this.myapps = MyApp.query();
@@ -22,10 +23,10 @@
             this.selected.$remove(function() {
                 var index = that.myapps.indexOf(that.selected);
                 that.myapps.splice(index, 1);
-                Notification.success('myapps', that.selected.name, 'remove-success');
+                Notification.success(title, that.selected.name, 'remove-success');
                 that.selected = null;
             }, function(e) {
-                Notification.error('myapps', that.selected.name, 'remove-error');
+                Notification.error(title, that.selected.name, 'remove-error');
             });
         }
 

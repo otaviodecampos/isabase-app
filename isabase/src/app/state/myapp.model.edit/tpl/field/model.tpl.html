@@ -1,0 +1,11 @@
+<div class="four wide column right aligned field label required">
+    <label>{{ 'target' | translate }}</label>
+</div>
+
+<div class="seven wide column">
+    <div class="ui fluid input">
+        <select ui-dropdown ng-model="fieldCtrl.field.target" class="ui dropdown">
+            <option ng-repeat="model in fieldCtrl.models" value="{{ model.name }}">{{ model.name | capitalize }}</option>
+        </select>
+    </div>
+</div>

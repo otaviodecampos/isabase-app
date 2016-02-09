@@ -13,3 +13,7 @@
 .ui.labeled.icon.buttons .button, .ui.labeled.icon.button {
     padding-right: 3em !important;
 }
+
+.ui.tiny.button, .ui.tiny.buttons .button, .ui.tiny.buttons .or {
+    padding: .63333333em 1.2em;
+}
