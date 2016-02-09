@@ -12,11 +12,11 @@
         $rootScope.back = Navigation.back;
 
         $rootScope.$on('$stateChangeStart', function (event, toState) {
-            var back = $state.includes(toState.name);
-            if (back) {
-                $rootScope.back = true;
+            var moveToParent = $state.includes(toState.name);
+            if (moveToParent) {
+                $rootScope.moveToParent = true;
             } else {
-                $rootScope.back = false;
+                $rootScope.moveToParent = false;
             }
         });
 
