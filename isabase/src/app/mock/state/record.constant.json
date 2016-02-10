@@ -1,0 +1,22 @@
+[
+  {
+    "campo1": "record 1",
+    "campo2": 10.30,
+    "modelId": "0",
+    "appId": "0"
+  },
+  {
+    "campo1": "record 2",
+    "campo2": 1.99,
+    "campo3": true,
+    "modelId": "0",
+    "appId": "0"
+  },
+  {
+    "campo1": "record 3",
+    "campo2": 0,
+    "campo3": false,
+    "modelId": "0",
+    "appId": "0"
+  }
+]

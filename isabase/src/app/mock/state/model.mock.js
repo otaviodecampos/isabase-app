@@ -2,34 +2,34 @@
     'use strict'
 
     angular.module('isabase-mock')
-        .factory('MyAppMock', Mock);
+        .factory('ModelMock', Mock);
 
     /* @ngInject */
-    function Mock(resourceMock, MockUtil, RESOURCE, MOCK_MYAPP, ModelMock) {
+    function Mock(resourceMock, MockUtil, RESOURCE, MODEL) {
 
-        var url = MockUtil.url(RESOURCE.myapp)
-            , data = MockUtil.array(MOCK_MYAPP)
+        var url = MockUtil.url(RESOURCE.model)
+            , data = MockUtil.array(MODEL)
             , mock = resourceMock(url, data);
 
         mock.indexRoute.addPostProc(function (data, request) {
-            angular.forEach(data, function (app, i) {
-                var count = 0;
-                angular.forEach(ModelMock.dataSource, function(model, i2) {
-                   if(model.appId == app.id) {
-                       count++;
-                   }
-                });
-                app.models = count;
+            var filtered = [];
+            var appId = request.pathArgs[0];
+            angular.forEach(data, function (item, i) {
+                if (appId == item.appId) {
+                    filtered.push(item);
+                }
             });
-            return data;
+            return filtered;
         });
 
         mock.getStorage = function (ids, autoCreate) {
             var storage = data;
-            if (ids.length > 0) {
-                var id = ids[0];
+            if (ids.length > 1) {
+                var id = ids[1];
                 if (id == 'new') {
-                    storage = {};
+                    storage = {
+                        appId: ids[0]
+                    };
                 } else {
                     angular.forEach(storage, function (item, i) {
                         if (item.id == id) {

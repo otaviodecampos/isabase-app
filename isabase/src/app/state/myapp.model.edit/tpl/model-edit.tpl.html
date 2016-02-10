@@ -97,11 +97,11 @@
     <div class="five wide column">
         <div class="ui raised segment">
             <h3 class="ui header">
-                <i ng-if="ctrl.model.id" ng-click="ctrl.remove()" class="small right aligned trash icon link"></i>
+                <i ng-if="ctrl.model.id != undefined" ng-click="ctrl.remove()" class="small right aligned trash icon link"></i>
                 {{ 'manage' | translate }}
 
                 <div class="sub header">
-                    <p>{{ 'selected-app-message' | translate }}</p>
+                    <p>{{ 'selected-model-message' | translate }}</p>
                 </div>
             </h3>
             

@@ -7,11 +7,18 @@
     "fields": [
       {
         "name": "campo1",
-        "type": "text"
+        "type": "text",
+        "required": true
       },
       {
         "name": "campo2",
-        "type": "decimal"
+        "type": "decimal",
+        "scale": 2
+      },
+      {
+        "name": "campo3",
+        "type": "boolean",
+        "required": true
       }
     ]
   },

@@ -50,5 +50,11 @@
   "precision": "Precisão",
   "collection": "Coleção",
   "target": "Modelo",
-  "empty-field-target": "Informe um modelo."
+  "empty-field-target": "Informe um modelo.",
+  "records": "Registros",
+  "record-edit": "Editar Registro",
+  "selected-record-message": "Gerencie o registro selecionado.",
+  "true": "Sim",
+  "false": "Não",
+  "record-new": "Novo Registro"
 }
