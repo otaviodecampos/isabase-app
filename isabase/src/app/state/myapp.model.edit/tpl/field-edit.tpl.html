@@ -35,7 +35,7 @@
                  ng-class="{ active: fieldCtrl.field.type == type.name}" data-tab="{{ type.name }}">
 
                 <div class="ui container stackable grid form">
-                    <div ng-init="model = fieldCtrl.field" ng-include="'isabase-app/' + field.type + '.tpl.html'" ng-switch="field.type"
+                    <div ng-init="model = fieldCtrl.field; small = true" ng-include="'isabase-app/' + field.type + '.tpl.html'" ng-switch="field.type"
                          ng-repeat="field in type.fields" class="row middle aligned">
                     </div>
                 </div>
