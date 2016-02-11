@@ -56,5 +56,6 @@
   "selected-record-message": "Gerencie o registro selecionado.",
   "true": "Sim",
   "false": "Não",
-  "record-new": "Novo Registro"
+  "record-new": "Novo Registro",
+  "empty-required-field-error": "Informe um valor para o campo <strong>{{ name }}</strong>"
 }

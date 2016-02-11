@@ -20,6 +20,7 @@
         "bower_components/AngularJS-Toaster/toaster.js",
         "bower_components/angular-animate/angular-animate.js",
         "bower_components/angular-breadcrumb/dist/angular-breadcrumb.js",
+        "bower_components/angular-sanitize/angular-sanitize.js",
         "bower_components/purl/purl.js",
         "semantic/dist/semantic.js"
       ],

@@ -1,12 +1,13 @@
 {
   "name": "isabase-app",
   "dependencies": [
+    "ngAnimate",
+    "ngSanitize",
     "ui.router",
     "pascalprecht.translate",
     "ngResource",
     "isabase-mock",
     "toaster",
-    "ngAnimate",
     "ncy-angular-breadcrumb",
     "angular-semantic-ui"
   ]

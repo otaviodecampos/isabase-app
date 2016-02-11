@@ -1,8 +1,4 @@
-/**
- * Created by otaviodecampos on 04/2015.
- */
-
-(function() {
+(function () {
     'use strict'
 
     angular.module('isabase-app')
@@ -12,17 +8,20 @@
     function Directive($interpolate) {
         return {
             restrict: 'A',
-            require: '^form',
+            require: '?^form',
             link: function (scope, el, attrs, formCtrl) {
-                var inputEl = el[0].querySelector("[name]");
-                var inputNgEl = angular.element(inputEl);
-                var inputName = $interpolate(inputNgEl.attr('name'))(scope);
-                var formEl = inputNgEl.closest("form");
+                if (formCtrl) {
+                    var inputEl = el[0].querySelector("[name]")
+                        , inputNgEl = angular.element(inputEl)
+                        , inputName = $interpolate(inputNgEl.attr('name'))(scope)
+                        , formEl = inputNgEl.closest("form");
 
-                formEl.bind('submit', function (e) {
-                    e.preventDefault();
-                    el.toggleClass('error', formCtrl[inputName].$invalid);
-                });
+                    formEl.bind('submit', function (e) {
+                        e.preventDefault();
+                        scope.form[inputName].$setDirty();
+                        scope.$apply();
+                    });
+                }
             }
         }
     }
