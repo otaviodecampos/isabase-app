@@ -8,16 +8,19 @@
 
             <a class="ui absolute floated right ribbon blue label">{{ ctrl.model.name | capitalize }}</a>
 
-            <div ui-message ng-show="form.$submitted && form.$error.required && form.$error.required.length" class="ui error message">
+            <div ui-message ng-show="form.$submitted && form.$error.required && form.$error.required.length"
+                 class="ui error message">
                 <ul class="list">
-                    <li ng-repeat="error in form.$error.required" ng-bind-html="'empty-required-field-error' | translate:{name: error.$name}"></li>
+                    <li ng-repeat="error in form.$error.required"
+                        ng-bind-html="'empty-required-field-error' | translate:{name: error.$name}"></li>
                 </ul>
             </div>
 
+            {{ ctrl.record }}
+
             <form ng-submit="form.$valid && ctrl.save($event);" name="form"
                   class="ui container stackable grid form margin top" novalidate>
-                <div ng-init="model = ctrl.record" ng-include="'isabase-app/' + field.type + '.tpl.html'"
-                     ng-switch="field.type"
+                <div ng-controller="FieldCtrl as fieldCtrl" ng-include="'isabase-app/' + field.type + '.tpl.html'"
                      ng-repeat="field in ctrl.model.fields" class="row middle aligned">
                 </div>
 

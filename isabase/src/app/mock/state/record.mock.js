@@ -25,9 +25,11 @@
         });
 
         mock.getStorage = function (ids, autoCreate) {
-            var storage = data;
+            var storage = data
+                , id;
+
             if (ids.length > 2) {
-                var id = ids[2];
+                id = ids[2];
                 if (id == 'new') {
                     storage = {
                         appId: ids[0],

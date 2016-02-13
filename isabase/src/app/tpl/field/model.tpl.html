@@ -2,10 +2,12 @@
     <label>{{ 'target' | translate | capitalize }}</label>
 </div>
 
+{{ field }}
+
 <div class="wide column" ng-class="{seven: small, ten: !small}">
     <div class="ui fluid input">
-        <select ui-dropdown ng-model="fieldCtrl.field.target" class="ui dropdown">
-            <option ng-repeat="model in fieldCtrl.models" value="{{ model.name }}">{{ model.name | capitalize }}</option>
+        <select ui-dropdown ng-model="model[field.name]" class="ui dropdown">
+            <option ng-repeat="value in data" value="{{ value[dataValue] }}">{{ value[dataLabel] | capitalize }}</option>
         </select>
     </div>
 </div>

@@ -1,17 +1,7 @@
 [
   {
-    "name": "app1",
-    "description": "description app1",
-    "models": "0"
-  },
-  {
-    "name": "app2",
-    "description": "description app2",
-    "models": "0"
-  },
-  {
-    "name": "app3",
-    "description": "description app3",
+    "name": "AppStore",
+    "description": "App Example",
     "models": "0"
   }
 ]

@@ -1,38 +1,36 @@
 [
   {
-    "name": "modelo1",
-    "description": "description modelo1",
+    "name": "tipoProduto",
+    "description": "Tipo de Produto",
     "records": "0",
     "appId": 0,
     "fields": [
       {
-        "name": "campo1",
+        "name": "name",
         "type": "text",
-        "required": true
-      },
-      {
-        "name": "campo2",
-        "type": "decimal",
-        "scale": 2
-      },
-      {
-        "name": "campo3",
-        "type": "boolean",
         "required": true
       }
     ]
   },
   {
-    "name": "modelo2",
-    "description": "description modelo2",
-    "records": "0",
-    "appId": 0
-  },
-  {
-    "name": "modelo3",
-    "description": "description modelo3",
-    "records": "0",
-    "appId": 1
+    "name": "produto",
+    "description": "Produto",
+    "records": 0,
+    "appId": 0,
+    "fields": [
+      {
+        "name": "name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "type",
+        "type": "model",
+        "collection": false,
+        "target": "tipoProduto",
+        "required": true
+      }
+    ]
   }
 
 ]

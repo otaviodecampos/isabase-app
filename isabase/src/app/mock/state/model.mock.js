@@ -5,27 +5,40 @@
         .factory('ModelMock', Mock);
 
     /* @ngInject */
-    function Mock(resourceMock, MockUtil, RESOURCE, MODEL) {
+    function Mock(resourceMock, MockUtil, RESOURCE, MODEL, RecordMock) {
 
         var url = MockUtil.url(RESOURCE.model)
             , data = MockUtil.array(MODEL)
             , mock = resourceMock(url, data);
 
         mock.indexRoute.addPostProc(function (data, request) {
-            var filtered = [];
-            var appId = request.pathArgs[0];
-            angular.forEach(data, function (item, i) {
-                if (appId == item.appId) {
-                    filtered.push(item);
+            var filtered = []
+                , appId = request.pathArgs[0];
+
+            angular.forEach(data, function (model, i) {
+                if (appId == model.appId) {
+                    filtered.push(model);
+
+                    var count = 0;
+                    angular.forEach(RecordMock.dataSource, function (record, i2) {
+                        if (record.modelId == model.id) {
+                            count++;
+                        }
+                    });
+
+                    model.records = count;
                 }
             });
+
             return filtered;
         });
 
         mock.getStorage = function (ids, autoCreate) {
-            var storage = data;
+            var storage = data
+                , id;
+
             if (ids.length > 1) {
-                var id = ids[1];
+                id = ids[1];
                 if (id == 'new') {
                     storage = {
                         appId: ids[0]

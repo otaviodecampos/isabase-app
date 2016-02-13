@@ -1,22 +1,21 @@
 [
   {
-    "campo1": "record 1",
-    "campo2": 10.30,
+    "name": "Brinquedo",
     "modelId": "0",
     "appId": "0"
   },
   {
-    "campo1": "record 2",
-    "campo2": 1.99,
-    "campo3": true,
+    "name": "Alimento",
     "modelId": "0",
     "appId": "0"
   },
   {
-    "campo1": "record 3",
-    "campo2": 0,
-    "campo3": false,
-    "modelId": "0",
+    "name": "Ursinho Galinha Pintadinha",
+    "type": {
+      "id": 0,
+      "name": "Brinquedo"
+    },
+    "modelId": "1",
     "appId": "0"
   }
 ]

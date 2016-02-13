@@ -25,9 +25,11 @@
         });
 
         mock.getStorage = function (ids, autoCreate) {
-            var storage = data;
+            var storage = data
+                , id;
+
             if (ids.length > 0) {
-                var id = ids[0];
+                id = ids[0];
                 if (id == 'new') {
                     storage = {};
                 } else {

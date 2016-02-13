@@ -17,7 +17,6 @@
 
                     inputNgEl.bind('input', function (e) {
                         scope.form[inputName].$setDirty();
-                        //scope.$apply();
                     });
 
                     inputNgEl.bind('blur', function () {

@@ -19,8 +19,10 @@
                 <tr class="link" ng-init="ctrl.init(record)" ng-class="{selected: ctrl.selected == record}"
                     ng-click="ctrl.select(record)"
                     ng-repeat="record in ctrl.records">
-                    <td ng-repeat="field in ctrl.model.fields">
-                        {{ field.type == 'boolean' && (record[field.name] | translate ) || record[field.name]}}
+                    <td ng-repeat="field in ctrl.model.fields" ng-switch="field.type">
+                        <span ng-switch-when="boolean">{{ record[field.name] | translate }}</span>
+                        <span ng-switch-when="model">{{ record[field.name].name | translate }}</span>
+                        <span ng-switch-default>{{ record[field.name] }}</span>
                     </td>
                 </tr>
                 </tbody>
