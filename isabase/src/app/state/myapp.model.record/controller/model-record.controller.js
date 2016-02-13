@@ -14,7 +14,10 @@
         this.selected = null;
         this.myapp = MyApp.get({id: appId});
         this.model = Model.get({appId: appId, id: modelId});
-        this.records = Record.query({appId: appId, modelId: modelId });
+
+        this.model.$promise.then(function(model) {
+            that.records = Record.query({appId: appId, modelName: model.name });
+        });
 
         this.select = function (record) {
             if (this.selected == record) {

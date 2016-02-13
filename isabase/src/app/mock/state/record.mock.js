@@ -14,10 +14,10 @@
         mock.indexRoute.addPostProc(function (data, request) {
             var filtered = []
                 , appId = request.pathArgs[0]
-                , modelId = request.pathArgs[1];
+                , modelName = request.pathArgs[1];
 
             angular.forEach(data, function (item, i) {
-                if (appId == item.appId && modelId == item.modelId) {
+                if (appId == item.appId && (modelName == item.modelName || modelName == item.modelId)) {
                     filtered.push(item);
                 }
             });
@@ -28,7 +28,7 @@
             var storage = data
                 , id;
 
-            if (ids.length > 2) {
+            if (ids.length == 3) {
                 id = ids[2];
                 if (id == 'new') {
                     storage = {

@@ -21,7 +21,7 @@
 
                     var count = 0;
                     angular.forEach(RecordMock.dataSource, function (record, i2) {
-                        if (record.modelId == model.id) {
+                        if (record.modelId == model.id || record.modelId == model.name || record.modelName == model.name) {
                             count++;
                         }
                     });

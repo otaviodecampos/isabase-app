@@ -1,21 +1,56 @@
 [
   {
-    "name": "Brinquedo",
-    "modelId": "0",
-    "appId": "0"
+    "nome": "Brinquedo",
+    "modelName": "tipoProduto",
+    "appId": 0
   },
   {
-    "name": "Alimento",
-    "modelId": "0",
-    "appId": "0"
+    "nome": "Eletronico",
+    "modelName": "tipoProduto",
+    "appId": 0
   },
   {
-    "name": "Ursinho Galinha Pintadinha",
-    "type": {
+    "nome": "Boneca Galinha Pintadinha Vinil - Lider",
+    "estoque": "100",
+    "tipo": {
       "id": 0,
-      "name": "Brinquedo"
+      "nome": "Brinquedo"
     },
-    "modelId": "1",
-    "appId": "0"
+    "modelName": "produto",
+    "appId": 0
+  },
+  {
+    "nome": "Boneca Frozen Princesa Elsa Brilhante - Mattel",
+    "estoque": "100",
+    "tipo": {
+      "id": 1,
+      "nome": "Brinquedo"
+    },
+    "modelName": "produto",
+    "appId": 0
+  },
+  {
+    "produto": {
+      "nome": "Boneca Galinha Pintadinha Vinil - Lider",
+      "tipo": {
+        "id": 0,
+        "nome": "Brinquedo"
+      }
+    },
+    "valor": 36.99,
+    "modelName": "oferta",
+    "appId": 0
+  },
+  {
+    "produto": {
+      "nome": "Boneca Frozen Princesa Elsa Brilhante - Mattel",
+      "tipo": {
+        "id": 1,
+        "nome": "Brinquedo"
+      }
+    },
+    "valor": 106.50,
+    "modelName": "oferta",
+    "appId": 0
   }
 ]

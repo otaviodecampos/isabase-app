@@ -1,13 +1,11 @@
 <div class="four wide column right aligned field label required" ng-class="{required: field.required}">
-    <label>{{ 'target' | translate | capitalize }}</label>
+    <label>{{ field.name | translate | capitalize }}</label>
 </div>
-
-{{ field }}
 
 <div class="wide column" ng-class="{seven: small, ten: !small}">
     <div class="ui fluid input">
-        <select ui-dropdown ng-model="model[field.name]" class="ui dropdown">
-            <option ng-repeat="value in data" value="{{ value[dataValue] }}">{{ value[dataLabel] | capitalize }}</option>
-        </select>
+        <select ui-dropdown ng-model="model[field.name]"
+                ng-options="{{ byProperty ? 'option[byProperty] as option[byProperty] for option in data' : 'option as option[dataLabel] for option in data track by option[dataLabel]' }}"
+                class="ui dropdown"/>
     </div>
 </div>

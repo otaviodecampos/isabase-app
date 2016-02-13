@@ -11,9 +11,10 @@
 
         $scope.model = $scope.ctrl.record;
 
-        /*if(field.type == 'model') {
-            Record.get({appId: appId, modelId: modelId, recordId: recordId});
-        }*/
+        if(field.type == 'model') {
+            $scope.data = Record.query({appId: appId, modelName: field.target});
+            $scope.dataLabel = 'nome';
+        }
     }
 
 })();

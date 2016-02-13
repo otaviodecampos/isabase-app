@@ -57,5 +57,10 @@
   "true": "Sim",
   "false": "Não",
   "record-new": "Novo Registro",
-  "empty-required-field-error": "Informe um valor para o campo <strong>{{ name }}</strong>"
+  "empty-required-field-error": "Informe um valor para o campo <strong>{{ name }}</strong>",
+  "view-records": "Visualizar Registros",
+  "view-models": "Visualizar Modelos",
+  "model-new": "Novo Modelo",
+  "app-new": "Novo Aplicativo",
+  "app-edit": "Editar Aplicativo"
 }

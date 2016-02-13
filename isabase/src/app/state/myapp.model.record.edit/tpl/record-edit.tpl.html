@@ -16,8 +16,6 @@
                 </ul>
             </div>
 
-            {{ ctrl.record }}
-
             <form ng-submit="form.$valid && ctrl.save($event);" name="form"
                   class="ui container stackable grid form margin top" novalidate>
                 <div ng-controller="FieldCtrl as fieldCtrl" ng-include="'isabase-app/' + field.type + '.tpl.html'"
@@ -53,7 +51,7 @@
             <span class="ui container center aligned actions">
                 <a ng-click="back({selected: ctrl.record.id})" class="ui fluid action labeled blue button icon">
                     <i class="list icon"></i>
-                    {{ 'records' | translate }}
+                    {{ 'view-records' | translate }}
                 </a>
             </span>
 

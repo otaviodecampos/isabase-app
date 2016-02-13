@@ -6,7 +6,7 @@
     "appId": 0,
     "fields": [
       {
-        "name": "name",
+        "name": "nome",
         "type": "text",
         "required": true
       }
@@ -19,15 +19,40 @@
     "appId": 0,
     "fields": [
       {
-        "name": "name",
+        "name": "nome",
         "type": "text",
         "required": true
       },
       {
-        "name": "type",
+        "name": "tipo",
         "type": "model",
         "collection": false,
         "target": "tipoProduto",
+        "required": true
+      },
+      {
+        "name": "estoque",
+        "type": "integer",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "oferta",
+    "description": "Ofertas de Produto",
+    "records": 0,
+    "appId": 0,
+    "fields": [
+      {
+        "name": "produto",
+        "type": "model",
+        "target": "produto",
+        "collection": false,
+        "required": true
+      },
+      {
+        "name": "valor",
+        "type": "decimal",
         "required": true
       }
     ]

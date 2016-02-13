@@ -41,12 +41,12 @@
                 <div ng-if="ctrl.selected">
                     <a ui-sref="app.myapp.edit({ id: ctrl.selected.id })" class="ui fluid action labeled blue button icon">
                         <i class="edit icon"></i>
-                        {{ 'edit' | translate }}
+                        {{ 'app-edit' | translate }}
                     </a>
                     
                     <a ui-sref="app.myapp.models({ appId: ctrl.selected.id })" class="ui fluid action labeled blue button icon">
                         <i class="cubes icon"></i>
-                        {{ 'models' | translate }}
+                        {{ 'view-models' | translate }}
                     </a>
                     
                     <div class="ui horizontal divider">
@@ -56,7 +56,7 @@
                 
                 <a ui-sref="app.myapp.edit({ id: 'new' })" class="ui fluid action labeled blue button icon">
                     <i class="add circle icon"></i>
-                    {{ 'create-new' | translate }}
+                    {{ 'app-new' | translate }}
                 </a>
             </span>
         </div>

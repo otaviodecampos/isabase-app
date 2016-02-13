@@ -10,18 +10,23 @@
             , title = 'record-edit'
             , appId = $stateParams.appId
             , modelId = $stateParams.modelId
-            , recordId = $stateParams.recordId;
+            , recordId = $stateParams.recordId
+            , modelName;
 
         this.selected = null;
         this.myapp = MyApp.get({id: $stateParams.appId});
         this.model = Model.get({appId: appId, id: modelId});
-        this.record = Record.get({appId: appId, modelId: modelId, recordId: recordId});
-        this.record.$promise.then(null, function() {
-            Navigation.back();
+
+        this.model.$promise.then(function(model) {
+            modelName = model.name;
+            that.record = Record.get({appId: appId, modelName: modelName, recordId: recordId});
+            that.record.$promise.then(null, function() {
+                Navigation.back();
+            });
         });
 
         this.save = function () {
-            this.record.$save(function(app) {
+            this.record.$save({modelName: modelId}, function(app) {
                 Navigation.back({selected: recordId});
                 Notification.success(title, that.record.id, 'save-success');
             }, function(e) {
