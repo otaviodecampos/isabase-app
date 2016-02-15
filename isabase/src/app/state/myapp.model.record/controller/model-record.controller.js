@@ -5,7 +5,7 @@
         .controller('RecordCtrl', Controller);
 
     /* @ngInject */
-    function Controller($stateParams, Notification, MyApp, Model, Record, Navigation) {
+    function Controller($stateParams, Notification, MyApp, Model, Record, Navigation, JSUtil) {
         var that = this
             , title = 'records'
             , appId = $stateParams.appId
@@ -18,6 +18,10 @@
         this.model.$promise.then(function(model) {
             that.records = Record.query({appId: appId, modelName: model.name });
         });
+
+        this.getModelFieldValue = function(record, field) {
+            return JSUtil.getObjectValue(record, field.displayField);
+        }
 
         this.select = function (record) {
             if (this.selected == record) {

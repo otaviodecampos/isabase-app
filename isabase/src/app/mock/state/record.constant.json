@@ -11,7 +11,7 @@
   },
   {
     "nome": "Boneca Galinha Pintadinha Vinil - Lider",
-    "estoque": "100",
+    "estoque": 100,
     "tipo": {
       "id": 0,
       "nome": "Brinquedo"
@@ -21,7 +21,7 @@
   },
   {
     "nome": "Boneca Frozen Princesa Elsa Brilhante - Mattel",
-    "estoque": "100",
+    "estoque": 100,
     "tipo": {
       "id": 1,
       "nome": "Brinquedo"
@@ -51,6 +51,39 @@
     },
     "valor": 106.50,
     "modelName": "oferta",
+    "appId": 0
+  },
+  {
+    "nome": "Otávio de Campos Miodutzki",
+    "endereco": {
+      "id": 0,
+      "rua": "Alagoas",
+      "numero": 235,
+      "complemento": "Apto 201",
+      "cidade": "Joinville",
+      "cep": "89203540"
+    },
+    "carrinho": {
+      "produto": {
+        "nome": "Boneca Frozen Princesa Elsa Brilhante - Mattel",
+        "tipo": {
+          "id": 1,
+          "nome": "Brinquedo"
+        }
+      },
+      "valor": 106.50
+    },
+    "modelName": "cliente",
+    "appId": 0
+  },
+  {
+    "id": 0,
+    "rua": "Alagoas",
+    "numero": 235,
+    "complemento": "Apto 201",
+    "cidade": "Joinville",
+    "cep": "89203540",
+    "modelName": "endereco",
     "appId": 0
   }
 ]

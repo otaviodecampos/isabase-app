@@ -18,7 +18,7 @@
 
             <form ng-submit="form.$valid && ctrl.save($event);" name="form"
                   class="ui container stackable grid form margin top" novalidate>
-                <div ng-controller="FieldCtrl as fieldCtrl" ng-include="'isabase-app/' + field.type + '.tpl.html'"
+                <div ng-controller="RecordFieldCtrl as fieldCtrl" ng-include="'isabase-app/' + field.type + '.tpl.html'"
                      ng-repeat="field in ctrl.model.fields" class="row middle aligned">
                 </div>
 

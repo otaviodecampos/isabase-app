@@ -28,6 +28,7 @@
         "type": "model",
         "collection": false,
         "target": "tipoProduto",
+        "displayField": "nome",
         "required": true
       },
       {
@@ -47,6 +48,7 @@
         "name": "produto",
         "type": "model",
         "target": "produto",
+        "displayField": "nome",
         "collection": false,
         "required": true
       },
@@ -56,6 +58,62 @@
         "required": true
       }
     ]
+  },
+  {
+    "name": "cliente",
+    "description": "Cliente",
+    "records": 0,
+    "appId": 0,
+    "fields": [
+      {
+        "name": "nome",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "endereco",
+        "type": "model",
+        "target": "endereco",
+        "required": true,
+        "displayField": "rua"
+      },
+      {
+        "name": "carrinho",
+        "type": "model",
+        "target": "oferta",
+        "displayField": "produto.nome"
+      }
+    ]
+  },
+  {
+    "name": "endereco",
+    "description": "Endereço",
+    "appId": 0,
+    "fields": [
+      {
+        "name": "rua",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "numero",
+        "type": "integer",
+        "required": true
+      },
+      {
+        "name": "complemento",
+        "type": "text"
+      },
+      {
+        "name": "cep",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "cidade",
+        "type": "text",
+        "required": true
+      }
+    ]
   }
-
 ]

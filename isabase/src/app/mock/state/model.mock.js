@@ -45,7 +45,7 @@
                     };
                 } else {
                     angular.forEach(storage, function (item, i) {
-                        if (item.id == id) {
+                        if (item.id == id || item.name == id) {
                             storage = item;
                             return false;
                         }

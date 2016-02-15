@@ -56,7 +56,16 @@
       },
       {
         "name": "target",
-        "type": "model"
+        "type": "select",
+        "property": "name",
+        "data": "fieldCtrl.models"
+      },
+      {
+        "name": "displayField",
+        "placeholderLabel": "field",
+        "type": "select",
+        "property": "name",
+        "data": "fieldCtrl.modelFields"
       }
     ]
   },

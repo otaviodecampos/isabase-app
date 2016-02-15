@@ -4,11 +4,32 @@
     angular.module('angular-semantic-ui')
         .directive('uiDropdown', Directive);
 
-    function Directive($parse, $timeout) {
+    function Directive($parse, $timeout, $compile) {
         return {
             restrict: 'A',
-            link: function (scope, element, attrs) {
-                var settings = $parse(attrs.uiAccordion)(scope);
+            require: '?ngModel',
+            link: function (scope, element, attrs, ngModel) {
+                var settings = $parse(attrs.uiAccordion)(scope)
+                    , defaultText
+                    , textElement;
+
+                if (ngModel) {
+                    scope.$watch(function () {
+                        return ngModel.$modelValue;
+                    }, function (newValue) {
+                        if (!newValue) {
+                            defaultText = element.find('option').first().text();
+                            textElement = element.parent().children('.text');
+                            textElement.addClass('default').text(defaultText);
+                        } else {
+                            $timeout(function () {
+                                $timeout(function () {
+                                    element.dropdown('set selected', typeof(newValue) + ':' + newValue);
+                                }, 100);
+                            }, 100);
+                        }
+                    });
+                }
 
                 $timeout(function () {
                     element.dropdown(settings);

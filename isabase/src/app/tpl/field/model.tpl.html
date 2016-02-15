@@ -3,9 +3,9 @@
 </div>
 
 <div class="wide column" ng-class="{seven: small, ten: !small}">
-    <div class="ui fluid input">
-        <select ui-dropdown ng-model="model[field.name]"
-                ng-options="{{ byProperty ? 'option[byProperty] as option[byProperty] for option in data' : 'option as option[dataLabel] for option in data track by option[dataLabel]' }}"
-                class="ui dropdown"/>
-    </div>
+    <select ui-dropdown ng-model="model[field.name]"
+            ng-options="{{ 'record as record.$displayField.value for record in data track by record[field.displayField]' }}"
+            class="ui fluid dropdown">
+        <option value="">- {{ 'choose-select' | translate | capitalize }} {{ field.name | translate | capitalize }}-</option>
+    </select>
 </div>
