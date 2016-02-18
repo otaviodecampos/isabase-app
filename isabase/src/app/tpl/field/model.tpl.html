@@ -2,7 +2,7 @@
     <label>{{ field.name | translate | capitalize }}</label>
 </div>
 
-<div class="wide column" ng-class="{seven: small, ten: !small}">
+<div class="wide column field" ng-class="{seven: small, ten: !small}">
     <select ui-dropdown ng-model="model[field.name]"
             ng-options="{{ 'record as record.$displayField.value for record in data track by record[field.displayField]' }}"
             class="ui fluid dropdown">

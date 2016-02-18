@@ -2,12 +2,10 @@
     <label>{{ field.name | translate | capitalize }}</label>
 </div>
 
-<div class="wide column" ng-class="{seven: small, ten: !small}">
-    <div class="ui fluid input">
-        <select ui-dropdown ng-model="model[field.name]"
-                ng-options="option[field.property] || option as option[field.property] || option for option in {{ field.data }}"
-                class="ui dropdown">
-            <option value="">- {{ 'choose-select' | translate | capitalize }} {{ (field.placeholderLabel || field.name) | translate | capitalize }} -</option>
-        </select>
-    </div>
+<div class="wide column field" ng-class="{seven: small, ten: !small}">
+    <select ui-dropdown ng-model="model[field.name]"
+            ng-options="option[field.property] || option as option[field.property] || option for option in {{ field.data }}"
+            class="ui fluid dropdown">
+        <option value="">- {{ 'choose-select' | translate | capitalize }} {{ (field.placeholderLabel || field.name) | translate | capitalize }} -</option>
+    </select>
 </div>

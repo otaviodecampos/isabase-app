@@ -1,5 +1,5 @@
 {
-  "myapp": "Meus Aplicativos",
+  "myapp": "Lista de Aplicativos",
   "edit-app": "Editar Aplicativo",
   "edit-model": "Editar Modelo",
   "new-app": "Novo Aplicativo",
@@ -58,8 +58,8 @@
   "false": "Não",
   "record-new": "Novo Registro",
   "empty-required-field-error": "Informe um valor para o campo <strong>{{ name }}</strong>",
-  "view-records": "Visualizar Registros",
-  "view-models": "Visualizar Modelos",
+  "view-records": "Lista de Registros",
+  "view-models": "Lista de Modelos",
   "model-new": "Novo Modelo",
   "app-new": "Novo Aplicativo",
   "app-edit": "Editar Aplicativo",

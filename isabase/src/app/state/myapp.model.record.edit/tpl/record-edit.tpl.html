@@ -53,6 +53,12 @@
                     <i class="list icon"></i>
                     {{ 'view-records' | translate }}
                 </a>
+
+                <a ui-sref="app.myapp.models.edit({ modelId: stateParams.modelId })" class="ui fluid action labeled blue button icon">
+                    <i class="edit icon"></i>
+                    {{ 'edit-model' | translate }}
+                </a>
+
             </span>
 
         </div>
