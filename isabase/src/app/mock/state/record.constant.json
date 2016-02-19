@@ -30,13 +30,45 @@
     "appId": 0
   },
   {
+    "nome": "Smart TV LED 32' Samsung UN32J4300AGXZD",
+    "estoque": 50,
+    "tipo": {
+      "id": 1,
+      "nome": "Eletronico"
+    },
+    "modelName": "produto",
+    "appId": 0
+  },
+  {
+    "nome": "Console Xbox One 500GB",
+    "estoque": 50,
+    "tipo": {
+      "id": 1,
+      "nome": "Eletronico"
+    },
+    "modelName": "produto",
+    "appId": 0
+  },
+  {
+    "nome": "iPad Air 2 64GB Wi-Fi Tela Retina 9.7",
+    "estoque": 20,
+    "tipo": {
+      "id": 1,
+      "nome": "Eletronico"
+    },
+    "modelName": "produto",
+    "appId": 0
+  },
+  {
     "produto": {
       "nome": "Boneca Galinha Pintadinha Vinil - Lider",
       "tipo": {
         "id": 0,
         "nome": "Brinquedo"
-      }
+      },
+      "id": 0
     },
+    "id": 0,
     "valor": 36.99,
     "modelName": "oferta",
     "appId": 0
@@ -47,9 +79,59 @@
       "tipo": {
         "id": 1,
         "nome": "Brinquedo"
-      }
+      },
+      "id": 1
     },
     "valor": 106.50,
+    "id": 1,
+    "modelName": "oferta",
+    "appId": 0
+  },
+  {
+    "produto": {
+      "nome": "Smart TV LED 32' Samsung UN32J4300AGXZD",
+      "estoque": 50,
+      "tipo": {
+        "id": 1,
+        "nome": "Eletronico"
+      },
+      "modelName": "produto",
+      "appId": 0
+    },
+    "valor": 3000.99,
+    "id": 1,
+    "modelName": "oferta",
+    "appId": 0
+  },
+  {
+    "produto": {
+      "nome": "Console Xbox One 500GB",
+      "estoque": 50,
+      "tipo": {
+        "id": 1,
+        "nome": "Eletronico"
+      },
+      "modelName": "produto",
+      "appId": 0
+    },
+    "valor": 1699.99,
+    "id": 1,
+    "modelName": "oferta",
+    "appId": 0
+  },
+  {
+    "produto": {
+      "nome": "iPad Air 2 64GB Wi-Fi Tela Retina 9.7",
+      "estoque": 20,
+      "tipo": {
+        "id": 1,
+        "nome": "Eletronico"
+      },
+      "modelName": "produto",
+      "appId": 0
+    },
+    "valor": 1199.90,
+    "id": 1,
     "modelName": "oferta",
     "appId": 0
   },
@@ -63,16 +145,19 @@
       "cidade": "Joinville",
       "cep": "89203540"
     },
-    "carrinho": {
-      "produto": {
-        "nome": "Boneca Frozen Princesa Elsa Brilhante - Mattel",
-        "tipo": {
-          "id": 1,
-          "nome": "Brinquedo"
-        }
-      },
-      "valor": 106.50
-    },
+    "carrinho": [{
+      "produto":{
+        "nome":"Boneca Frozen Princesa Elsa Brilhante - Mattel",
+        "tipo":{
+          "id":1,
+          "nome":"Brinquedo"
+        },
+        "id":1},
+      "valor":106.5,
+      "id":8,
+      "modelName":"oferta",
+      "appId":0
+      }],
     "modelName": "cliente",
     "appId": 0
   },

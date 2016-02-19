@@ -5,21 +5,23 @@
         .directive('ngValidateSubmit', Directive);
 
     /* @ngInject */
-    function Directive($interpolate) {
+    function Directive($timeout, $interpolate) {
         return {
             restrict: 'A',
             require: '?^form',
             link: function (scope, el, attrs, formCtrl) {
                 if (formCtrl) {
-                    var inputEl = el[0].querySelector("[name]")
-                        , inputNgEl = angular.element(inputEl)
-                        , inputName = $interpolate(inputNgEl.attr('name'))(scope)
-                        , formEl = inputNgEl.closest("form");
+                    $timeout(function() {
+                        var inputEl = el[0].querySelector("[name]")
+                            , inputNgEl = angular.element(inputEl)
+                            , inputName = $interpolate(inputNgEl.attr('name'))(scope)
+                            , formEl = inputNgEl.closest("form");
 
-                    formEl.bind('submit', function (e) {
-                        e.preventDefault();
-                        scope.form[inputName].$setDirty();
-                        scope.$apply();
+                        formEl.bind('submit', function (e) {
+                            e.preventDefault();
+                            scope.form[inputName].$setDirty();
+                            scope.$apply();
+                        });
                     });
                 }
             }

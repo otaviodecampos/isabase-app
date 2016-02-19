@@ -19,8 +19,13 @@
             that.records = Record.query({appId: appId, modelName: model.name });
         });
 
-        this.getModelFieldValue = function(record, field) {
-            return JSUtil.getObjectValue(record, field.displayField);
+        this.getModelFieldValue = function(object, field) {
+            if(angular.isArray(object)) {
+                return object.map(function(value, i) {
+                    return JSUtil.getObjectValue(value, field.displayField);
+                }).join(',  ');
+            }
+            return JSUtil.getObjectValue(object, field.displayField);
         }
 
         this.select = function (record) {

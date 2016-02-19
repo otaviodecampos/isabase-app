@@ -2,10 +2,19 @@
     <label>{{ field.name | translate | capitalize }}</label>
 </div>
 
-<div class="wide column field" ng-class="{seven: small, ten: !small}">
-    <select ui-dropdown ng-model="model[field.name]"
+<div class="wide column field"
+     ng-class="{seven: small, ten: !small, error: form[field.name].$dirty && form[field.name].$invalid}"
+     ng-validate-blur ng-validate-submit ng-switch="field.collection == true">
+
+    <select name="{{ field.name }}" ng-switch-when="false" ui-dropdown ng-model="model[field.name]"
             ng-options="{{ 'record as record.$displayField.value for record in data track by record[field.displayField]' }}"
-            class="ui fluid dropdown">
+            class="ui fluid dropdown" required="{{ field.required }}">
         <option value="">- {{ 'choose-select' | translate | capitalize }} {{ field.name | translate | capitalize }}-</option>
     </select>
+    <select name="{{ field.name }}" ng-switch-when="true" multiple="" ui-dropdown ng-model="model[field.name]"
+            ng-options="{{ 'record as record.$displayField.value for record in data track by record.id' }}"
+            class="ui fluid dropdown" required="{{ field.required }}">
+        <option value="">- {{ 'choose-select' | translate | capitalize }} {{ field.name | translate | capitalize }}-</option>
+    </select>
+
 </div>

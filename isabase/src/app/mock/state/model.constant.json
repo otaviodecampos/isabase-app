@@ -81,7 +81,8 @@
         "name": "carrinho",
         "type": "model",
         "target": "oferta",
-        "displayField": "produto.nome"
+        "displayField": "produto.nome",
+        "collection": true
       }
     ]
   },
