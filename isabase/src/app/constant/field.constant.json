@@ -65,7 +65,8 @@
         "placeholderLabel": "field",
         "type": "select",
         "property": "name",
-        "data": "fieldCtrl.modelFields"
+        "data": "fieldCtrl.modelFields",
+        "collection": true
       }
     ]
   },

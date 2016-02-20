@@ -28,7 +28,7 @@
         "type": "model",
         "collection": false,
         "target": "tipoProduto",
-        "displayField": "nome",
+        "displayField": ["nome"],
         "required": true
       },
       {
@@ -48,7 +48,7 @@
         "name": "produto",
         "type": "model",
         "target": "produto",
-        "displayField": "nome",
+        "displayField": ["nome"],
         "collection": false,
         "required": true
       },
@@ -75,13 +75,13 @@
         "type": "model",
         "target": "endereco",
         "required": true,
-        "displayField": "rua"
+        "displayField": ["rua"]
       },
       {
         "name": "carrinho",
         "type": "model",
         "target": "oferta",
-        "displayField": "produto.nome",
+        "displayField": ["produto.nome"],
         "collection": true
       }
     ]
