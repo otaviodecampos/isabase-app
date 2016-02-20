@@ -1,7 +1,12 @@
 [
   {
+    "appId": 0,
     "name": "AppStore",
-    "description": "App Example",
-    "models": "0"
+    "description": "App Example"
+  },
+  {
+    "appId": 1,
+    "name": "AppERP",
+    "description": "ERP Example"
   }
 ]

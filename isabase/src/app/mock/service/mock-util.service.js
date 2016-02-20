@@ -11,8 +11,9 @@
             var mock = {};
 
             angular.forEach(array, function(item, i) {
-                mock[i] = item;
-                item.id = i;
+                var id = item.id != undefined ? item.id : i;
+                mock[id] = item;
+                item.id = id;
             });
 
             return mock;

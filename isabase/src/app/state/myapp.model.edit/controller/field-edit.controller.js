@@ -24,15 +24,20 @@
             }
         });
 
+        $scope.$watch('fieldCtrl.field.type', function(){
+            initModelFields();
+        });
+
         $scope.$watchCollection('fieldCtrl.models', function () {
             initModelFields();
         });
 
         function initModelFields() {
-
-            getModelFields(that.field.target, '').then(function(fields) {
-                that.modelFields = _.flattenDeep(fields);
-            });
+            if(that.field.type == 'model' && that.field.target) {
+                getModelFields(that.field.target, '').then(function(fields) {
+                    that.modelFields = _.flattenDeep(fields);
+                });
+            }
 
             function getModelFields(modelName, prefix) {
                 var deferred = $q.defer();

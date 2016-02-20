@@ -28,7 +28,9 @@
         "type": "model",
         "collection": false,
         "target": "tipoProduto",
-        "displayField": ["nome"],
+        "displayField": [
+          "nome"
+        ],
         "required": true
       },
       {
@@ -48,7 +50,9 @@
         "name": "produto",
         "type": "model",
         "target": "produto",
-        "displayField": ["nome"],
+        "displayField": [
+          "nome"
+        ],
         "collection": false,
         "required": true
       },
@@ -75,13 +79,22 @@
         "type": "model",
         "target": "endereco",
         "required": true,
-        "displayField": ["rua", "numero", "complemento", "cep", "cidade"]
+        "displayField": [
+          "rua",
+          "numero",
+          "complemento",
+          "cep",
+          "cidade"
+        ]
       },
       {
         "name": "carrinho",
         "type": "model",
         "target": "oferta",
-        "displayField": ["produto.nome", "valor"],
+        "displayField": [
+          "produto.nome",
+          "valor"
+        ],
         "collection": true
       }
     ]
