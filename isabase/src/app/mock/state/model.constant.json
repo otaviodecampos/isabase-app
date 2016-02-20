@@ -75,13 +75,13 @@
         "type": "model",
         "target": "endereco",
         "required": true,
-        "displayField": ["rua"]
+        "displayField": ["rua", "numero", "complemento", "cep", "cidade"]
       },
       {
         "name": "carrinho",
         "type": "model",
         "target": "oferta",
-        "displayField": ["produto.nome"],
+        "displayField": ["produto.nome", "valor"],
         "collection": true
       }
     ]

@@ -24,7 +24,13 @@
                         } else {
                             $timeout(function () {
                                 $timeout(function () {
-                                    element.dropdown('set selected', typeof(newValue) + ':' + newValue);
+                                    if(angular.isArray(newValue)) {
+                                        angular.forEach(newValue, function(value) {
+                                            element.dropdown('set selected', typeof(value) + ':' + value);
+                                        });
+                                    } else {
+                                        element.dropdown('set selected', typeof(newValue) + ':' + newValue);
+                                    }
                                 }, 100);
                             }, 100);
                         }
