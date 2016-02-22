@@ -9,7 +9,7 @@
             restrict: 'A',
             require: '?ngModel',
             link: function (scope, element, attrs, ngModel) {
-                var settings = $parse(attrs.uiAccordion)(scope)
+                var settings = $parse(attrs.uiDropdown)(scope)
                     , defaultText
                     , textElement;
 

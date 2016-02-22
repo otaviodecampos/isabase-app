@@ -14,16 +14,20 @@
                     $timeout(function() {
                         var inputEl = el[0].querySelector("[name]")
                             , inputNgEl = angular.element(inputEl)
-                            , inputName = $interpolate(inputNgEl.attr('name'))(scope);
+                            , name = inputNgEl.attr('name');
 
-                        inputNgEl.bind('input', function (e) {
-                            scope.form[inputName].$setDirty();
-                        });
+                        if(name) {
+                            var inputName = $interpolate(name)(scope);
 
-                        inputNgEl.bind('blur', function () {
-                            scope.form[inputName].$setDirty();
-                            scope.$apply();
-                        });
+                            inputNgEl.bind('input', function (e) {
+                                scope.form[inputName].$setDirty();
+                            });
+
+                            inputNgEl.bind('blur', function () {
+                                scope.form[inputName].$setDirty();
+                                scope.$apply();
+                            });
+                        }
                     });
                 }
             }

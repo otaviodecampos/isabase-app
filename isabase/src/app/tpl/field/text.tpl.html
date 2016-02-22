@@ -2,8 +2,11 @@
     <label>{{ field.name | translate | capitalize }}</label>
 </div>
 
-<div class="wide column field" ng-class="{seven: small, ten: !small, error: form[field.name].$dirty && form[field.name].$invalid}" ng-validate-blur ng-validate-submit>
-    <div class="ui fluid input">
+<div ng-switch="field.multipleRows == true" class="wide column field" ng-class="{seven: small, ten: !small, error: form[field.name].$dirty && form[field.name].$invalid}" ng-validate-blur ng-validate-submit>
+    <div ng-switch-when="false" class="ui fluid input">
         <input type="text" name="{{ field.name }}" ng-model="model[field.name]" placeholder="{{ field.name | translate | capitalize }}" ng-required="field.required">
+    </div>
+    <div ng-switch-when="true" class="ui fluid input">
+        <textarea rows="5" name="{{ field.name }}" ng-model="model[field.name]" placeholder="{{ field.name | translate | capitalize }}" ng-required="field.required"></textarea>
     </div>
 </div>

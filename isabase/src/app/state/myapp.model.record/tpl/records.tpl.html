@@ -22,6 +22,7 @@
                     <td ng-repeat="field in ctrl.model.fields" ng-switch="field.type">
                         <span ng-switch-when="boolean">{{ record[field.name] | translate }}</span>
                         <span ng-switch-when="model">{{ field.displayField && ctrl.getModelFieldValue(record[field.name], field) || record[field.name] | translate }}</span>
+                        <span ng-switch-when="date">{{ record[field.name] | uiCalendar }}</span>
                         <span ng-switch-default>{{ record[field.name] }}</span>
                     </td>
                 </tr>

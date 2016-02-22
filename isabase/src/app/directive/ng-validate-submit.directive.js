@@ -14,14 +14,18 @@
                     $timeout(function() {
                         var inputEl = el[0].querySelector("[name]")
                             , inputNgEl = angular.element(inputEl)
-                            , inputName = $interpolate(inputNgEl.attr('name'))(scope)
-                            , formEl = inputNgEl.closest("form");
+                            , name = inputNgEl.attr('name');
 
-                        formEl.bind('submit', function (e) {
-                            e.preventDefault();
-                            scope.form[inputName].$setDirty();
-                            scope.$apply();
-                        });
+                        if(name) {
+                            var inputName = $interpolate(name)(scope)
+                                , formEl = inputNgEl.closest("form");
+
+                            formEl.bind('submit', function (e) {
+                                e.preventDefault();
+                                scope.form[inputName].$setDirty();
+                                scope.$apply();
+                            });
+                        }
                     });
                 }
             }

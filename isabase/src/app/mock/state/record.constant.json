@@ -150,6 +150,7 @@
     "modelName":"cliente",
     "appId":0,
     "nome": "Otávio de Campos Miodutzki",
+    "cadastro": "2016-02-21",
     "endereco": {
       "id": 40,
       "rua": "Alagoas",

@@ -3,10 +3,5 @@
     "appId": 0,
     "name": "AppStore",
     "description": "App Example"
-  },
-  {
-    "appId": 1,
-    "name": "AppERP",
-    "description": "ERP Example"
   }
 ]

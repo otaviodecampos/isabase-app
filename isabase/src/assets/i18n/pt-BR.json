@@ -64,5 +64,6 @@
   "app-new": "Novo Aplicativo",
   "app-edit": "Editar Aplicativo",
   "choose-select": "Escolha um",
-  "displayField": "Campo de Exibição"
+  "displayField": "Campo de Exibição",
+  "date": "Data"
 }

@@ -75,6 +75,11 @@
         "required": true
       },
       {
+        "name": "cadastro",
+        "type": "date",
+        "required": true
+      },
+      {
         "name": "endereco",
         "type": "model",
         "target": "endereco",
@@ -116,7 +121,8 @@
       },
       {
         "name": "complemento",
-        "type": "text"
+        "type": "text",
+        "multipleRows": true
       },
       {
         "name": "cep",

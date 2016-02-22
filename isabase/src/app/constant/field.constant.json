@@ -9,7 +9,7 @@
     ]
   },
   {
-    "name": "data",
+    "name": "date",
     "fields": [
       {
         "name": "required",
