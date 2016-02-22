@@ -1,0 +1,10 @@
+[
+  {
+    "label": "myaccount",
+    "url": "/#/myaccount"
+  },
+  {
+    "label": "logout",
+    "url": "/#/logout"
+  }
+]
