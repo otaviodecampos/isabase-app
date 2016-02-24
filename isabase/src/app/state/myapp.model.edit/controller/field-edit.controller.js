@@ -33,6 +33,8 @@
         });
 
         function initModelFields() {
+            var modelLevel = {};
+            
             if(that.field.type == 'model' && that.field.target) {
                 getModelFields(that.field.target, '').then(function(fields) {
                     that.modelFields = _.flattenDeep(fields);
@@ -41,6 +43,9 @@
 
             function getModelFields(modelName, prefix) {
                 var deferred = $q.defer();
+
+                console.log(modelName);
+                console.log(prefix);
 
                 Model.get({appId: $stateParams.appId, id: modelName}).$promise.then(function (model) {
                     var promises = [];
@@ -59,10 +64,22 @@
                 var deferred = $q.defer();
 
                 if (field.type == "model") {
+                    var key = field.name + field.target;
+                    if(modelLevel[key] == undefined) {
+                        modelLevel[key] = 0;
+                    }
+                    modelLevel[key] = modelLevel[key] + 1;
+                    
                     prefix = prefix + field.name + '.';
-                    getModelFields(field.target, prefix).then(function(fields) {
-                        deferred.resolve(fields);
-                    });
+                    
+                    if(modelLevel[key] < 2) {
+                        getModelFields(field.target, prefix).then(function(fields) {
+                            modelLevel[key] = modelLevel[key] - 1;;
+                            deferred.resolve(fields);
+                        });
+                    } else {
+                        deferred.resolve([]);
+                    }
                 } else {
                     deferred.resolve([prefix + field.name]);
                 }
