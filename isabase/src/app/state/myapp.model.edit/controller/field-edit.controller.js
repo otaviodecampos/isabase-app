@@ -44,9 +44,6 @@
             function getModelFields(modelName, prefix) {
                 var deferred = $q.defer();
 
-                console.log(modelName);
-                console.log(prefix);
-
                 Model.get({appId: $stateParams.appId, id: modelName}).$promise.then(function (model) {
                     var promises = [];
                     angular.forEach(model.fields, function (field) {
