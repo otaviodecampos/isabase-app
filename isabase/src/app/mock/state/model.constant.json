@@ -1,9 +1,9 @@
 [
   {
+    "appId": 0,
     "name": "tipoProduto",
     "description": "Tipo de Produto",
     "records": "0",
-    "appId": 0,
     "fields": [
       {
         "name": "nome",
@@ -13,10 +13,10 @@
     ]
   },
   {
+    "appId": 0,
     "name": "produto",
     "description": "Produto",
     "records": 0,
-    "appId": 0,
     "fields": [
       {
         "name": "nome",
@@ -41,10 +41,10 @@
     ]
   },
   {
+    "appId": 0,
     "name": "oferta",
     "description": "Ofertas de Produto",
     "records": 0,
-    "appId": 0,
     "fields": [
       {
         "name": "produto",
@@ -64,10 +64,10 @@
     ]
   },
   {
+    "appId": 0,
     "name": "cliente",
     "description": "Cliente",
     "records": 0,
-    "appId": 0,
     "fields": [
       {
         "name": "nome",
@@ -105,9 +105,9 @@
     ]
   },
   {
+    "appId": 0,
     "name": "endereco",
     "description": "Endereço",
-    "appId": 0,
     "fields": [
       {
         "name": "rua",

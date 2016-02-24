@@ -21,7 +21,7 @@
 
                     var count = 0;
                     angular.forEach(RecordMock.dataSource, function (record, i2) {
-                        if (record.modelId == model.id || record.modelId == model.name || record.modelName == model.name) {
+                        if (model.appId == record.appId && (record.modelId == model.id || record.modelId == model.name || record.modelName == model.name)) {
                             count++;
                         }
                     });
@@ -35,17 +35,19 @@
 
         mock.getStorage = function (ids, autoCreate) {
             var storage = data
-                , id;
+                , id
+                , appId;
 
             if (ids.length > 1) {
                 id = ids[1];
+                appId = ids[0];
                 if (id == 'new') {
                     storage = {
                         appId: ids[0]
                     };
                 } else {
                     angular.forEach(storage, function (item, i) {
-                        if (item.id == id || item.name == id) {
+                        if (appId == item.appId && (item.id == id || item.name == id)) {
                             storage = item;
                             return false;
                         }
