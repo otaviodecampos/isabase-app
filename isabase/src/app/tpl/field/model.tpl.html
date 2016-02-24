@@ -1,4 +1,4 @@
-<div class="four wide column right aligned field label" ng-class="{required: field.required && data.length}">
+<div class="four wide column right aligned field label" ng-class="{required: field.required && data.length, error: form[field.name].$dirty && form[field.name].$invalid}">
     <label>{{ field.name | translate | capitalize }}</label>
 </div>
 
