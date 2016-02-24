@@ -16,9 +16,9 @@
         this.models = Model.query({appId: $stateParams.appId});
 
         $scope.$watch('fieldCtrl.field.target', function (newValue, oldValue) {
+            that.modelFields = [];
             if (!newValue) {
                 that.field.displayField = undefined;
-                that.modelFields = [];
             } else {
                 initModelFields();
             }
