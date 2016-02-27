@@ -5,18 +5,18 @@
         .controller('RecordCtrl', Controller);
 
     /* @ngInject */
-    function Controller($stateParams, Notification, MyApp, Model, Record, Navigation, JSUtil) {
+    function Controller($stateParams, $previousState, Notification, MyApp, Model, Record, JSUtil) {
         var that = this
             , title = 'records'
             , appName = $stateParams.appName
             , modelName = $stateParams.modelName;
 
         this.selected = null;
-        this.myapp = MyApp.get({appName: appName});
-        this.model = Model.get({appName: appName, modelName: modelName});
+        this.myapp = MyApp.get($stateParams);
+        this.model = Model.get($stateParams);
 
         this.model.$promise.then(function(model) {
-            that.records = Record.query({appName: appName, modelName: modelName });
+            that.records = Record.query($stateParams);
         });
 
         this.getModelFieldValue = function(object, field) {
@@ -29,10 +29,7 @@
         }
 
         this.select = function (record) {
-            if (this.selected == record) {
-                record = null;
-            }
-            this.selected = record;
+            this.selected = this.selected == record ? null : record;
         }
 
         this.removeSelected = function () {
@@ -47,7 +44,7 @@
         }
 
         this.init = function (record) {
-            if (record.id == $stateParams.selected) {
+            if($previousState.get() && record.id == $previousState.get().params.recordId) {
                 that.selected = record;
             }
         }

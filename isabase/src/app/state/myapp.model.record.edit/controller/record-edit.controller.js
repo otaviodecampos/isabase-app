@@ -5,28 +5,24 @@
         .controller('RecordEditCtrl', Controller);
 
     /* @ngInject */
-    function Controller($stateParams, MyApp, Model, Record, Notification, Navigation) {
+    function Controller($state, $stateParams, MyApp, Model, Record, Notification, Navigation) {
         var that = this
             , title = 'record-edit'
-            , appName = $stateParams.appName
-            , modelName = $stateParams.modelName
-            , recordId = $stateParams.recordId;
+            , modelName = $stateParams.modelName;
 
         this.selected = null;
-        this.myapp = MyApp.get({appName: appName});
-        this.model = Model.get({appName: appName, modelName: modelName});
+        this.myapp = MyApp.get($stateParams);
+        this.model = Model.get($stateParams);
 
         this.model.$promise.then(function(model) {
-            that.record = Record.get({appName: appName, modelName: modelName, recordId: recordId});
-            that.record.$promise.then(null, function() {
-                Navigation.back();
-            });
+            that.record = Record.get($stateParams);
+            that.record.$promise.then(null, Navigation.back);
         });
 
         this.save = function () {
-            this.record.$save({modelName: modelName}, function(app) {
-                Navigation.back({selected: recordId});
+            this.record.$save({modelName: modelName}, function(record) {
                 Notification.success(title, that.record.id, 'save-success');
+                Navigation.setParamsAndBack({recordId: record.id});
             }, function(e) {
                 Notification.error(title, that.record.id, 'save-error');
                 console.log(e);
@@ -35,8 +31,8 @@
 
         this.remove = function () {
             this.record.$remove(function () {
-                Navigation.back();
                 Notification.success(title, that.record.id, 'remove-success');
+                Navigation.back();
             }, function (e) {
                 Notification.error(title, that.record.id, 'remove-error');
             });

@@ -5,23 +5,20 @@
         .controller('MyAppModelsCtrl', Controller);
 
     /* @ngInject */
-    function Controller($stateParams, Notification, MyApp, Model, Navigation) {
-        var that = this;
-        var title = 'models';
+    function Controller($stateParams, $previousState, Notification, MyApp, Model, Navigation) {
+        var that = this
+            , title = 'models';
 
         this.selected = null;
-        this.myapp = MyApp.get({appName: $stateParams.appName});
+        this.myapp = MyApp.get($stateParams);
         this.myapp.$promise.then(null, function () {
             Navigation.back();
         });
 
-        this.models = Model.query({appName: $stateParams.appName});
+        this.models = Model.query($stateParams);
 
         this.select = function (model) {
-            if (this.selected == model) {
-                model = null;
-            }
-            this.selected = model;
+            this.selected = this.selected == model ? null : model;
         }
 
         this.removeSelected = function () {
@@ -36,7 +33,7 @@
         }
 
         this.init = function (model) {
-            if (model.name == $stateParams.selected) {
+            if($previousState.get() && model.name == $previousState.get().params.modelName) {
                 that.selected = model;
             }
         }

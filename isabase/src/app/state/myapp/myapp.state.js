@@ -9,14 +9,9 @@
 
         $stateProvider
             .state('app.myapp', {
-                url: '/myapp?selectedApp',
+                url: '/myapp',
                 templateUrl: 'isabase-app/myapp.tpl.html',
-                controller: 'MyAppCtrl as ctrl',
-                params: {
-                    selectedApp: {
-                        squash: true
-                    }
-                }
+                controller: 'MyAppCtrl as ctrl'
             });
 
     }

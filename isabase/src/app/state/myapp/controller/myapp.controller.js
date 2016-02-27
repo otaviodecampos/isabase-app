@@ -9,14 +9,11 @@
         var that = this;
         var title = 'myapps';
 
-        console.log($previousState.get());
-
         this.selected = null;
         this.myapps = MyApp.query();
 
         this.select = function(app) {
             this.selected = this.selected == app ? null : app;
-            $state.go('.', {selectedApp: this.selected ? this.selected.name : ''}, {notify: false});
         }
 
         this.removeSelected = function() {
@@ -31,7 +28,7 @@
         }
 
         this.init = function(app) {
-            if(app.name == $stateParams.selectedApp) {
+            if($previousState.get() && app.name == $previousState.get().params.appName) {
                 that.selected = app;
             }
         }

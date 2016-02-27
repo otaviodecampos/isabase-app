@@ -12,26 +12,22 @@
             , appName = $stateParams.appName;
 
         this.selected = null;
-        this.myapp = MyApp.get({appName: appName});
-        this.myapp.$promise.then(null, function() {
-            Navigation.back();
-        });
+        this.myapp = MyApp.get($stateParams);
+        this.myapp.$promise.then(null, Navigation.back);
 
-        this.model = Model.get({appName: appName, modelName: modelName});
+        this.model = Model.get($stateParams);
         this.model.$promise.then(function(model) {
             if(!model.fields) {
                 model.fields = [];
             }
-        }, function() {
-            Navigation.back({selected: modelName});
-        });
+        }, Navigation.back);
 
         this.save = function () {
             if (this.model.name) {
                 this.model.appName = appName;
                 this.model.$save({modelName: modelName == 'new' ? '' : modelName}, function (model) {
-                    Navigation.back({selected: that.model.name});
                     Notification.success(title, that.model.name, 'save-success');
+                    Navigation.setParamsAndBack({modelName: model.name});
                 }, function (e) {
                     Notification.error(title, that.model.name, 'save-error');
                     console.log(e);
@@ -48,10 +44,7 @@
         }
 
         this.select = function (field) {
-            if (this.selected == field) {
-                field = null;
-            }
-            this.selected = field;
+            this.selected = this.selected == field ? null : field;
         }
 
         this.newField = function () {

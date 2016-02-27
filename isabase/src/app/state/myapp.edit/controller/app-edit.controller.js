@@ -11,15 +11,13 @@
         var appName = $stateParams.appName;
 
         this.myapp = MyApp.get({appName: appName});
-        this.myapp.$promise.then(null, function() {
-            Navigation.back();
-        });
+        this.myapp.$promise.then(null, Navigation.back);
 
         this.save = function() {
             if(this.myapp.name) {
                 this.myapp.$save({appName: appName == 'new' ? '' : appName}, function(app) {
-                    Navigation.back({selectedApp: app.name});
                     Notification.success(title, app.name, 'save-success');
+                    Navigation.setParamsAndBack({appName: app.name});
                 }, function(e) {
                     Notification.error(title, that.myapp.name, 'save-error');
                     console.log(e);
@@ -31,8 +29,8 @@
         
         this.remove = function() {
             this.myapp.$remove(function() {
-                Navigation.back();
                 Notification.success(title, that.myapp.name, 'remove-success');
+                Navigation.back();
             }, function(e) {
                 Notification.error(title, that.myapp.name, 'remove-error');
             });
