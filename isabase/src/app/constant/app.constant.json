@@ -1,5 +1,5 @@
 {
-  "default-url": "/myapp",
+  "default-url": "/app",
   "locale": {
     "preferred-language": "pt-BR",
     "translation-dir": "/assets/i18n"

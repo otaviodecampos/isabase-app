@@ -1,0 +1,84 @@
+<div class="ui two column doubling stackable grid">
+    <div class="eleven wide column">
+        <div class="ui raised segment">
+            <h2 class="ui header">
+                {{ 'records' | translate }}
+                <div class="sub header">{{ ctrl.records.length }} {{ 'records' | translate }}</div>
+            </h2>
+            <a class="ui absolute floated right ribbon blue label">{{ ctrl.model.name | capitalize }}</a>
+
+            <table class="ui very basic table striped selectable">
+                <thead>
+                <tr>
+                    <th ng-repeat="field in ctrl.model.fields">
+                        {{ field.name | capitalize }}
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="link" ng-init="ctrl.init(record)" ng-class="{selected: ctrl.selected == record}"
+                    ng-click="ctrl.select(record)"
+                    ng-repeat="record in ctrl.records">
+                    <td ng-repeat="field in ctrl.model.fields" ng-switch="field.type">
+                        <span ng-switch-when="boolean">{{ record[field.name] | translate }}</span>
+                        <span ng-switch-when="model">{{ field.displayField && ctrl.getModelFieldValue(record[field.name], field) || record[field.name] | translate }}</span>
+                        <span ng-switch-when="date">{{ record[field.name] | uiCalendar }}</span>
+                        <span ng-switch-default>{{ record[field.name] }}</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <div class="five wide column">
+        <div class="ui raised segment">
+            <h3 class="ui header">
+                <i ng-if="ctrl.selected" ng-click="ctrl.removeSelected()"
+                   class="small right aligned trash icon link"></i>
+                {{ 'manage' | translate }}
+
+                <div class="sub header" ng-switch="ctrl.selected == null">
+                    <p ng-switch-when="true">{{ 'select-model-message' | translate }}</p>
+                    <p ng-switch-default>{{ 'selected-model-message' | translate }}</p>
+                </div>
+            </h3>
+
+            <span class="ui container center aligned actions">
+                <div ng-if="ctrl.selected">
+                    <a ui-sref="admin.app.model.record.edit({ recordId: ctrl.selected.id })"
+                       class="ui fluid action labeled blue button icon">
+                        <i class="edit icon"></i>
+                        {{ 'edit' | translate }}
+                    </a>
+
+                    <div class="ui horizontal divider">
+                        {{ 'or' | translate }}
+                    </div>
+                </div>
+
+                <a ui-sref="admin.app.model.record.edit({ recordId: 'new' })"
+                   class="ui fluid action labeled blue button icon">
+                    <i class="add circle icon"></i>
+                    {{ 'record-new' | translate }}
+                </a>
+
+                <a ui-sref="admin.app.model.edit({ modelName: ctrl.model.name })" class="ui fluid action labeled blue button icon">
+                    <i class="edit icon"></i>
+                    {{ 'edit-model' | translate }}
+                </a>
+
+                <a ui-sref="admin.app.model" class="ui fluid action labeled blue button icon">
+                    <i class="list icon"></i>
+                    {{ 'view-models' | translate }}
+                </a>
+
+                <a ui-sref="admin.app" class="ui fluid action labeled blue button icon">
+                    <i class="list icon"></i>
+                    {{ 'myapp' | translate }}
+                </a>
+
+            </span>
+        </div>
+    </div>
+</div>

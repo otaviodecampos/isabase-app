@@ -7,7 +7,7 @@
     /* @ngInject */
     function Mock(resourceMock, MockUtil, RESOURCE, MYAPP, ModelMock) {
 
-        var url = MockUtil.url(RESOURCE.myapp)
+        var url = MockUtil.url(RESOURCE.app)
             , data = MockUtil.array(MYAPP, 'name')
             , mock = resourceMock(url, data);
 

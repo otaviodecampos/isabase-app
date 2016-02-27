@@ -1,7 +1,11 @@
 [
   {
-    "label": "myaccount",
-    "url": "/#/myaccount"
+    "label": "account",
+    "url": "/#/account"
+  },
+  {
+    "label": "app",
+    "url": "/#/app"
   },
   {
     "label": "logout",

@@ -1,0 +1,16 @@
+{
+  "model": [
+    {
+      "name": "name",
+      "type": "text",
+      "required": true,
+      "message": {
+        "required": "empty-model-name"
+      }
+    },
+    {
+      "name": "description",
+      "type": "text"
+    }
+  ]
+}

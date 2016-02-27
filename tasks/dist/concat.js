@@ -17,7 +17,7 @@ module.exports = function () {
     var options = {
         module: this.buildName,
         transformUrl: function(url) {
-            return _this.buildName + '/' + url.match(/[\w-]+.tpl.html$/g)[0];
+            return _this.buildName + '/' + url.match(/[\w-.]+.tpl.html$/g)[0];
         }
     }
 

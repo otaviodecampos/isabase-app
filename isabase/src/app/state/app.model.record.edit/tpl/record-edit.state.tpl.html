@@ -1,0 +1,69 @@
+<div class="ui two column doubling stackable grid">
+    <div class="eleven wide column">
+        <div class="ui raised segment">
+            <h2 class="ui header">
+                {{ ctrl.record.id != undefined ? 'record-edit' : 'record-new' | translate }}
+                <div class="sub header">{{ ::ctrl.record.id != undefined ? ctrl.record.id : '' }}</div>
+            </h2>
+
+            <a class="ui absolute floated right ribbon blue label">{{ ctrl.model.name | capitalize }}</a>
+
+            <div ui-message ng-show="form.$submitted && form.$error.required && form.$error.required.length"
+                 class="ui error message">
+                <ul class="list">
+                    <li ng-repeat="error in form.$error.required"
+                        ng-bind-html="'empty-required-field-error' | translate:{name: error.$name}"></li>
+                </ul>
+            </div>
+
+            <form ng-submit="form.$valid && ctrl.save($event);" name="form"
+                  class="ui container stackable grid form margin top" novalidate>
+                <div ng-controller="RecordFieldCtrl as fieldCtrl" ng-include="'isabase-app/' + field.type + '.tpl.html'"
+                     ng-repeat="field in ctrl.model.fields" class="row middle aligned">
+                </div>
+
+                <div class="row">
+                    <div class="twelve wide right floated column">
+                        <button type="submit" class="ui labeled button icon" ng-class="{ green: form.$valid }">
+                            <i class="save icon"></i>
+                            {{ 'save-changes' | translate }}
+                        </button>
+                        <a ng-click="ctrl.clear()" class="ui labeled button">
+                            {{ 'clear' | translate }}
+                        </a>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <div class="five wide column">
+        <div class="ui raised segment">
+            <h3 class="ui header">
+                <i ng-if="ctrl.record.id != undefined" ng-click="ctrl.remove()"
+                   class="small right aligned trash icon link"></i>
+                {{ 'manage' | translate }}
+
+                <div class="sub header">
+                    <p>{{ 'selected-record-message' | translate }}</p>
+                </div>
+            </h3>
+
+            <span class="ui container center aligned actions">
+                <a ui-sref="admin.app.model.record" class="ui fluid action labeled blue button icon">
+                    <i class="list icon"></i>
+                    {{ 'view-records' | translate }}
+                </a>
+
+                <a ui-sref="admin.app.model.edit({ modelName: ctrl.model.name })" class="ui fluid action labeled blue button icon">
+                    <i class="edit icon"></i>
+                    {{ 'edit-model' | translate }}
+                </a>
+
+            </span>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+[
+  {
+    "name": "name",
+    "type": "text",
+    "required": true,
+    "message": {
+      "required": "empty-app-name"
+    }
+  },
+  {
+    "name": "description",
+    "type": "text"
+  }
+]
