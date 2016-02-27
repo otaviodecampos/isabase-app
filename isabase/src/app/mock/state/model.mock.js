@@ -13,15 +13,15 @@
 
         mock.indexRoute.addPostProc(function (data, request) {
             var filtered = []
-                , appId = request.pathArgs[0];
+                , appName = request.pathArgs[0];
 
             angular.forEach(data, function (model, i) {
-                if (appId == model.appId) {
+                if (appName == model.appName) {
                     filtered.push(model);
 
                     var count = 0;
                     angular.forEach(RecordMock.dataSource, function (record, i2) {
-                        if (model.appId == record.appId && (record.modelId == model.id || record.modelId == model.name || record.modelName == model.name)) {
+                        if (model.appName == record.appName && (record.modelId == model.id || record.modelId == model.name || record.modelName == model.name)) {
                             count++;
                         }
                     });
@@ -32,22 +32,59 @@
 
             return filtered;
         });
-
-        mock.getStorage = function (ids, autoCreate) {
+        
+        mock.updateAction = function(request) {
+            var newItem = request.body;
+            var storage = this.getStorage(request.pathArgs.slice(0, -1));
+            var modelName = request.pathArgs[request.pathArgs.length-1];
+            var storagedModel;
+            angular.forEach(_.values(storage), function(model) {
+                if(modelName == model.name) {
+                    storagedModel = model;
+                    return false;
+                }
+            });
+            if (storagedModel) {
+              newItem.id = storage[storagedModel.id].id;
+              storage[storagedModel.id] = newItem;
+              return newItem;
+            }
+          };
+          
+          mock.deleteAction = function(request) {
+            var storage = this.getStorage(request.pathArgs.slice(0, -1));
+            var modelName = request.pathArgs[request.pathArgs.length-1];
+            
+            var storagedModel;
+            angular.forEach(_.values(storage), function(model) {
+                if(modelName == model.name) {
+                    storagedModel = model;
+                    return false;
+                }
+            });
+            
+            if (storagedModel) {
+              var item = storage[storagedModel.id];
+              delete storage[storagedModel.id];
+              return item;
+            }
+          };
+        
+        mock.getStorage = function (params, autoCreate) {
             var storage = data
                 , id
-                , appId;
+                , appName;
 
-            if (ids.length > 1) {
-                id = ids[1];
-                appId = ids[0];
+            if (params.length > 1) {
+                id = params[1];
+                appName = params[0];
                 if (id == 'new') {
                     storage = {
-                        appId: ids[0]
+                        appName: params[0]
                     };
                 } else {
                     angular.forEach(storage, function (item, i) {
-                        if (appId == item.appId && (item.id == id || item.name == id)) {
+                        if (appName == item.appName && (item.id == id || item.name == id)) {
                             storage = item;
                             return false;
                         }

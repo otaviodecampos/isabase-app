@@ -8,15 +8,15 @@
     function Controller($stateParams, Notification, MyApp, Model, Record, Navigation, JSUtil) {
         var that = this
             , title = 'records'
-            , appId = $stateParams.appId
-            , modelId = $stateParams.modelId;
+            , appName = $stateParams.appName
+            , modelName = $stateParams.modelName;
 
         this.selected = null;
-        this.myapp = MyApp.get({id: appId});
-        this.model = Model.get({appId: appId, id: modelId});
+        this.myapp = MyApp.get({appName: appName});
+        this.model = Model.get({appName: appName, modelName: modelName});
 
         this.model.$promise.then(function(model) {
-            that.records = Record.query({appId: appId, modelName: model.name });
+            that.records = Record.query({appName: appName, modelName: modelName });
         });
 
         this.getModelFieldValue = function(object, field) {

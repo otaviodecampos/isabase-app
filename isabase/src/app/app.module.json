@@ -9,6 +9,7 @@
     "isabase-mock",
     "toaster",
     "ncy-angular-breadcrumb",
-    "angular-semantic-ui"
+    "angular-semantic-ui",
+    "ct.ui.router.extras"
   ]
 }

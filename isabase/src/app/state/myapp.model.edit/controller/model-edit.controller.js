@@ -8,32 +8,33 @@
     function Controller($scope, $stateParams, MyApp, Model, Notification, Modal, Navigation) {
         var that = this
             , title = 'edit-model'
-            , id = $stateParams.modelId
-            , appId = $stateParams.appId;
+            , modelName = $stateParams.modelName
+            , appName = $stateParams.appName;
 
         this.selected = null;
-        this.myapp = MyApp.get({id: $stateParams.appId});
+        this.myapp = MyApp.get({appName: appName});
         this.myapp.$promise.then(null, function() {
             Navigation.back();
         });
 
-        this.model = Model.get({appId: appId, id: id});
+        this.model = Model.get({appName: appName, modelName: modelName});
         this.model.$promise.then(function(model) {
             if(!model.fields) {
                 model.fields = [];
             }
         }, function() {
-            Navigation.back({selected: id});
+            Navigation.back({selected: modelName});
         });
 
         this.save = function () {
             if (this.model.name) {
-                this.model.appId = appId;
-                this.model.$save(function (model) {
-                    Navigation.back({selected: id});
+                this.model.appName = appName;
+                this.model.$save({modelName: modelName == 'new' ? '' : modelName}, function (model) {
+                    Navigation.back({selected: that.model.name});
                     Notification.success(title, that.model.name, 'save-success');
                 }, function (e) {
                     Notification.error(title, that.model.name, 'save-error');
+                    console.log(e);
                 });
             } else {
                 Notification.info(title, 'empty-app-name');

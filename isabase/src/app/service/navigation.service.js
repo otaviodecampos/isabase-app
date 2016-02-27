@@ -8,6 +8,7 @@
     function Service($state) {
         
         this.back = function(params) {
+            console.log('Navigation: back: ' + JSON.stringify(params));
             $state.go('^', params);
         };
         

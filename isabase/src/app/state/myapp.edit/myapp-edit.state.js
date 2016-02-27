@@ -9,7 +9,7 @@
 
         $stateProvider
             .state('app.myapp.edit', {
-                url: '/:id/edit',
+                url: '/:appName/edit',
                 views: {
                     '@app': {
                         templateUrl: 'isabase-app/app-edit.tpl.html',

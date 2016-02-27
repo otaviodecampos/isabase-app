@@ -5,18 +5,18 @@
         .controller('MyAppCtrl', Controller);
 
     /* @ngInject */
-    function Controller($stateParams, MyApp, Notification) {
+    function Controller($state, $stateParams, $previousState, MyApp, Notification) {
         var that = this;
         var title = 'myapps';
+
+        console.log($previousState.get());
 
         this.selected = null;
         this.myapps = MyApp.query();
 
         this.select = function(app) {
-            if(this.selected == app) {
-                app = null;
-            }
-            this.selected = app;
+            this.selected = this.selected == app ? null : app;
+            $state.go('.', {selectedApp: this.selected ? this.selected.name : ''}, {notify: false});
         }
 
         this.removeSelected = function() {
@@ -31,7 +31,7 @@
         }
 
         this.init = function(app) {
-            if(app.id == $stateParams.selected) {
+            if(app.name == $stateParams.selectedApp) {
                 that.selected = app;
             }
         }

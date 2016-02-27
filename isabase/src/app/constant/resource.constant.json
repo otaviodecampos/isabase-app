@@ -1,5 +1,5 @@
 {
-  "myapp": "/app/:id",
-  "model": "/app/:appId/model/:id",
-  "record": "/app/:appId/model/:modelName/record/:recordId"
+  "myapp": "/app/:appName",
+  "model": "/app/:appName/model/:modelName",
+  "record": "/app/:appName/model/:modelName/record/:recordId"
 }

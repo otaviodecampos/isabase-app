@@ -8,29 +8,28 @@
     function Controller($stateParams, MyApp, Model, Record, Notification, Navigation) {
         var that = this
             , title = 'record-edit'
-            , appId = $stateParams.appId
-            , modelId = $stateParams.modelId
-            , recordId = $stateParams.recordId
-            , modelName;
+            , appName = $stateParams.appName
+            , modelName = $stateParams.modelName
+            , recordId = $stateParams.recordId;
 
         this.selected = null;
-        this.myapp = MyApp.get({id: $stateParams.appId});
-        this.model = Model.get({appId: appId, id: modelId});
+        this.myapp = MyApp.get({appName: appName});
+        this.model = Model.get({appName: appName, modelName: modelName});
 
         this.model.$promise.then(function(model) {
-            modelName = model.name;
-            that.record = Record.get({appId: appId, modelName: modelName, recordId: recordId});
+            that.record = Record.get({appName: appName, modelName: modelName, recordId: recordId});
             that.record.$promise.then(null, function() {
                 Navigation.back();
             });
         });
 
         this.save = function () {
-            this.record.$save({modelName: modelId}, function(app) {
+            this.record.$save({modelName: modelName}, function(app) {
                 Navigation.back({selected: recordId});
                 Notification.success(title, that.record.id, 'save-success');
             }, function(e) {
                 Notification.error(title, that.record.id, 'save-error');
+                console.log(e);
             });
         }
 

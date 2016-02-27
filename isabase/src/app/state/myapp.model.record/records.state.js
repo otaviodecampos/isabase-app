@@ -9,7 +9,7 @@
 
         $stateProvider
             .state('app.myapp.models.records', {
-                url: '/:modelId/records',
+                url: '/:modelName/records',
                 views: {
                     '@app': {
                         templateUrl: 'isabase-app/records.tpl.html',

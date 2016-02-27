@@ -1,6 +1,6 @@
 [
   {
-    "appId": 0,
+    "appName": "AppStore",
     "name": "tipoProduto",
     "description": "Tipo de Produto",
     "records": "0",
@@ -13,7 +13,7 @@
     ]
   },
   {
-    "appId": 0,
+    "appName": "AppStore",
     "name": "produto",
     "description": "Produto",
     "records": 0,
@@ -41,7 +41,7 @@
     ]
   },
   {
-    "appId": 0,
+    "appName": "AppStore",
     "name": "oferta",
     "description": "Ofertas de Produto",
     "records": 0,
@@ -64,7 +64,7 @@
     ]
   },
   {
-    "appId": 0,
+    "appName": "AppStore",
     "name": "cliente",
     "description": "Cliente",
     "records": 0,
@@ -105,7 +105,7 @@
     ]
   },
   {
-    "appId": 0,
+    "appName": "AppStore",
     "name": "endereco",
     "description": "Endereço",
     "fields": [

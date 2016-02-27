@@ -7,13 +7,14 @@
     /* @ngInject */
     function Controller($scope, $stateParams, Model, FIELD, $q) {
         var that = this
+            , appName = $stateParams.appName
             , modelCtrl = $scope.ctrl
             , field = modelCtrl.editingField;
 
         this.isNew = !field.name;
         this.field = angular.copy(field);
         this.types = FIELD;
-        this.models = Model.query({appId: $stateParams.appId});
+        this.models = Model.query({appName: appName});
 
         $scope.$watch('fieldCtrl.field.target', function (newValue, oldValue) {
             that.modelFields = [];
@@ -44,7 +45,7 @@
             function getModelFields(modelName, prefix) {
                 var deferred = $q.defer();
 
-                Model.get({appId: $stateParams.appId, id: modelName}).$promise.then(function (model) {
+                Model.get({appName: appName, modelName: modelName}).$promise.then(function (model) {
                     var promises = [];
                     angular.forEach(model.fields, function (field) {
                         promises.push(getFields(field, prefix));

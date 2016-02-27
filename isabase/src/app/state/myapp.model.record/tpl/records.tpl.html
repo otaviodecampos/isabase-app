@@ -63,18 +63,18 @@
                     {{ 'record-new' | translate }}
                 </a>
 
-                <a ui-sref="app.myapp.models.edit({ modelId: stateParams.modelId })" class="ui fluid action labeled blue button icon">
+                <a ui-sref="app.myapp.models.edit({ modelName: stateParams.modelName })" class="ui fluid action labeled blue button icon">
                     <i class="edit icon"></i>
                     {{ 'edit-model' | translate }}
                 </a>
 
-                <a ui-sref="app.myapp.models({ selected: stateParams.modelId })"
+                <a ui-sref="app.myapp.models({ selected: stateParams.modelName })"
                    class="ui fluid action labeled blue button icon">
                     <i class="list icon"></i>
                     {{ 'view-models' | translate }}
                 </a>
 
-                <a ui-sref="app.myapp({ selected: stateParams.appId })"
+                <a ui-sref="app.myapp({ selected: stateParams.appName })"
                    class="ui fluid action labeled blue button icon">
                     <i class="list icon"></i>
                     {{ 'myapp' | translate }}

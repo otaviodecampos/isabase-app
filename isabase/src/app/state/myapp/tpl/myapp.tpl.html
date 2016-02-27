@@ -39,12 +39,12 @@
             
             <span class="ui container center aligned actions">
                 <div ng-if="ctrl.selected">
-                    <a ui-sref="app.myapp.edit({ id: ctrl.selected.id })" class="ui fluid action labeled blue button icon">
+                    <a ui-sref="app.myapp.edit({ appName: ctrl.selected.name })" class="ui fluid action labeled blue button icon">
                         <i class="edit icon"></i>
                         {{ 'app-edit' | translate }}
                     </a>
                     
-                    <a ui-sref="app.myapp.models({ appId: ctrl.selected.id })" class="ui fluid action labeled blue button icon">
+                    <a ui-sref="app.myapp.models({ appName: ctrl.selected.name })" class="ui fluid action labeled blue button icon">
                         <i class="cubes icon"></i>
                         {{ 'view-models' | translate }}
                     </a>
@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 
-                <a ui-sref="app.myapp.edit({ id: 'new' })" class="ui fluid action labeled blue button icon">
+                <a ui-sref="app.myapp.edit({ appName: 'new' })" class="ui fluid action labeled blue button icon">
                     <i class="add circle icon"></i>
                     {{ 'app-new' | translate }}
                 </a>

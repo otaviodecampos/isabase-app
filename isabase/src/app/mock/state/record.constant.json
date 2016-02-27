@@ -1,20 +1,20 @@
 [
   {
     "id": 0,
+    "appName": "AppStore",
     "modelName": "tipoProduto",
-    "appId": 0,
     "nome": "Brinquedo"
   },
   {
     "id": 1,
+    "appName": "AppStore",
     "modelName": "tipoProduto",
-    "appId": 0,
     "nome": "Eletronico"
   },
   {
     "id": 20,
+    "appName": "AppStore",
     "modelName": "produto",
-    "appId": 0,
     "nome": "Boneca Galinha Pintadinha Vinil - Lider",
     "estoque": 100,
     "tipo": {
@@ -24,8 +24,8 @@
   },
   {
     "id": 21,
+    "appName": "AppStore",
     "modelName": "produto",
-    "appId": 0,
     "nome": "Boneca Frozen Princesa Elsa Brilhante - Mattel",
     "estoque": 100,
     "tipo": {
@@ -35,8 +35,8 @@
   },
   {
     "id": 22,
+    "appName": "AppStore",
     "modelName": "produto",
-    "appId": 0,
     "nome": "Smart TV LED 32' Samsung UN32J4300AGXZD",
     "estoque": 50,
     "tipo": {
@@ -46,8 +46,8 @@
   },
   {
     "id": 23,
+    "appName": "AppStore",
     "modelName": "produto",
-    "appId": 0,
     "nome": "Console Xbox One 500GB",
     "estoque": 50,
     "tipo": {
@@ -57,8 +57,8 @@
   },
   {
     "id": 24,
+    "appName": "AppStore",
     "modelName": "produto",
-    "appId": 0,
     "nome": "iPad Air 2 64GB Wi-Fi Tela Retina 9.7",
     "estoque": 20,
     "tipo": {
@@ -68,8 +68,8 @@
   },
   {
     "id": 30,
+    "appName": "AppStore",
     "modelName": "oferta",
-    "appId": 0,
     "produto": {
       "id": 20,
       "nome": "Boneca Galinha Pintadinha Vinil - Lider",
@@ -82,8 +82,8 @@
   },
   {
     "id": 31,
+    "appName": "AppStore",
     "modelName": "oferta",
-    "appId": 0,
     "produto": {
       "id": 21,
       "nome": "Boneca Frozen Princesa Elsa Brilhante - Mattel",
@@ -96,8 +96,8 @@
   },
   {
     "id": 32,
+    "appName": "AppStore",
     "modelName": "oferta",
-    "appId": 0,
     "produto": {
       "id": 22,
       "nome": "Smart TV LED 32' Samsung UN32J4300AGXZD",
@@ -113,8 +113,8 @@
   },
   {
     "id": 33,
+    "appName": "AppStore",
     "modelName": "oferta",
-    "appId": 0,
     "produto": {
       "id": 23,
       "nome": "Console Xbox One 500GB",
@@ -130,8 +130,8 @@
   },
   {
     "id": 34,
+    "appName": "AppStore",
     "modelName": "oferta",
-    "appId": 0,
     "produto": {
       "id": 24,
       "nome": "iPad Air 2 64GB Wi-Fi Tela Retina 9.7",
@@ -147,8 +147,8 @@
   },
   {
     "id": 35,
+    "appName": "AppStore",
     "modelName":"cliente",
-    "appId":0,
     "nome": "Otávio de Campos Miodutzki",
     "cadastro": "2016-02-21",
     "endereco": {
@@ -161,8 +161,8 @@
     },
     "carrinho": [{
       "id": 31,
+      "appName": "AppStore",
       "modelName": "oferta",
-      "appId": 0,
       "produto":{
         "id":21,
         "nome":"Boneca Frozen Princesa Elsa Brilhante - Mattel",
@@ -175,8 +175,8 @@
   },
   {
     "id": 40,
+    "appName": "AppStore",
     "modelName": "endereco",
-    "appId": 0,
     "rua": "Alagoas",
     "numero": 235,
     "complemento": "Apto 201",

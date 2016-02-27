@@ -10,12 +10,12 @@
         var title = 'models';
 
         this.selected = null;
-        this.myapp = MyApp.get({id: $stateParams.appId});
+        this.myapp = MyApp.get({appName: $stateParams.appName});
         this.myapp.$promise.then(null, function () {
             Navigation.back();
         });
 
-        this.models = Model.query({appId: $stateParams.appId});
+        this.models = Model.query({appName: $stateParams.appName});
 
         this.select = function (model) {
             if (this.selected == model) {
@@ -36,7 +36,7 @@
         }
 
         this.init = function (model) {
-            if (model.id == $stateParams.selected) {
+            if (model.name == $stateParams.selected) {
                 that.selected = model;
             }
         }

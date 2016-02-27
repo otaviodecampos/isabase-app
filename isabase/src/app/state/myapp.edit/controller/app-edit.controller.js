@@ -8,21 +8,21 @@
     function Controller($stateParams, MyApp, Navigation, Notification) {
         var that = this;
         var title = 'edit-app';
-        var id = $stateParams.id;
+        var appName = $stateParams.appName;
 
-        this.myapp = MyApp.get({id: id});
+        this.myapp = MyApp.get({appName: appName});
         this.myapp.$promise.then(null, function() {
             Navigation.back();
         });
 
         this.save = function() {
             if(this.myapp.name) {
-                this.myapp.$save(function(app) {
-                    Navigation.back({selected: id});
-                    Notification.success(title, that.myapp.name, 'save-success');
+                this.myapp.$save({appName: appName == 'new' ? '' : appName}, function(app) {
+                    Navigation.back({selectedApp: app.name});
+                    Notification.success(title, app.name, 'save-success');
                 }, function(e) {
-                    console.log(e);
                     Notification.error(title, that.myapp.name, 'save-error');
+                    console.log(e);
                 });
             } else {
                 Notification.info(title, 'empty-app-name');

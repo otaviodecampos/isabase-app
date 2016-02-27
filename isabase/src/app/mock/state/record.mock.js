@@ -13,31 +13,51 @@
 
         mock.indexRoute.addPostProc(function (data, request) {
             var filtered = []
-                , appId = request.pathArgs[0]
+                , appName = request.pathArgs[0]
                 , modelName = request.pathArgs[1];
 
             angular.forEach(data, function (item, i) {
-                if (appId == item.appId && (modelName == item.modelName || modelName == item.modelId)) {
+                if (appName == item.appName && (modelName == item.modelName || modelName == item.modelId)) {
                     filtered.push(item);
                 }
             });
             return filtered;
         });
 
-        mock.getStorage = function (ids, autoCreate) {
-            var storage = data
-                , id;
+        mock.updateAction = function(request) {
+            var newItem = request.body;
+            var storage = this.getStorage(request.pathArgs.slice(0, -1));
+            var recordId = request.pathArgs[request.pathArgs.length-1];
+            var storagedRecord;
+            angular.forEach(_.values(storage), function(record) {
+                if(recordId == record.id) {
+                    storagedRecord = record;
+                    return false;
+                }
+            });
+            if (storagedRecord) {
+              newItem.id = storage[storagedRecord.id].id;
+              storage[storagedRecord.id] = newItem;
+              return newItem;
+            }
+          };
 
-            if (ids.length == 3) {
-                id = ids[2];
+        mock.getStorage = function (params, autoCreate) {
+            var storage = data
+                , id
+                , appName;
+
+            if (params.length == 3) {
+                id = params[2];
+                appName = params[0];
                 if (id == 'new') {
                     storage = {
-                        appId: ids[0],
-                        modelId: ids[1]
+                        appName: params[0],
+                        modelName: params[1]
                     };
                 } else {
                     angular.forEach(storage, function (item, i) {
-                        if (item.id == id) {
+                        if (appName == item.appName && item.id == id) {
                             storage = item;
                             return false;
                         }

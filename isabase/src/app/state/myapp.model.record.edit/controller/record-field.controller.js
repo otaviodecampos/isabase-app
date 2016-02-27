@@ -7,12 +7,12 @@
     /* @ngInject */
     function Controller($scope, $stateParams, Record, JSUtil, $q) {
         var field = $scope.field
-            , appId = $stateParams.appId;
+            , appName = $stateParams.appName;
 
         $scope.model = $scope.ctrl.record;
 
         if (field.type == 'model') {
-            $scope.data = Record.query({appId: appId, modelName: field.target});
+            $scope.data = Record.query({appName: appName, modelName: field.target});
 
             $scope.data.$promise.then(function (data) {
                 angular.forEach(data, function (record) {
