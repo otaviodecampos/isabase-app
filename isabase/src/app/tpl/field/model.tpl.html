@@ -9,12 +9,12 @@
     <select name="{{ field.name }}" ng-switch-when="false" ui-dropdown ng-model="model[field.name]"
             ng-options="{{ 'record as record.$displayField.value for record in data track by record.id' }}"
             class="ui fluid dropdown" ng-required="field.required && data.length">
-        <option value="">- {{ 'choose-select' | translate | capitalize }} {{ field.name | translate | capitalize }}-</option>
+        <option value="">- {{ 'choose-select' | translate | capitalize }} {{ field.name | translate | capitalize }} -</option>
     </select>
     <select name="{{ field.name }}" ng-switch-when="true" multiple="" ui-dropdown ng-model="model[field.name]"
             ng-options="{{ 'record as record.$displayField.value for record in data track by record.id' }}"
             class="ui fluid dropdown" ng-required="field.required && data.length">
-        <option value="">- {{ 'choose-select' | translate | capitalize }} {{ field.name | translate | capitalize }}-</option>
+        <option value="">- {{ 'choose-select' | translate | capitalize }} {{ field.name | translate | capitalize }} -</option>
     </select>
 
 </div>
