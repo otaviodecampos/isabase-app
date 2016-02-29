@@ -91,15 +91,15 @@
 
             try {
                 if (!this.field.name) {
-                    throw new Error('empty-field-name');
+                    throw new Error('fieldEmptyNameMessage');
                 }
 
                 if (this.field.name != field.name && _findField(this.field.name)) {
-                    throw new Error('same-field-name-error');
+                    throw new Error('fieldSameNameMessage');
                 }
 
                 if (this.field.type == 'model' && !this.field.target) {
-                    throw new Error('empty-field-target');
+                    throw new Error('fieldTargetEmptyMessage');
                 }
 
                 if (this.isNew) {

@@ -2,7 +2,7 @@
     <div class="eleven wide column">
         <div class="ui raised segment">
             <h2 class="ui header">
-                {{ 'myapp' | translate }}
+                {{ 'appList' | translate }}
                 <div class="sub header">{{ ctrl.myapps.length }} {{ 'apps' | translate }}</div>
             </h2>
 
@@ -15,7 +15,8 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr class="link" ng-init="ctrl.init(app)" ng-class="{selected: ctrl.selected == app}" ng-click="ctrl.select(app)"
+                <tr class="link" ng-init="ctrl.init(app)" ng-class="{selected: ctrl.selected == app}"
+                    ng-click="ctrl.select(app)"
                     ng-repeat="app in ctrl.myapps">
                     <td>{{ app.name }}</td>
                     <td>{{ app.description }}</td>
@@ -28,27 +29,32 @@
     <div class="five wide column">
         <div class="ui raised segment">
             <h3 class="ui header">
-                <i ng-if="ctrl.selected" ng-click="ctrl.removeSelected()" class="small right aligned trash icon link"></i>
+                <i ng-if="ctrl.selected" ui-popup="{inline: true}"
+                   data-content="{{ 'remove' | translate:{name: ('app' | translate) } | capitalize }}"
+                   data-position="left center" ng-click="ctrl.removeSelected()"
+                   class="small right aligned trash icon link"></i>
                 {{ 'manage' | translate }}
-                
+
                 <div class="sub header" ng-switch="ctrl.selected == null">
-                    <p ng-switch-when="true">{{ 'select-app-message' | translate }}</p>
-                    <p ng-switch-default>{{ 'selected-app-message' | translate }}</p>
+                    <p ng-switch-when="true">{{ 'appSelectMessage' | translate }}</p>
+                    <p ng-switch-default>{{ 'appSelectedMessage' | translate }}</p>
                 </div>
             </h3>
             
             <span class="ui container center aligned actions">
                 <div ng-if="ctrl.selected">
-                    <a ui-sref="admin.app.edit({ appName: ctrl.selected.name })" class="ui fluid action labeled blue button icon">
+                    <a ui-sref="admin.app.edit({ appName: ctrl.selected.name })"
+                       class="ui fluid action labeled blue button icon">
                         <i class="edit icon"></i>
-                        {{ 'app-edit' | translate }}
+                        {{ 'appEdit' | translate }}
                     </a>
-                    
-                    <a ui-sref="admin.app.model({ appName: ctrl.selected.name })" class="ui fluid action labeled blue button icon">
+
+                    <a ui-sref="admin.app.model({ appName: ctrl.selected.name })"
+                       class="ui fluid action labeled blue button icon">
                         <i class="cubes icon"></i>
-                        {{ 'view-models' | translate }}
+                        {{ 'modelList' | translate }}
                     </a>
-                    
+
                     <div class="ui horizontal divider">
                         {{ 'or' | translate }}
                     </div>
@@ -56,7 +62,7 @@
                 
                 <a ui-sref="admin.app.edit({ appName: 'new' })" class="ui fluid action labeled blue button icon">
                     <i class="add circle icon"></i>
-                    {{ 'app-new' | translate }}
+                    {{ 'appNew' | translate }}
                 </a>
             </span>
         </div>

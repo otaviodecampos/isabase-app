@@ -5,10 +5,10 @@
         .factory('RecordMock', Mock);
 
     /* @ngInject */
-    function Mock(resourceMock, MockUtil, RESOURCE, RECORD) {
+    function Mock(resourceMock, MockUtil, RESOURCE, RECORD_DATA) {
 
         var url = MockUtil.url(RESOURCE.record)
-            , data = MockUtil.array(RECORD)
+            , data = MockUtil.array(RECORD_DATA)
             , mock = resourceMock(url, data);
 
         mock.indexRoute.addPostProc(function (data, request) {

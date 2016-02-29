@@ -4,7 +4,7 @@
     "type": "text",
     "required": true,
     "message": {
-      "required": "empty-app-name"
+      "required": "appEmptyNameMessage"
     }
   },
   {

@@ -7,7 +7,6 @@
     /* @ngInject */
     function Controller($stateParams, $previousState, Notification, App, Model, Record, JSUtil) {
         var that = this
-            , title = 'records'
             , appName = $stateParams.appName
             , modelName = $stateParams.modelName;
 
@@ -15,13 +14,13 @@
         this.myapp = App.get($stateParams);
         this.model = Model.get($stateParams);
 
-        this.model.$promise.then(function(model) {
+        this.model.$promise.then(function (model) {
             that.records = Record.query($stateParams);
         });
 
-        this.getModelFieldValue = function(object, field) {
-            if(angular.isArray(object)) {
-                return object.map(function(value, i) {
+        this.getModelFieldValue = function (object, field) {
+            if (angular.isArray(object)) {
+                return object.map(function (value, i) {
                     return JSUtil.getObjectValue(value, field.displayField);
                 }).join(',  ');
             }
@@ -36,15 +35,15 @@
             this.selected.$remove(function () {
                 var index = that.records.indexOf(that.selected);
                 that.records.splice(index, 1);
-                Notification.success(title, that.selected.id, 'remove-success');
+                Notification.success('record', that.selected.id, 'removeSuccess');
                 that.selected = null;
             }, function (e) {
-                Notification.error(title, that.selected.id, 'remove-error');
+                Notification.error('record', that.selected.id, 'removeFail');
             });
         }
 
         this.init = function (record) {
-            if($previousState.get() && record.id == $previousState.get().params.recordId) {
+            if ($previousState.get() && record.id == $previousState.get().params.recordId) {
                 that.selected = record;
             }
         }

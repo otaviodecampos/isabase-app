@@ -1,9 +1,14 @@
-<div class="four wide column right aligned field label" ng-class="{required: field.required, error: form[field.name].$dirty && form[field.name].$invalid}">
+<div class="four wide column right aligned field label"
+     ng-class="{required: field.required, error: form[field.name].$dirty && form[field.name].$invalid}">
     <label>{{ field.name | translate | capitalize }}</label>
 </div>
 
-<div class="wide column field" ng-class="{seven: small, ten: !small, error: form[field.name].$dirty && form[field.name].$invalid}" ng-validate-blur ng-validate-submit>
+<div class="wide column field"
+     ng-class="{seven: small, ten: !small, error: form[field.name].$dirty && form[field.name].$invalid}"
+     ng-validate-blur ng-validate-submit>
+
     <div class="ui fluid input">
-        <input type="number" decimal-step="{scale: field.scale}" name="{{ field.name }}" ng-model="model[field.name]" placeholder="{{ field.name | translate | capitalize }}" ng-required="field.required">
+        <input type="number" decimal-step="{scale: field.scale}" name="{{ field.name }}" ng-model="model[field.name]"
+               placeholder="{{ field.name | translate | capitalize }}" ng-required="field.required">
     </div>
 </div>

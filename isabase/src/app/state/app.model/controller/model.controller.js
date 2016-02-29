@@ -6,8 +6,7 @@
 
     /* @ngInject */
     function Controller($stateParams, $previousState, Notification, App, Model, Navigation) {
-        var that = this
-            , title = 'models';
+        var that = this;
 
         this.selected = null;
         this.myapp = App.get($stateParams);
@@ -23,10 +22,10 @@
             this.selected.$remove(function () {
                 var index = that.models.indexOf(that.selected);
                 that.models.splice(index, 1);
-                Notification.success(title, that.selected.name, 'remove-success');
+                Notification.success('model', that.selected.name, 'removeSuccess');
                 that.selected = null;
             }, function (e) {
-                Notification.error(title, that.selected.name, 'remove-error');
+                Notification.error('model', that.selected.name, 'removeError');
             });
         }
 

@@ -3,14 +3,22 @@
 </div>
 
 <div class="wide column field" ng-class="{seven: small, ten: !small}" ng-switch="field.collection == true">
+
     <select ui-dropdown ng-switch-when="false" ng-model="model[field.name]"
             ng-options="option[field.property] || option as option[field.property] || option for option in {{ field.data }}"
             class="ui fluid dropdown">
-        <option value="">- {{ 'choose-select' | translate | capitalize }} {{ (field.placeholderLabel || field.name) | translate | capitalize }} -</option>
+
+        <option value="">- {{ 'chooseSelect' | translate | capitalize }} {{ (field.placeholderLabel || field.name) |
+            translate | capitalize }} -
+        </option>
     </select>
+
     <select ui-dropdown ng-switch-when="true" multiple="" ng-model="model[field.name]"
             ng-options="option[field.property] || option as option[field.property] || option for option in {{ field.data }}"
             class="ui fluid dropdown">
-        <option value="">- {{ 'choose-select' | translate | capitalize }} {{ (field.placeholderLabel || field.name) | translate | capitalize }} -</option>
+
+        <option value="">- {{ 'chooseSelect' | translate | capitalize }} {{ (field.placeholderLabel || field.name) |
+            translate | capitalize }} -
+        </option>
     </select>
 </div>

@@ -7,7 +7,6 @@
     /* @ngInject */
     function Controller($scope, $stateParams, App, Model, Notification, Modal, Navigation, MODEL_FIELDS) {
         var that = this
-            , title = 'edit-model'
             , modelName = $stateParams.modelName
             , appName = $stateParams.appName;
 
@@ -24,18 +23,14 @@
         }, Navigation.back);
 
         this.save = function () {
-            if (this.model.name) {
-                this.model.appName = appName;
-                this.model.$save({modelName: modelName == 'new' ? '' : modelName}, function (model) {
-                    Notification.success(title, that.model.name, 'save-success');
-                    Navigation.setParamsAndBack({modelName: model.name});
-                }, function (e) {
-                    Notification.error(title, that.model.name, 'save-error');
-                    console.log(e);
-                });
-            } else {
-                Notification.info(title, 'empty-app-name');
-            }
+            this.model.appName = appName;
+            this.model.$save({modelName: modelName == 'new' ? '' : modelName}, function (model) {
+                Notification.success('model', that.model.name, 'saveSuccess');
+                Navigation.setParamsAndBack({modelName: model.name});
+            }, function (e) {
+                Notification.error('model', that.model.name, 'saveFail');
+                console.log(e);
+            });
         }
 
         this.removeField = function () {
@@ -46,10 +41,10 @@
 
         this.remove = function() {
             this.model.$remove(function() {
-                Notification.success(title, that.model.name, 'remove-success');
+                Notification.success('model', that.model.name, 'removeSuccess');
                 Navigation.back();
             }, function(e) {
-                Notification.error(title, that.model.name, 'remove-error');
+                Notification.error('model', that.model.name, 'removeFail');
             });
         }
 

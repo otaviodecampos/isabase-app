@@ -5,7 +5,7 @@
       "type": "text",
       "required": true,
       "message": {
-        "required": "empty-model-name"
+        "required": "modelEmptyNameMessage"
       }
     },
     {

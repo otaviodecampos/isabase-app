@@ -2,17 +2,23 @@
     <div class="eleven wide column">
         <div class="ui raised segment">
             <h2 class="ui header">
-                {{ ctrl.model.id != undefined ? 'edit-model' : 'new-model' | translate }}
+                {{ ctrl.model.id != undefined ? 'modelEdit' : 'modelNew' | translate }}
                 <div class="sub header">{{ ::(ctrl.model.id != undefined ? ctrl.model.name : '' | capitalize) }}</div>
             </h2>
 
-            <a class="ui absolute floated right ribbon blue label">{{ ctrl.myapp.name | capitalize }}</a>
+            <div ui-popup="{inline: true}"
+                 data-content="{{ 'app' | translate }}" data-position="left center"
+                 class="ui absolute floated right ribbon blue label">{{ ctrl.myapp.name | capitalize }}
+            </div>
 
             <div ui-message ng-show="form.$submitted && form.$error.required && form.$error.required.length"
                  class="ui error message">
+                <div class="header">
+                    {{ 'checkBelowInconsistencies' | translate }}
+                </div>
                 <ul class="list">
                     <li ng-repeat="field in form.$error.required"
-                        ng-bind-html="message[field.$name].required ? (message[field.$name].required | translate) : ('empty-required-field-error' | translate:{name: field.$name})"></li>
+                        ng-bind-html="message[field.$name].required ? (message[field.$name].required | translate) : ('fieldEmptyRequiredError' | translate:{name: field.$name})"></li>
                 </ul>
             </div>
 
@@ -26,7 +32,8 @@
                 <div class="ui bottom attached tab segment basic active" data-tab="first">
                     <div class="ui container stackable grid form">
 
-                        <div ng-init="model = ctrl.model; message[field.name] = field.message" class="row middle aligned" ng-repeat="field in ctrl.fields.model"
+                        <div ng-init="model = ctrl.model; message[field.name] = field.message"
+                             class="row middle aligned" ng-repeat="field in ctrl.fields.model"
                              ng-include="'isabase-app/' + field.type + '.tpl.html'">
                         </div>
 
@@ -74,7 +81,7 @@
                         <div class="wide column center aligned">
                             <button type="submit" class="ui labeled button icon" ng-class="{ green: form.$valid }">
                                 <i class="save icon"></i>
-                                {{ 'save-changes' | translate }}
+                                {{ 'saveChanges' | translate }}
                             </button>
                             <a ng-click="ctrl.clear()" class="ui labeled button">
                                 {{ 'clear' | translate }}
@@ -91,23 +98,27 @@
     <div class="five wide column">
         <div class="ui raised segment">
             <h3 class="ui header">
-                <i ng-if="ctrl.model.id != undefined" ng-click="ctrl.remove()" class="small right aligned trash icon link"></i>
+                <i ng-if="ctrl.model.id != undefined" ui-popup="{inline: true}"
+                   data-content="{{ 'remove' | translate:{name: ('model' | translate) } | capitalize }}"
+                   data-position="left center"  ng-click="ctrl.remove()"
+                   class="small right aligned trash icon link"></i>
                 {{ 'manage' | translate }}
 
                 <div class="sub header">
-                    <p>{{ 'selected-model-message' | translate }}</p>
+                    <p>{{ 'modelSelectedMessage' | translate }}</p>
                 </div>
             </h3>
             
             <span class="ui container center aligned actions">
                 <a ui-sref="admin.app.model" class="ui fluid action labeled blue button icon">
                     <i class="list icon"></i>
-                    {{ 'view-models' | translate }}
+                    {{ 'modelList' | translate }}
                 </a>
 
-                <a ui-sref="admin.app.model.record({ modelName: ctrl.model.name })" ng-if="ctrl.model.id != undefined" class="ui fluid action labeled blue button icon">
+                <a ui-sref="admin.app.model.record({ modelName: ctrl.model.name })" ng-if="ctrl.model.id != undefined"
+                   class="ui fluid action labeled blue button icon">
                     <i class="cubes icon"></i>
-                    {{ 'view-records' | translate }}
+                    {{ 'recordList' | translate }}
                 </a>
 
             </span>

@@ -1,4 +1,7 @@
-<div class="twelve wide right floated column field" ng-class="{required: field.required, error: form[field.name].$dirty && form[field.name].$invalid}" ng-validate-submit>
+<div class="twelve wide right floated column field"
+     ng-class="{required: field.required, error: form[field.name].$dirty && form[field.name].$invalid}"
+     ng-validate-submit>
+
     <div class="ui checkbox">
         <input type="checkbox" name="{{ field.name }}" ng-model="model[field.name]" ng-required="field.required">
         <label>{{ field.name | translate | capitalize }}</label>

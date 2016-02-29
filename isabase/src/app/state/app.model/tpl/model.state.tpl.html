@@ -2,10 +2,14 @@
     <div class="eleven wide column">
         <div class="ui raised segment">
             <h2 class="ui header">
-                {{ 'models' | translate }}
+                {{ 'modelList' | translate }}
                 <div class="sub header">{{ ctrl.models.length }} {{ 'models' | translate }}</div>
             </h2>
-            <a class="ui absolute floated right ribbon blue label">{{ ctrl.myapp.name | capitalize }}</a>
+
+            <div ui-popup="{inline: true}"
+                 data-content="{{ 'app' | translate }}" data-position="left center"
+                 class="ui absolute floated right ribbon blue label">{{ ctrl.myapp.name | capitalize }}
+            </div>
 
             <table class="ui very basic table striped selectable">
                 <thead>
@@ -16,7 +20,8 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr class="link" ng-init="ctrl.init(model)" ng-class="{selected: ctrl.selected == model}" ng-click="ctrl.select(model)"
+                <tr class="link" ng-init="ctrl.init(model)" ng-class="{selected: ctrl.selected == model}"
+                    ng-click="ctrl.select(model)"
                     ng-repeat="model in ctrl.models">
                     <td>{{ model.name }}</td>
                     <td>{{ model.description }}</td>
@@ -29,25 +34,30 @@
     <div class="five wide column">
         <div class="ui raised segment">
             <h3 class="ui header">
-                <i ng-if="ctrl.selected" ng-click="ctrl.removeSelected()" class="small right aligned trash icon link"></i>
+                <i ng-if="ctrl.selected" ui-popup="{inline: true}"
+                   data-content="{{ 'remove' | translate:{name: ('model' | translate) } | capitalize }}"
+                   data-position="left center" ng-click="ctrl.removeSelected()"
+                   class="small right aligned trash icon link"></i>
                 {{ 'manage' | translate }}
 
                 <div class="sub header" ng-switch="ctrl.selected == null">
-                    <p ng-switch-when="true">{{ 'select-model-message' | translate }}</p>
-                    <p ng-switch-default>{{ 'selected-model-message' | translate }}</p>
+                    <p ng-switch-when="true">{{ 'modelSelectMessage' | translate }}</p>
+                    <p ng-switch-default>{{ 'modelSelectedMessage' | translate }}</p>
                 </div>
             </h3>
             
             <span class="ui container center aligned actions">
                 <div ng-if="ctrl.selected">
-                    <a ui-sref="admin.app.model.edit({ modelName: ctrl.selected.name })" class="ui fluid action labeled blue button icon">
+                    <a ui-sref="admin.app.model.edit({ modelName: ctrl.selected.name })"
+                       class="ui fluid action labeled blue button icon">
                         <i class="edit icon"></i>
-                        {{ 'edit-model' | translate }}
+                        {{ 'modelEdit' | translate }}
                     </a>
 
-                    <a ui-sref="admin.app.model.record({ modelName: ctrl.selected.name })" class="ui fluid action labeled blue button icon">
+                    <a ui-sref="admin.app.model.record({ modelName: ctrl.selected.name })"
+                       class="ui fluid action labeled blue button icon">
                         <i class="cubes icon"></i>
-                        {{ 'view-records' | translate }}
+                        {{ 'recordList' | translate }}
                     </a>
 
                     <div class="ui horizontal divider">
@@ -55,14 +65,15 @@
                     </div>
                 </div>
 
-                <a ui-sref="admin.app.model.edit({ modelName: 'new' })" class="ui fluid action labeled blue button icon">
+                <a ui-sref="admin.app.model.edit({ modelName: 'new' })"
+                   class="ui fluid action labeled blue button icon">
                     <i class="add circle icon"></i>
-                    {{ 'model-new' | translate }}
+                    {{ 'modelNew' | translate }}
                 </a>
 
                 <a ui-sref="admin.app" class="ui fluid action labeled blue button icon">
                     <i class="list icon"></i>
-                    {{ 'myapp' | translate }}
+                    {{ 'appList' | translate }}
                 </a>
 
             </span>

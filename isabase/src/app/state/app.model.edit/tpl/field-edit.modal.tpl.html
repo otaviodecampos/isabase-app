@@ -1,13 +1,13 @@
 <div class="ui modal">
     <div class="header">
-        {{ ::fieldCtrl.isNew ? 'new-field' : 'edit-field' | translate }}
+        {{ ::fieldCtrl.isNew ? 'fieldNew' : 'fieldEdit' | translate }}
     </div>
     <div class="content">
 
         <div ui-message ng-if="fieldCtrl.message" class="ui negative message">
             <i ng-click="fieldCtrl.message = null" class="close icon"></i>
             <div class="header">
-                {{ 'save-error' | translate }}
+                {{ 'checkBelowInconsistencies' | translate }}
             </div>
             <p>{{ fieldCtrl.message | translate }}</p>
         </div>

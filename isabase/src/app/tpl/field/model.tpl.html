@@ -1,4 +1,5 @@
-<div class="four wide column right aligned field label" ng-class="{required: field.required && data.length, error: form[field.name].$dirty && form[field.name].$invalid}">
+<div class="four wide column right aligned field label"
+     ng-class="{required: field.required && data.length, error: form[field.name].$dirty && form[field.name].$invalid}">
     <label>{{ field.name | translate | capitalize }}</label>
 </div>
 
@@ -9,12 +10,16 @@
     <select name="{{ field.name }}" ng-switch-when="false" ui-dropdown ng-model="model[field.name]"
             ng-options="{{ 'record as record.$displayField.value for record in data track by record.id' }}"
             class="ui fluid dropdown" ng-required="field.required && data.length">
-        <option value="">- {{ 'choose-select' | translate | capitalize }} {{ field.name | translate | capitalize }} -</option>
+
+        <option value="">- {{ 'chooseSelect' | translate | capitalize }} {{ field.name | translate | capitalize }} -
+        </option>
     </select>
+
     <select name="{{ field.name }}" ng-switch-when="true" multiple="" ui-dropdown ng-model="model[field.name]"
             ng-options="{{ 'record as record.$displayField.value for record in data track by record.id' }}"
             class="ui fluid dropdown" ng-required="field.required && data.length">
-        <option value="">- {{ 'choose-select' | translate | capitalize }} {{ field.name | translate | capitalize }} -</option>
-    </select>
 
+        <option value="">- {{ 'chooseSelect' | translate | capitalize }} {{ field.name | translate | capitalize }} -
+        </option>
+    </select>
 </div>

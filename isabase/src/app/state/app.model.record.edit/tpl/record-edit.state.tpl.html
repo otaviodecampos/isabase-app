@@ -2,22 +2,39 @@
     <div class="eleven wide column">
         <div class="ui raised segment">
             <h2 class="ui header">
-                {{ ctrl.record.id != undefined ? 'record-edit' : 'record-new' | translate }}
+                {{ ctrl.record.id != undefined ? 'recordEdit' : 'recordNew' | translate }}
                 <div class="sub header">{{ ::ctrl.record.id != undefined ? ctrl.record.id : '' }}</div>
             </h2>
 
-            <a class="ui absolute floated right ribbon blue label">{{ ctrl.model.name | capitalize }}</a>
+            <div ui-popup="{inline: true}"
+                 data-content="{{ 'model' | translate }}" data-position="left center"
+                 class="ui absolute floated right ribbon blue label">{{ ctrl.model.name | capitalize }}
+            </div>
 
             <div ui-message ng-show="form.$submitted && form.$error.required && form.$error.required.length"
                  class="ui error message">
+                <div class="header">
+                    {{ 'checkBelowInconsistencies' | translate }}
+                </div>
                 <ul class="list">
                     <li ng-repeat="error in form.$error.required"
-                        ng-bind-html="'empty-required-field-error' | translate:{name: error.$name}"></li>
+                        ng-bind-html="'fieldEmptyRequiredMessage' | translate:{name: error.$name}"></li>
                 </ul>
             </div>
 
             <form ng-submit="form.$valid && ctrl.save($event);" name="form"
                   class="ui container stackable grid form margin top" novalidate>
+
+                <div class="row middle aligned" ng-if="ctrl.record.id != undefined">
+                    <div class="four wide column right aligned label">
+                        <label>{{ 'id' | translate }}</label>
+                    </div>
+
+                    <div class="wide column field">
+                        {{ ctrl.record.id }}
+                    </div>
+                </div>
+
                 <div ng-controller="RecordFieldCtrl as fieldCtrl" ng-include="'isabase-app/' + field.type + '.tpl.html'"
                      ng-repeat="field in ctrl.model.fields" class="row middle aligned">
                 </div>
@@ -26,7 +43,7 @@
                     <div class="twelve wide right floated column">
                         <button type="submit" class="ui labeled button icon" ng-class="{ green: form.$valid }">
                             <i class="save icon"></i>
-                            {{ 'save-changes' | translate }}
+                            {{ 'saveChanges' | translate }}
                         </button>
                         <a ng-click="ctrl.clear()" class="ui labeled button">
                             {{ 'clear' | translate }}
@@ -42,24 +59,27 @@
     <div class="five wide column">
         <div class="ui raised segment">
             <h3 class="ui header">
-                <i ng-if="ctrl.record.id != undefined" ng-click="ctrl.remove()"
+                <i ng-if="ctrl.record.id != undefined" ui-popup="{inline: true}"
+                   data-content="{{ 'remove' | translate:{name: ('record' | translate) } | capitalize }}"
+                   data-position="left center" ng-click="ctrl.remove()"
                    class="small right aligned trash icon link"></i>
                 {{ 'manage' | translate }}
 
                 <div class="sub header">
-                    <p>{{ 'selected-record-message' | translate }}</p>
+                    <p>{{ 'recordSelectedMessage' | translate }}</p>
                 </div>
             </h3>
 
             <span class="ui container center aligned actions">
                 <a ui-sref="admin.app.model.record" class="ui fluid action labeled blue button icon">
                     <i class="list icon"></i>
-                    {{ 'view-records' | translate }}
+                    {{ 'recordList' | translate }}
                 </a>
 
-                <a ui-sref="admin.app.model.edit({ modelName: ctrl.model.name })" class="ui fluid action labeled blue button icon">
+                <a ui-sref="admin.app.model.edit({ modelName: ctrl.model.name })"
+                   class="ui fluid action labeled blue button icon">
                     <i class="edit icon"></i>
-                    {{ 'edit-model' | translate }}
+                    {{ 'modelEdit' | translate }}
                 </a>
 
             </span>
