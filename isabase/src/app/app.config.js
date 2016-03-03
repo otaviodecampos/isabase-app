@@ -5,9 +5,11 @@
         .config(Config);
 
     /* @ngInject */
-    function Config($translateProvider, $locationProvider, $breadcrumbProvider, APP) {
+    function Config($translateProvider, $locationProvider, $breadcrumbProvider, $urlRouterProvider, APP) {
 
         $locationProvider.html5Mode(false);
+
+        $urlRouterProvider.otherwise(APP.defaultUrl);
 
         $translateProvider.preferredLanguage(APP.locale.preferredLanguage);
         $translateProvider.useSanitizeValueStrategy(null);
@@ -19,6 +21,7 @@
         $breadcrumbProvider.setOptions({
             templateUrl: 'isabase-app/breadcrumb.tpl.html'
         });
+
     };
 
 })();

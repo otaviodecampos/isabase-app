@@ -1,0 +1,6 @@
+{
+    "name": "admin.app",
+    "url": "/app",
+    "templateUrl": "isabase-app/app.state.tpl.html",
+    "controller": "AppCtrl as ctrl"
+}

@@ -1,0 +1,10 @@
+{
+    "name": "admin.app.model.edit",
+    "url": "/:modelName/edit",
+    "views": {
+        "@admin": {
+            "templateUrl": "isabase-app/model-edit.state.tpl.html",
+            "controller": "ModelEditCtrl as ctrl"
+        }
+    }
+}

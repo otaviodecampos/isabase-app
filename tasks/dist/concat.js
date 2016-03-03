@@ -26,7 +26,8 @@ module.exports = function () {
 
     var jsStream = gulp.src(input)
         .pipe(ngjson.module())
-        .pipe(ngjson.constant());
+        .pipe(ngjson.constant())
+        .pipe(ngjson.state());
 
     var vendorStream = gulp.src(inputVendor);
 
@@ -41,6 +42,8 @@ module.exports = function () {
             "**/*.constant.json",
             "**/*.provider.js",
             "**/*.config.js",
+            "**/*.state.json",
+            "**/*.state.js",
             "**/*.js",
             "**/*.tpl.html"
         ]))

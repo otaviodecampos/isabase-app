@@ -1,0 +1,10 @@
+{
+    "name": "admin.app.edit",
+    "url": "/:appName/edit",
+    "views": {
+        "@admin": {
+            "templateUrl": "isabase-app/app-edit.state.tpl.html",
+            "controller": "AppEditCtrl as ctrl"
+        }
+    }
+}
