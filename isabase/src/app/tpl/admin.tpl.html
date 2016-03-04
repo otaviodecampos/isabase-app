@@ -1,7 +1,5 @@
 <header></header>
-<toaster-container
-        toaster-options="{'time-out': app.notification.timeout, 'position-class': app.notification.positionClass, 'close-button': app.notification.closeButton, 'body-output-type': 'trustedHtml' }">
-</toaster-container>
-<div ncy-breadcrumb></div>
-<div class="ui container content" ng-class="{back: moveToParent}" ui-view=""></div>
+<toaster-container toaster-options="admin.toasterOptions"></toaster-container>
+<ncy-breadcrumb></ncy-breadcrumb>
+<div class="ui container content" ng-class="{back: admin.moveToParent}" ui-view=""></div>
 <footer></footer>

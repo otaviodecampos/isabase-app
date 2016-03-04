@@ -2,5 +2,6 @@
     "name": "admin",
     "url": "",
     "abstract": true,
-    "templateUrl": "isabase-app/admin.tpl.html"
+    "templateUrl": "isabase-app/admin.tpl.html",
+    "controller": "AdminCtrl as admin"
 }

@@ -5,7 +5,7 @@
         .controller('FieldEditCtrl', Controller);
 
     /* @ngInject */
-    function Controller($scope, $stateParams, Models, FIELD, $q) {
+    function Controller($scope, $stateParams, Models, FIELD_TYPES, $q) {
         var that = this
             , appName = $stateParams.appName
             , modelCtrl = $scope.ctrl
@@ -13,7 +13,7 @@
 
         this.isNew = !field.name;
         this.field = angular.copy(field);
-        this.types = FIELD;
+        this.types = FIELD_TYPES;
         this.models = Models.query({appName: appName});
 
         $scope.$watch('fieldCtrl.field.target', function (newValue, oldValue) {
