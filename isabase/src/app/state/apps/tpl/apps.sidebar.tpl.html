@@ -1,0 +1,39 @@
+<div class="ui raised segment">
+    <h3 class="ui header">
+        <i ng-if="ctrl.selected" ui-popup="{inline: true}"
+           data-content="{{ 'remove' | translate:{name: ('app' | translate) } | capitalize }}"
+           data-position="left center" ng-click="ctrl.removeSelected()"
+           class="small right aligned trash icon link"></i>
+        {{ 'manage' | translate }}
+
+        <div class="sub header" ng-switch="ctrl.selected == null">
+            <p ng-switch-when="true">{{ 'appSelectMessage' | translate }}</p>
+            <p ng-switch-default>{{ 'appSelectedMessage' | translate }}</p>
+        </div>
+    </h3>
+
+    <span class="ui container center aligned actions">
+        <div ng-if="ctrl.selected">
+            <a ui-sref="admin.apps.edit({ appName: ctrl.selected.name })"
+               class="ui fluid action labeled blue button icon">
+                <i class="edit icon"></i>
+                {{ 'appEdit' | translate }}
+            </a>
+
+            <a ui-sref="admin.apps.models({ appName: ctrl.selected.name })"
+               class="ui fluid action labeled blue button icon">
+                <i class="cubes icon"></i>
+                {{ 'modelList' | translate }}
+            </a>
+
+            <div class="ui horizontal divider">
+                {{ 'or' | translate }}
+            </div>
+        </div>
+
+        <a ui-sref="admin.apps.edit({ appName: 'new' })" class="ui fluid action labeled blue button icon">
+            <i class="add circle icon"></i>
+            {{ 'appNew' | translate }}
+        </a>
+    </span>
+</div>

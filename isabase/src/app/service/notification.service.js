@@ -5,7 +5,7 @@
         .service('Notification', Notification);
 
     /* @ngInject */
-    function Notification(toaster, $translate, APP) {
+    function Notification(toaster, $translate, APP_CONFIG) {
 
         var _this = this
             , history = []
@@ -49,8 +49,8 @@
                 args[2] = text;
                 args = [args[0], args[1], args[2]];
                 history.push(args);
-                if (history.length > APP.notification.history) {
-                    history = history.slice(history.length - APP.notification.history, history.length);
+                if (history.length > APP_CONFIG.notification.history) {
+                    history = history.slice(history.length - APP_CONFIG.notification.history, history.length);
                 }
 
                 toaster.pop.apply(toaster, args);

@@ -5,19 +5,14 @@
         .run(Run);
 
     /* @ngInject */
-    function Run($rootScope, $state, $stateParams, APP, Navigation) {
+    function Run($rootScope, $state, $stateParams, Navigation, APP_CONFIG) {
 
         $rootScope.stateParams = $stateParams;
-        $rootScope.app = APP;
+        $rootScope.appConfig = APP_CONFIG;
         $rootScope.back = Navigation.back;
 
         $rootScope.$on('$stateChangeStart', function (event, toState) {
-            var moveToParent = $state.includes(toState.name);
-            if (moveToParent) {
-                $rootScope.moveToParent = true;
-            } else {
-                $rootScope.moveToParent = false;
-            }
+            $rootScope.moveToParent = $state.includes(toState.name);
         });
 
     };

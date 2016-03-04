@@ -1,5 +1,0 @@
-{
-  "app": "/app/:appName",
-  "model": "/app/:appName/model/:modelName",
-  "record": "/app/:appName/model/:modelName/record/:recordId"
-}

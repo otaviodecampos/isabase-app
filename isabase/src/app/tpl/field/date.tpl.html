@@ -1,11 +1,10 @@
 <div class="four wide column right aligned field label"
-     ng-class="{required: field.required, error: form[field.name].$dirty && form[field.name].$invalid}">
+     ng-class="{required: field.required, error: form[field.name].$invalid && (form[field.name].$touched || form.$submitted)}">
     <label>{{ field.name | translate | capitalize }}</label>
 </div>
 
 <div ui-calendar="{type: 'date', monthFirst: false}" class="wide column field ui calendar"
-     ng-class="{seven: small, ten: !small, error: form[field.name].$dirty && form[field.name].$invalid}"
-     ng-validate-blur ng-validate-submit>
+     ng-class="{seven: small, ten: !small, error: form[field.name].$invalid && (form[field.name].$touched || form.$submitted)}">
 
     <div class="ui fluid input left icon">
         <i class="calendar icon"></i>

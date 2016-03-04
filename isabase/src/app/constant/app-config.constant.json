@@ -1,0 +1,13 @@
+{
+  "default-url": "/apps",
+  "locale": {
+    "preferred-language": "pt-BR",
+    "translation-dir": "/assets/i18n"
+  },
+  "notification": {
+    "timeout": 5000,
+    "position-class": "toast-top-right",
+    "close-button": true,
+    "history": 5
+  }
+}

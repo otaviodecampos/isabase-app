@@ -1,0 +1,5 @@
+{
+  "apps": "/apps/:appName",
+  "models": "/apps/:appName/models/:modelName",
+  "records": "/apps/:appName/models/:modelName/records/:recordId"
+}

@@ -1,0 +1,35 @@
+<div class="ui two column doubling stackable grid">
+    <div class="eleven wide column">
+        <div class="ui raised segment">
+            <h2 class="ui header">
+                {{ 'modelList' | translate }}
+                <div class="sub header">{{ ctrl.models.length }} {{ 'models' | translate }}</div>
+            </h2>
+
+            <div ui-popup="{inline: true}"
+                 data-content="{{ 'app' | translate }}" data-position="left center"
+                 class="ui absolute floated right ribbon blue label">{{ ctrl.myapp.name | capitalize }}
+            </div>
+
+            <table class="ui very basic table striped selectable">
+                <thead>
+                <tr>
+                    <th>{{ 'name' | translate }}</th>
+                    <th>{{ 'description' | translate }}</th>
+                    <th>{{ 'records' | translate }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="link" ng-init="ctrl.init(model)" ng-class="{selected: ctrl.selected == model}"
+                    ng-click="ctrl.select(model)"
+                    ng-repeat="model in ctrl.models">
+                    <td>{{ model.name }}</td>
+                    <td>{{ model.description }}</td>
+                    <td>{{ model.records }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="five wide column" ng-include="'isabase-app/models.sidebar.tpl.html'"></div>
+</div>

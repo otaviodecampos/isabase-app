@@ -1,0 +1,10 @@
+{
+    "name": "admin.apps.models",
+    "url": "/:appName/models",
+    "views": {
+        "@admin": {
+            "templateUrl": "isabase-app/models.state.tpl.html",
+            "controller": "ModelsCtrl as ctrl"
+        }
+    }
+}

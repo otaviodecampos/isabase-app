@@ -1,0 +1,14 @@
+<div class="ui fixed inverted menu top topmenu">
+    <div class="ui container">
+        <a href="#" class="header item">
+            <img class="logo" src="assets/images/logo.png">
+        </a>
+        <div ui-dropdown="{action: 'hide'}" class="ui pointing dropdown link item top right">
+            <span class="text">otaviodecampos</span>
+            <i class="angle down icon"></i>
+            <div class="menu">
+                <a class="item" href="{{ item.url }}" ng-repeat="item in header.items">{{ item.label | translate }}</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="ui raised segment">
+    <h3 class="ui header">
+        <i ng-if="ctrl.selected" ui-popup="{inline: true}"
+           data-content="{{ 'remove' | translate:{name: ('record' | translate) } | capitalize }}"
+           data-position="left center" ng-click="ctrl.removeSelected()"
+           class="small right aligned trash icon link"></i>
+        {{ 'manage' | translate }}
+
+        <div class="sub header" ng-switch="ctrl.selected == null">
+            <p ng-switch-when="true">{{ 'recordSelectMessage' | translate }}</p>
+            <p ng-switch-default>{{ 'recordSelectedMessage' | translate }}</p>
+        </div>
+    </h3>
+
+    <span class="ui container center aligned actions">
+        <div ng-if="ctrl.selected">
+            <a ui-sref="admin.apps.models.records.edit({ recordId: ctrl.selected.id })"
+               class="ui fluid action labeled blue button icon">
+                <i class="edit icon"></i>
+                {{ 'edit' | translate }}
+            </a>
+
+            <div class="ui horizontal divider">
+                {{ 'or' | translate }}
+            </div>
+        </div>
+
+        <a ui-sref="admin.apps.models.records.edit({ recordId: 'new' })"
+           class="ui fluid action labeled blue button icon">
+            <i class="add circle icon"></i>
+            {{ 'recordNew' | translate }}
+        </a>
+
+        <a ui-sref="admin.apps.models.edit({ modelName: ctrl.model.name })"
+           class="ui fluid action labeled blue button icon">
+            <i class="edit icon"></i>
+            {{ 'modelEdit' | translate }}
+        </a>
+
+        <a ui-sref="admin.apps.models" class="ui fluid action labeled blue button icon">
+            <i class="list icon"></i>
+            {{ 'modelList' | translate }}
+        </a>
+
+        <a ui-sref="admin.apps" class="ui fluid action labeled blue button icon">
+            <i class="list icon"></i>
+            {{ 'appList' | translate }}
+        </a>
+
+    </span>
+</div>

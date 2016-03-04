@@ -5,16 +5,16 @@
         .config(Config);
 
     /* @ngInject */
-    function Config($translateProvider, $locationProvider, $breadcrumbProvider, $urlRouterProvider, APP) {
+    function Config($translateProvider, $locationProvider, $breadcrumbProvider, $urlRouterProvider, APP_CONFIG) {
 
         $locationProvider.html5Mode(false);
 
-        $urlRouterProvider.otherwise(APP.defaultUrl);
+        $urlRouterProvider.otherwise(APP_CONFIG.defaultUrl);
 
-        $translateProvider.preferredLanguage(APP.locale.preferredLanguage);
+        $translateProvider.preferredLanguage(APP_CONFIG.locale.preferredLanguage);
         $translateProvider.useSanitizeValueStrategy(null);
         $translateProvider.useStaticFilesLoader({
-            prefix: APP.locale.translationDir + "/",
+            prefix: APP_CONFIG.locale.translationDir + "/",
             suffix: '.json'
         });
 

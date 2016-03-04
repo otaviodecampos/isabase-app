@@ -1,11 +1,10 @@
 <div class="four wide column right aligned field label"
-     ng-class="{required: field.required, error: form[field.name].$dirty && form[field.name].$invalid}">
+     ng-class="{required: field.required, error: form[field.name].$invalid && (form[field.name].$touched || form.$submitted)}">
     <label>{{ field.name | translate | capitalize }}</label>
 </div>
 
 <div ng-switch="field.multipleRows == true" class="wide column field"
-     ng-class="{seven: small, ten: !small, error: form[field.name].$dirty && form[field.name].$invalid}"
-     ng-validate-blur ng-validate-submit>
+     ng-class="{seven: small, ten: !small, error: form[field.name].$invalid && (form[field.name].$touched || form.$submitted)}">
 
     <div ng-switch-when="false" class="ui fluid input">
         <input type="text" name="{{ field.name }}" ng-model="model[field.name]"

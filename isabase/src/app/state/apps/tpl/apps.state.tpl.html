@@ -1,0 +1,30 @@
+<div class="ui two column doubling stackable grid">
+    <div class="eleven wide column">
+        <div class="ui raised segment">
+            <h2 class="ui header">
+                {{ 'appList' | translate }}
+                <div class="sub header">{{ ctrl.myapps.length }} {{ 'apps' | translate }}</div>
+            </h2>
+
+            <table class="ui very basic table striped selectable">
+                <thead>
+                <tr>
+                    <th>{{ 'name' | translate }}</th>
+                    <th>{{ 'description' | translate }}</th>
+                    <th>{{ 'models' | translate }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="link" ng-init="ctrl.init(app)" ng-class="{selected: ctrl.selected == app}"
+                    ng-click="ctrl.select(app)"
+                    ng-repeat="app in ctrl.myapps">
+                    <td>{{ app.name }}</td>
+                    <td>{{ app.description }}</td>
+                    <td>{{ app.models }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="five wide column" ng-include="'isabase-app/apps.sidebar.tpl.html'"></div>
+</div>

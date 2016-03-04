@@ -1,11 +1,11 @@
 <div class="four wide column right aligned field label"
-     ng-class="{required: field.required && data.length, error: form[field.name].$dirty && form[field.name].$invalid}">
+     ng-class="{required: field.required && data.length, error: form[field.name].$invalid && (form[field.name].$touched || form.$submitted)}">
     <label>{{ field.name | translate | capitalize }}</label>
 </div>
 
 <div class="wide column field"
-     ng-class="{seven: small, ten: !small, error: form[field.name].$dirty && form[field.name].$invalid}"
-     ng-validate-submit ng-switch="field.collection == true">
+     ng-class="{seven: small, ten: !small, error: form[field.name].$invalid && (form[field.name].$touched || form.$submitted)}"
+     ng-switch="field.collection == true">
 
     <select name="{{ field.name }}" ng-switch-when="false" ui-dropdown ng-model="model[field.name]"
             ng-options="{{ 'record as record.$displayField.value for record in data track by record.id' }}"

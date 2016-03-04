@@ -1,0 +1,14 @@
+[
+  {
+    "label": "account",
+    "url": "/#/account"
+  },
+  {
+    "label": "apps",
+    "url": "/#/apps"
+  },
+  {
+    "label": "logout",
+    "url": "/#/logout"
+  }
+]

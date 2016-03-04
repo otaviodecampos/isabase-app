@@ -1,6 +1,5 @@
 <div class="twelve wide right floated column field"
-     ng-class="{required: field.required, error: form[field.name].$dirty && form[field.name].$invalid}"
-     ng-validate-submit>
+     ng-class="{required: field.required, error: form[field.name].$invalid && (form[field.name].$touched || form.$submitted)}">
 
     <div class="ui checkbox">
         <input type="checkbox" name="{{ field.name }}" ng-model="model[field.name]" ng-required="field.required">
