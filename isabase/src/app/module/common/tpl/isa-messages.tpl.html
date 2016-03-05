@@ -1,0 +1,9 @@
+<div class="ui error message" ui-message ng-show="form.$submitted && form.$invalid">
+    <div class="header">
+        {{ 'checkBelowInconsistencies' | translate }}
+    </div>
+    <ul class="list" ng-messages="form[field.name].$error" ng-messages-multiple ng-repeat="field in fields">
+        <li ng-message="required" ng-bind-html="(field.message.required | translate) || ('fieldRequiredMessage' | translate:{name: (field.name | translate)})"></li>
+        <li ng-message="pattern" ng-bind-html="(field.message.pattern | translate) || ('fieldInvalidMessage' | translate:{name: (field.name | translate)})"></li>
+    </ul>
+</div>

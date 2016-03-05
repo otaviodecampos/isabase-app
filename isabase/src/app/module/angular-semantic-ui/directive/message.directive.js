@@ -4,10 +4,10 @@
     angular.module('angular-semantic-ui')
         .directive('uiMessage', Directive);
 
-    function Directive($parse) {
+    function Directive() {
         return {
             restrict: 'A',
-            link: function (scope, element, attrs) {
+            link: function (scope, element) {
 
                 element.find('.close')
                     .on('click', function () {

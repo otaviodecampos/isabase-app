@@ -32,7 +32,8 @@
   "fieldEmptyNameMessage": "Informe um nome para o campo",
   "fieldSameNameMessage": "Já existe um campo com esse nome",
   "fieldTargetEmptyMessage": "Informe um modelo",
-  "fieldEmptyRequiredMessage": "Informe um valor para o campo <strong>{{ name }}</strong>",
+  "fieldRequiredMessage": "Informe um valor para o campo <strong>{{ name }}</strong>",
+  "fieldInvalidMessage": "Informe um valor válido para o campo <strong>{{ name }}</strong>",
 
   "removeSuccess": "Removido com sucesso",
   "removeFail": "Não foi possível remover",

@@ -30,7 +30,8 @@
     "angular-breadcrumb": "^0.4.1",
     "angular-translate-once": "^1.0.3",
     "angular-sanitize": "^1.5.0",
-    "lodash": "^4.3.0"
+    "lodash": "^4.3.0",
+    "angular-messages": "^1.5.0"
   },
   "devDependencies": {
     "ui-router-extras": "~0.1.0"

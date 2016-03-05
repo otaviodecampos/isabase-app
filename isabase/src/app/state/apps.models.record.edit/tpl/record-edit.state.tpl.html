@@ -11,19 +11,10 @@
                  class="ui absolute floated right ribbon blue label">{{ ctrl.model.name | capitalize }}
             </div>
 
-            <div ui-message ng-show="form.$submitted && form.$error.required && form.$error.required.length"
-                 class="ui error message">
-                <div class="header">
-                    {{ 'checkBelowInconsistencies' | translate }}
-                </div>
-                <ul class="list">
-                    <li ng-repeat="error in form.$error.required"
-                        ng-bind-html="'fieldEmptyRequiredMessage' | translate:{name: error.$name}"></li>
-                </ul>
-            </div>
+            <isa-messages form="form" fields="ctrl.model.fields"></isa-messages>
 
-            <form ng-submit="form.$valid && ctrl.save($event);" name="form"
-                  class="ui container stackable grid form margin top" novalidate>
+            <form name="form" class="ui container stackable grid form margin top"
+                  ng-submit="form.$valid && ctrl.save($event);" novalidate>
 
                 <div class="row middle aligned" ng-if="ctrl.record.id != undefined">
                     <div class="four wide column right aligned label">

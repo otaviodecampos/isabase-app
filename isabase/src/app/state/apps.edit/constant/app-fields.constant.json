@@ -3,10 +3,10 @@
     "name": "name",
     "type": "text",
     "required": true,
+    "validation": "^[a-zA-Z][a-zA-Z0-9]*$",
     "message": {
       "required": "appEmptyNameMessage"
-    },
-    "validation": "^[a-zA-Z][a-zA-Z0-9]*$"
+    }
   },
   {
     "name": "description",

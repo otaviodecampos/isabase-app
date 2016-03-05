@@ -6,20 +6,13 @@
                 <div class="sub header">{{ ::(ctrl.myapp.id != undefined ? ctrl.myapp.name : '' | capitalize) }}</div>
             </h2>
 
-            <div ui-message ng-show="form.$submitted && form.$error.required && form.$error.required.length"
-                 class="ui error message">
-                <div class="header">
-                    {{ 'checkBelowInconsistencies' | translate }}
-                </div>
-                <ul class="list">
-                    <li ng-repeat="field in form.$error.required"
-                        ng-bind-html="message[field.$name].required ? (message[field.$name].required | translate) : ('fieldEmptyRequiredMessage' | translate:{name: field.$name})"></li>
-                </ul>
-            </div>
+            <isa-messages form="form" fields="ctrl.fields"></isa-messages>
 
-            <form ng-init="message = {}" ng-submit="form.$valid && ctrl.save($event);" name="form"
-                  class="ui container stackable grid form margin top" novalidate>
-                <div ng-init="model = ctrl.myapp; message[field.name] = field.message" class="row middle aligned"
+            <form name="form" class="ui container stackable grid form margin top"
+                  ng-submit="form.$valid && ctrl.save($event);" novalidate>
+
+                <div class="row middle aligned"
+                     ng-init="model = ctrl.myapp;"
                      ng-repeat="field in ctrl.fields"
                      ng-include="'isabase-app/' + field.type + '.tpl.html'">
                 </div>
@@ -30,7 +23,7 @@
                             <i class="save icon"></i>
                             {{ 'saveChanges' | translate }}
                         </button>
-                        <a ng-click="ctrl.clear()" class="ui labeled button">
+                        <a class="ui labeled button" ng-click="ctrl.clear()">
                             {{ 'clear' | translate }}
                         </a>
                     </div>

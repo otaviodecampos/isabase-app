@@ -6,23 +6,16 @@
                 <div class="sub header">{{ ::(ctrl.model.id != undefined ? ctrl.model.name : '' | capitalize) }}</div>
             </h2>
 
-            <div ui-popup="{inline: true}"
-                 data-content="{{ 'app' | translate }}" data-position="left center"
-                 class="ui absolute floated right ribbon blue label">{{ ctrl.myapp.name | capitalize }}
+            <div class="ui absolute floated right ribbon blue label"
+                 ui-popup="{inline: true}"
+                 data-content="{{ 'app' | translate }}"
+                 data-position="left center">
+                {{ ctrl.myapp.name | capitalize }}
             </div>
 
-            <div ui-message ng-show="form.$submitted && form.$error.required && form.$error.required.length"
-                 class="ui error message">
-                <div class="header">
-                    {{ 'checkBelowInconsistencies' | translate }}
-                </div>
-                <ul class="list">
-                    <li ng-repeat="field in form.$error.required"
-                        ng-bind-html="message[field.$name].required ? (message[field.$name].required | translate) : ('fieldEmptyRequiredError' | translate:{name: field.$name})"></li>
-                </ul>
-            </div>
+            <isa-messages form="form" fields="ctrl.fields.model"></isa-messages>
 
-            <form ng-init="message = {}" ng-submit="form.$valid && ctrl.save($event);" name="form" novalidate>
+            <form name="form" ng-submit="form.$valid && ctrl.save($event);" novalidate>
 
                 <div ui-tab class="ui top attached tabular menu margin top">
                     <a class="item active" data-tab="first">{{ 'model' | translate }}</a>
@@ -32,8 +25,9 @@
                 <div class="ui bottom attached tab segment basic active" data-tab="first">
                     <div class="ui container stackable grid form">
 
-                        <div ng-init="model = ctrl.model; message[field.name] = field.message"
-                             class="row middle aligned" ng-repeat="field in ctrl.fields.model"
+                        <div class="row middle aligned"
+                             ng-init="model = ctrl.model;"
+                             ng-repeat="field in ctrl.fields.model"
                              ng-include="'isabase-app/' + field.type + '.tpl.html'">
                         </div>
 
@@ -42,7 +36,7 @@
 
                 <div class="ui bottom attached tab segment basic spaced-none spaced-top" data-tab="second">
 
-                    <a ng-click="ctrl.newField()" class="ui tiny blue button">
+                    <a class="ui tiny blue button" ng-click="ctrl.newField()">
                         <i class="add circle icon"></i>
                         {{ 'new' | translate }}
                     </a>

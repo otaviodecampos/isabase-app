@@ -5,7 +5,7 @@
         .config(Config);
 
     /* @ngInject */
-    function Config($translateProvider, $locationProvider, $breadcrumbProvider, $urlRouterProvider, APP_CONFIG) {
+    function Config($translateProvider, $locationProvider, $breadcrumbProvider, $urlRouterProvider, uiCalendarProvider, APP_CONFIG, CALENDAR_CONFIG) {
 
         $locationProvider.html5Mode(false);
 
@@ -21,6 +21,8 @@
         $breadcrumbProvider.setOptions({
             templateUrl: 'isabase-app/breadcrumb.tpl.html'
         });
+
+        uiCalendarProvider.setSetting('text', CALENDAR_CONFIG[APP_CONFIG.locale.preferredLanguage.replace('-', '')]);
 
     };
 

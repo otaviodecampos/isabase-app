@@ -4,7 +4,7 @@
     angular.module('angular-semantic-ui')
         .directive('uiCalendar', Directive);
 
-    function Directive($parse, CALENDAR_CONFIG, APP_CONFIG) {
+    function Directive($parse, uiCalendar) {
         return {
             restrict: 'A',
             link: function (scope, element, attrs) {
@@ -40,7 +40,7 @@
                     return true;
                 };
 
-                settings.text = CALENDAR_CONFIG[APP_CONFIG.locale.preferredLanguage.replace('-', '')];
+                settings.text = uiCalendar.text;
                 element.calendar(settings);
             }
         };

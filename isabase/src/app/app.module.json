@@ -6,11 +6,12 @@
     "angular-semantic-ui",
     "ngAnimate",
     "ngSanitize",
-    "ui.router",
-    "pascalprecht.translate",
     "ngResource",
-    "toaster",
+    "ngMessages",
+    "pascalprecht.translate",
     "ncy-angular-breadcrumb",
-    "ct.ui.router.extras"
+    "ui.router",
+    "ct.ui.router.extras",
+    "toaster"
   ]
 }

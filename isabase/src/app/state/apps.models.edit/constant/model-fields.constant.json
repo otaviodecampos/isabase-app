@@ -4,6 +4,7 @@
       "name": "name",
       "type": "text",
       "required": true,
+      "validation": "^[a-zA-Z][a-zA-Z0-9]*$",
       "message": {
         "required": "modelEmptyNameMessage"
       }
