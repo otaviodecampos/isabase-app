@@ -2,7 +2,7 @@
     'use strict'
 
     angular.module('isabase-app')
-        .service('Notification', Notification);
+        .service('notification', Notification);
 
     /* @ngInject */
     function Notification(toaster, $translate, APP_CONFIG) {

@@ -5,7 +5,7 @@
         .run(Run);
 
     /* @ngInject */
-    function Run($rootScope, $state, $stateParams, Navigation, APP_CONFIG) {
+    function Run($rootScope, $state, $stateParams, navigation, APP_CONFIG) {
 
     
     };

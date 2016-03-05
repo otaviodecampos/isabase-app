@@ -5,35 +5,35 @@
         .controller('RecordEditCtrl', Controller);
 
     /* @ngInject */
-    function Controller($stateParams, Apps, Models, Records, Notification, Navigation) {
+    function Controller($stateParams, apps, models, records, notification, navigation) {
         var that = this
             , modelName = $stateParams.modelName;
 
         this.selected = null;
-        this.myapp = Apps.get($stateParams);
-        this.model = Models.get($stateParams);
+        this.myapp = apps.get($stateParams);
+        this.model = models.get($stateParams);
 
         this.model.$promise.then(function (model) {
-            that.record = Records.get($stateParams);
-            that.record.$promise.then(null, Navigation.back);
+            that.record = records.get($stateParams);
+            that.record.$promise.then(null, navigation.back);
         });
 
         this.save = function () {
             this.record.$save({modelName: modelName}, function (record) {
-                Notification.success('record', that.record.id, 'saveSuccess');
-                Navigation.setParamsAndBack({recordId: record.id});
+                notification.success('record', that.record.id, 'saveSuccess');
+                navigation.setParamsAndBack({recordId: record.id});
             }, function (e) {
-                Notification.error('record', that.record.id, 'saveFail');
+                notification.error('record', that.record.id, 'saveFail');
                 console.log(e);
             });
         }
 
         this.remove = function () {
             this.record.$remove(function () {
-                Notification.success('record', that.record.id, 'removeSuccess');
-                Navigation.back();
+                notification.success('record', that.record.id, 'removeSuccess');
+                navigation.back();
             }, function (e) {
-                Notification.error('record', that.record.id, 'removeFail');
+                notification.error('record', that.record.id, 'removeFail');
             });
         }
 

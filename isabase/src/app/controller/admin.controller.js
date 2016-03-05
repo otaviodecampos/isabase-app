@@ -5,13 +5,13 @@
         .controller('AdminCtrl', Controller);
 
     /* @ngInject */
-    function Controller($rootScope, $state, $stateParams, Navigation, APP_CONFIG) {
+    function Controller($rootScope, $state, $stateParams, navigation, APP_CONFIG) {
         
         var that = this;
         
         this.stateParams = $stateParams;
         this.appConfig = APP_CONFIG;
-        this.back = Navigation.back;
+        this.back = navigation.back;
         
         this.toasterOptions = {
             'time-out': this.appConfig.notification.timeout, 

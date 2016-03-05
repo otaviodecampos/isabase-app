@@ -5,11 +5,11 @@
         .controller('AppsCtrl', Controller);
 
     /* @ngInject */
-    function Controller($previousState, Apps, Notification) {
+    function Controller($previousState, apps, notification) {
         var that = this;
 
         this.selected = null;
-        this.myapps = Apps.query();
+        this.myapps = apps.query();
 
         this.select = function (app) {
             this.selected = this.selected == app ? null : app;
@@ -19,10 +19,10 @@
             this.selected.$remove(function () {
                 var index = that.myapps.indexOf(that.selected);
                 that.myapps.splice(index, 1);
-                Notification.success('app', that.selected.name, 'removeSuccess');
+                notification.success('app', that.selected.name, 'removeSuccess');
                 that.selected = null;
             }, function (e) {
-                Notification.error('app', that.selected.name, 'removeFail');
+                notification.error('app', that.selected.name, 'removeFail');
             });
         }
 

@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('common')
-        .service('Modal', Service);
+        .service('modal', Service);
 
     /* @ngInject */
     function Service($templateRequest, $document, $compile, $rootScope, $q, $controller) {

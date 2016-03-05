@@ -8,11 +8,11 @@
 
     <div ng-switch-when="false" class="ui fluid input">
         <input type="text" name="{{ field.name }}" ng-model="model[field.name]"
-               placeholder="{{ field.name | translate | capitalize }}" ng-required="field.required">
+               placeholder="{{ field.name | translate | capitalize }}" ng-pattern="field.validation" ng-required="field.required">
     </div>
 
     <div ng-switch-when="true" class="ui fluid input">
         <textarea rows="5" name="{{ field.name }}" ng-model="model[field.name]"
-                  placeholder="{{ field.name | translate | capitalize }}" ng-required="field.required"></textarea>
+                  placeholder="{{ field.name | translate | capitalize }}" ng-pattern="field.validation" ng-required="field.required"></textarea>
     </div>
 </div>

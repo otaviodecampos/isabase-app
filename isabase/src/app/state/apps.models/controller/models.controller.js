@@ -5,14 +5,14 @@
         .controller('ModelsCtrl', Controller);
 
     /* @ngInject */
-    function Controller($stateParams, $previousState, Notification, Apps, Models, Navigation) {
+    function Controller($stateParams, $previousState, notification, apps, models, navigation) {
         var that = this;
 
         this.selected = null;
-        this.myapp = Apps.get($stateParams);
-        this.myapp.$promise.then(null, Navigation.back);
+        this.myapp = apps.get($stateParams);
+        this.myapp.$promise.then(null, navigation.back);
 
-        this.models = Models.query($stateParams);
+        this.models = models.query($stateParams);
 
         this.select = function (model) {
             this.selected = this.selected == model ? null : model;
@@ -22,10 +22,10 @@
             this.selected.$remove(function () {
                 var index = that.models.indexOf(that.selected);
                 that.models.splice(index, 1);
-                Notification.success('model', that.selected.name, 'removeSuccess');
+                notification.success('model', that.selected.name, 'removeSuccess');
                 that.selected = null;
             }, function (e) {
-                Notification.error('model', that.selected.name, 'removeError');
+                notification.error('model', that.selected.name, 'removeError');
             });
         }
 

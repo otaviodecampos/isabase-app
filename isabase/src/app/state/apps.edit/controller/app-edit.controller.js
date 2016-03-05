@@ -5,30 +5,30 @@
         .controller('AppEditCtrl', Controller);
 
     /* @ngInject */
-    function Controller($stateParams, Apps, Navigation, Notification, APP_FIELDS) {
+    function Controller($stateParams, apps, navigation, notification, APP_FIELDS) {
         var that = this
             , appName = $stateParams.appName;
 
         this.fields = APP_FIELDS;
-        this.myapp = Apps.get({appName: appName});
-        this.myapp.$promise.then(null, Navigation.back);
+        this.myapp = apps.get({appName: appName});
+        this.myapp.$promise.then(null, navigation.back);
 
         this.save = function () {
             this.myapp.$save({appName: appName == 'new' ? '' : appName}, function (app) {
-                Notification.success('app', app.name, 'saveSuccess');
-                Navigation.setParamsAndBack({appName: app.name});
+                notification.success('app', app.name, 'saveSuccess');
+                navigation.setParamsAndBack({appName: app.name});
             }, function (e) {
-                Notification.error('app', that.myapp.name, 'saveFail');
+                notification.error('app', that.myapp.name, 'saveFail');
                 console.log(e);
             });
         }
 
         this.remove = function () {
             this.myapp.$remove(function () {
-                Notification.success('app', that.myapp.name, 'removeSuccess');
-                Navigation.back();
+                notification.success('app', that.myapp.name, 'removeSuccess');
+                navigation.back();
             }, function (e) {
-                Notification.error('app', that.myapp.name, 'removeFail');
+                notification.error('app', that.myapp.name, 'removeFail');
             });
         }
 

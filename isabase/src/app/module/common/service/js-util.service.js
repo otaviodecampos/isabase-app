@@ -1,8 +1,8 @@
 (function () {
     'use strict'
 
-    angular.module('isabase-app')
-        .service('JSUtil', Service);
+    angular.module('common')
+        .service('jsUtil', Service);
 
     /* @ngInject */
     function Service() {
