@@ -1,8 +1,8 @@
 <div class="ui raised segment">
     <h3 class="ui header">
-        <i ng-if="ctrl.model.id != undefined" ui-popup="{inline: true}"
+        <i ng-if="!ctrl.model.$new" ui-popup="{inline: true}"
            data-content="{{ 'remove' | translate:{name: ('model' | translate) } | capitalize }}"
-           data-position="left center"  ng-click="ctrl.remove()"
+           data-position="left center" ng-click="ctrl.remove()"
            class="small right aligned trash icon link"></i>
         {{ 'manage' | translate }}
 
@@ -17,8 +17,9 @@
             {{ 'modelList' | translate }}
         </a>
 
-        <a ui-sref="admin.apps.models.records({ modelName: ctrl.model.name })" ng-if="ctrl.model.id != undefined"
-           class="ui fluid action labeled blue button icon">
+        <a class="ui fluid action labeled blue button icon"
+           ui-sref="admin.apps.models.records({ modelName: ctrl.model.name })"
+           ng-if="!ctrl.model.$new">
             <i class="cubes icon"></i>
             {{ 'recordList' | translate }}
         </a>

@@ -2,8 +2,8 @@
     <div class="eleven wide column">
         <div class="ui raised segment">
             <h2 class="ui header">
-                {{ ctrl.model.id != undefined ? 'modelEdit' : 'modelNew' | translate }}
-                <div class="sub header">{{ ::(ctrl.model.id != undefined ? ctrl.model.name : '' | capitalize) }}</div>
+                {{ ctrl.model.$new ? 'modelNew' : 'modelEdit' | translate }}
+                <div class="sub header">{{ ::(ctrl.model.$new ? '' : ctrl.model.name | capitalize) }}</div>
             </h2>
 
             <div class="ui absolute floated right ribbon blue label"

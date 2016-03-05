@@ -10,31 +10,31 @@
             , appName = $stateParams.appName;
 
         this.fields = APP_FIELDS;
-        this.myapp = apps.get({appName: appName});
-        this.myapp.$promise.then(null, navigation.back);
+        this.app = apps.get({appName: appName});
+        this.app.$promise.then(null, navigation.back);
 
         this.save = function () {
-            this.myapp.$save({appName: appName == 'new' ? '' : appName}, function (app) {
+            this.app.$save({appName: appName == 'new' ? '' : appName}, function (app) {
                 notification.success('app', app.name, 'saveSuccess');
                 navigation.setParamsAndBack({appName: app.name});
             }, function (e) {
-                notification.error('app', that.myapp.name, 'saveFail');
+                notification.error('app', that.app.name, 'saveFail');
                 console.log(e);
             });
         }
 
         this.remove = function () {
             this.myapp.$remove(function () {
-                notification.success('app', that.myapp.name, 'removeSuccess');
+                notification.success('app', that.app.name, 'removeSuccess');
                 navigation.back();
             }, function (e) {
-                notification.error('app', that.myapp.name, 'removeFail');
+                notification.error('app', that.app.name, 'removeFail');
             });
         }
 
         this.clear = function () {
             angular.forEach(APP_FIELDS, function (field) {
-                that.myapp[field.name] = null;
+                that.app[field.name] = null;
             });
         }
 

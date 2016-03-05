@@ -5,21 +5,16 @@
         .factory('models', Factory);
 
     /* @ngInject */
-    function Factory($resource, RESOURCE_URL) {
+    function Factory($resource, resourceUtil, RESOURCE_URL) {
         
-        var models = $resource(RESOURCE_URL.models, {appName: 'appName', modelName: '@name'}, {
+        var models = $resource(RESOURCE_URL.models, {appName: '@appName', modelName: '@name'}, {
             update: {method: 'PUT'},
             create: {method: 'POST'}
         });
 
-        models.prototype.$save = function () {
-            var method = this.$create;
-            if (this.id != undefined)  {
-                method = this.$update;
-            }
-            return method.apply(this, arguments);
-        };
-        
+        resourceUtil.decorateWithNewIndicator(models);
+        resourceUtil.decorateWithCreateOrUpdateByProperty(models);
+
         return models;
     };
 

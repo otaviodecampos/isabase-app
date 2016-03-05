@@ -1,6 +1,6 @@
 <div class="ui raised segment">
     <h3 class="ui header">
-        <i ng-if="ctrl.record.id != undefined" ui-popup="{inline: true}"
+        <i ng-if="!ctrl.record.$new" ui-popup="{inline: true}"
            data-content="{{ 'remove' | translate:{name: ('record' | translate) } | capitalize }}"
            data-position="left center" ng-click="ctrl.remove()"
            class="small right aligned trash icon link"></i>

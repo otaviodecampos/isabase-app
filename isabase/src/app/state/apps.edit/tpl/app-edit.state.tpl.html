@@ -2,8 +2,8 @@
     <div class="eleven wide column">
         <div class="ui raised segment">
             <h2 class="ui header">
-                {{ ctrl.myapp.id != undefined ? 'appEdit' : 'appNew' | translate }}
-                <div class="sub header">{{ ::(ctrl.myapp.id != undefined ? ctrl.myapp.name : '' | capitalize) }}</div>
+                {{ ctrl.app.$new ? 'appNew' : 'appEdit' | translate }}
+                <div class="sub header">{{ ::(ctrl.app.$new ? ''  : ctrl.app.name | capitalize) }}</div>
             </h2>
 
             <isa-messages form="form" fields="ctrl.fields"></isa-messages>
@@ -12,7 +12,7 @@
                   ng-submit="form.$valid && ctrl.save($event);" novalidate>
 
                 <div class="row middle aligned"
-                     ng-init="model = ctrl.myapp;"
+                     ng-init="model = ctrl.app;"
                      ng-repeat="field in ctrl.fields"
                      ng-include="'isabase-app/' + field.type + '.tpl.html'">
                 </div>

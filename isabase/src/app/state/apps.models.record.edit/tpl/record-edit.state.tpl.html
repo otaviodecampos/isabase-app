@@ -2,8 +2,8 @@
     <div class="eleven wide column">
         <div class="ui raised segment">
             <h2 class="ui header">
-                {{ ctrl.record.id != undefined ? 'recordEdit' : 'recordNew' | translate }}
-                <div class="sub header">{{ ::ctrl.record.id != undefined ? ctrl.record.id : '' }}</div>
+                {{ ctrl.record.$new ? 'recordNew' : 'recordEdit' | translate }}
+                <div class="sub header">{{ ::ctrl.record.$new ? '' : ctrl.record.id }}</div>
             </h2>
 
             <div ui-popup="{inline: true}"
@@ -15,16 +15,6 @@
 
             <form name="form" class="ui container stackable grid form margin top"
                   ng-submit="form.$valid && ctrl.save($event);" novalidate>
-
-                <div class="row middle aligned" ng-if="ctrl.record.id != undefined">
-                    <div class="four wide column right aligned label">
-                        <label>{{ 'id' | translate }}</label>
-                    </div>
-
-                    <div class="wide column field">
-                        {{ ctrl.record.id }}
-                    </div>
-                </div>
 
                 <div ng-controller="RecordFieldCtrl as fieldCtrl" ng-include="'isabase-app/' + field.type + '.tpl.html'"
                      ng-repeat="field in ctrl.model.fields" class="row middle aligned">
