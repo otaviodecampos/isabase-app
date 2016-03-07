@@ -18,11 +18,14 @@
                 </div>
 
                 <div class="row">
-                    <div class="twelve wide right floated column">
+                    <div class="fourteen wide right floated column">
                         <button type="submit" class="ui labeled button icon" ng-class="{ green: form.$valid }">
                             <i class="save icon"></i>
                             {{ 'saveChanges' | translate }}
                         </button>
+                        <a ng-click="navigation.back()" class="ui button">
+                            {{ 'cancel' | translate }}
+                        </a>
                         <a class="ui labeled button" ng-click="ctrl.clear()">
                             {{ 'clear' | translate }}
                         </a>
