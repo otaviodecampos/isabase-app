@@ -5,18 +5,17 @@
         .controller('RecordsCtrl', Controller);
 
     /* @ngInject */
-    function Controller($stateParams, $previousState, notification, apps, models, records, jsUtil) {
+    function Controller($stateParams, $previousState, notification, navigation, models, records, jsUtil) {
         var that = this
             , appName = $stateParams.appName
             , modelName = $stateParams.modelName;
 
         this.selected = null;
-        this.myapp = apps.get($stateParams);
         this.model = models.get($stateParams);
 
         this.model.$promise.then(function (model) {
             that.records = records.query($stateParams);
-        });
+        }, navigation.back);
 
         this.getModelFieldValue = function (object, field) {
             if (angular.isArray(object)) {
@@ -32,7 +31,7 @@
         }
 
         this.removeSelected = function () {
-            this.selected.$remove(function () {
+            this.selected.$remove($stateParams, function () {
                 var index = that.records.indexOf(that.selected);
                 that.records.splice(index, 1);
                 notification.success('record', that.selected.id, 'removeSuccess');

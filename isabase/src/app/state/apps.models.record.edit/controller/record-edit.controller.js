@@ -5,21 +5,21 @@
         .controller('RecordEditCtrl', Controller);
 
     /* @ngInject */
-    function Controller($stateParams, apps, models, records, notification, navigation) {
+    function Controller($stateParams, models, records, notification, navigation) {
         var that = this
+            , appName = $stateParams.appName
             , modelName = $stateParams.modelName;
 
         this.selected = null;
-        this.myapp = apps.get($stateParams);
         this.model = models.get($stateParams);
 
         this.model.$promise.then(function (model) {
             that.record = records.get($stateParams);
             that.record.$promise.then(null, navigation.back);
-        });
+        }, navigation.back);
 
         this.save = function () {
-            this.record.$save({modelName: modelName}, function (record) {
+            this.record.$save($stateParams, function (record) {
                 notification.success('record', that.record.id, 'saveSuccess');
                 navigation.setParamsAndBack({recordId: record.id});
             }, function (e) {
@@ -29,11 +29,12 @@
         }
 
         this.remove = function () {
-            this.record.$remove(function () {
+            this.record.$remove($stateParams, function () {
                 notification.success('record', that.record.id, 'removeSuccess');
                 navigation.back();
             }, function (e) {
                 notification.error('record', that.record.id, 'removeFail');
+                console.log(e);
             });
         }
 

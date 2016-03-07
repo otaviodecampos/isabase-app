@@ -1,5 +1,5 @@
 {
-  "apps": "/apps/:appName",
-  "models": "/apps/:appName/models/:modelName",
-  "records": "/apps/:appName/models/:modelName/records/:recordId"
+  "apps": "http://api.isabase.com.br/v1/apps/:appName",
+  "models": "http://api.isabase.com.br/v1/apps/:appName/models/:modelName",
+  "records": "http://api.isabase.com.br/v1/apps/:appName/models/:modelName/records/:recordId"
 }

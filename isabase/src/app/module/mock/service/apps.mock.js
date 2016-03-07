@@ -19,7 +19,7 @@
                        count++;
                    }
                 });
-                app.models = count;
+                app.modelsSize = count;
             });
             return data;
         });

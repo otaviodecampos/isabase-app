@@ -10,7 +10,7 @@
             , appName = $stateParams.appName;
 
         this.fields = APP_FIELDS;
-        this.app = apps.get({appName: appName});
+        this.app = apps.get($stateParams);
         this.app.$promise.then(null, navigation.back);
 
         this.save = function () {
@@ -29,6 +29,7 @@
                 navigation.back();
             }, function (e) {
                 notification.error('app', that.app.name, 'removeFail');
+                console.log(e);
             });
         }
 

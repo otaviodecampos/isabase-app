@@ -2,7 +2,6 @@
   "name": "isabase-app",
   "dependencies": [
     "common",
-    "isabase-mock",
     "angular-semantic-ui",
     "ngAnimate",
     "ngSanitize",
@@ -12,6 +11,8 @@
     "ncy-angular-breadcrumb",
     "ui.router",
     "ct.ui.router.extras",
-    "toaster"
+    "toaster",
+    "base64",
+    "isabase-mock"
   ]
 }

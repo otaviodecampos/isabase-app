@@ -2,8 +2,8 @@
     <div class="eleven wide column">
         <div class="ui raised segment">
             <h2 class="ui header">
-                {{ ctrl.app.$new ? 'appNew' : 'appEdit' | translate }}
-                <div class="sub header">{{ ::(ctrl.app.$new ? ''  : ctrl.app.name | capitalize) }}</div>
+                {{ ctrl.app.$$new ? 'appNew' : 'appEdit' | translate }}
+                <div class="sub header">{{ ::(ctrl.app.$$new ? ''  : ctrl.app.name | capitalize) }}</div>
             </h2>
 
             <isa-messages form="form" fields="ctrl.fields"></isa-messages>

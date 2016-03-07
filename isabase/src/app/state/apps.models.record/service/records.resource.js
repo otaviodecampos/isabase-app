@@ -7,7 +7,7 @@
     /* @ngInject */
     function Factory($resource, resourceUtil, RESOURCE_URL) {
 
-        var records = $resource(RESOURCE_URL.records, {appName: '@appName', modelName: '@modelName', recordId: '@id'}, {
+        var records = $resource(RESOURCE_URL.records, {appName: 'appName', modelName: 'modelName', recordId: '@id'}, {
             update: {method: 'PUT'},
             create: {method: 'POST'}
         });

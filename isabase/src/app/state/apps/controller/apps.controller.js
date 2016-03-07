@@ -23,6 +23,7 @@
                 that.selected = null;
             }, function (e) {
                 notification.error('app', that.selected.name, 'removeFail');
+                console.log(e);
             });
         }
 

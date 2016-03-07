@@ -4,7 +4,7 @@
            ui-popup="{inline: true}"
            data-content="{{ 'remove' | translate:{name: ('app' | translate) } | capitalize }}"
            data-position="left center" ng-click="ctrl.remove()"
-           ng-if="!ctrl.app.$new"></i>
+           ng-if="!ctrl.app.$$new"></i>
         {{ 'manage' | translate }}
 
         <div class="sub header">

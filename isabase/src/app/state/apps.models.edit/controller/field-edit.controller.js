@@ -111,6 +111,7 @@
             } catch (e) {
                 this.message = e.message;
                 $event.stopPropagation();
+                console.log(e);
             }
 
         }

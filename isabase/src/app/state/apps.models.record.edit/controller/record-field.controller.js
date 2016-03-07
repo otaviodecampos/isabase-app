@@ -5,7 +5,7 @@
         .controller('RecordFieldCtrl', Controller);
 
     /* @ngInject */
-    function Controller($scope, $stateParams, records, jsUtil, $q) {
+    function Controller($scope, $stateParams, records, jsUtil) {
         var field = $scope.field
             , appName = $stateParams.appName;
 

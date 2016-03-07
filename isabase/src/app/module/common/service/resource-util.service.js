@@ -35,7 +35,7 @@
 
         this.decorateWithNewIndicator = function (Resource) {
             this.decorateGetAndQuery(Resource, function (resource) {
-                resource.$new = resource.id == undefined;
+                resource.$$new = resource.id == undefined;
             });
         }
 

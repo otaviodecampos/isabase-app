@@ -12,8 +12,8 @@
 
         this.selected = null;
         this.fields = MODEL_FIELDS;
-        this.myapp = apps.get($stateParams);
-        this.myapp.$promise.then(null, navigation.back);
+        this.app = apps.get($stateParams);
+        this.app.$promise.then(null, navigation.back);
 
         this.model = models.get($stateParams);
         this.model.$promise.then(function(model) {
@@ -23,8 +23,7 @@
         }, navigation.back);
 
         this.save = function () {
-            this.model.appName = appName;
-            this.model.$save({modelName: modelName == 'new' ? '' : modelName}, function (model) {
+            this.model.$save({appName: appName, modelName: modelName == 'new' ? '' : modelName}, function (model) {
                 notification.success('model', that.model.name, 'saveSuccess');
                 navigation.setParamsAndBack({modelName: model.name});
             }, function (e) {
@@ -40,11 +39,12 @@
         }
 
         this.remove = function() {
-            this.model.$remove(function() {
+            this.model.$remove($stateParams, function() {
                 notification.success('model', that.model.name, 'removeSuccess');
                 navigation.back();
             }, function(e) {
                 notification.error('model', that.model.name, 'removeFail');
+                console.log(e);
             });
         }
 
@@ -54,8 +54,7 @@
 
         this.newField = function () {
             this.editField({
-                type: 'text',
-                fields: []
+                type: 'text'
             });
         }
 

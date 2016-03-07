@@ -9,6 +9,8 @@
 
         $httpBackend.whenGET(/^\/assets/).passThrough();
 
+        $httpBackend.whenGET('http://api.isabase.com.br/v1/auth').passThrough();
+
     };
 
 })();

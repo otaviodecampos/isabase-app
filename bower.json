@@ -23,7 +23,7 @@
     "angular-translate": "^2.9.0",
     "angular-translate-loader-static-files": "^2.9.0",
     "angular-resource": "^1.4.9",
-    "restful-ng-mock": "^0.3.0",
+    "restful-ng-mock": "https://github.com/otaviodecampos/restful-ng-mock.git#master",
     "angular-mocks": "^1.4.9",
     "AngularJS-Toaster": "angularjs-toaster#~1.0.0",
     "angular-animate": "~1.4.9",
@@ -31,7 +31,8 @@
     "angular-translate-once": "^1.0.3",
     "angular-sanitize": "^1.5.0",
     "lodash": "^4.3.0",
-    "angular-messages": "^1.5.0"
+    "angular-messages": "^1.5.0",
+    "angular-base64": "^2.0.5"
   },
   "devDependencies": {
     "ui-router-extras": "~0.1.0"
