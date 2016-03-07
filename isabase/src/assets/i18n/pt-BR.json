@@ -5,7 +5,7 @@
   "appEdit": "Editar Aplicativo",
   "appNew": "Novo Aplicativo",
   "appEmptyNameMessage": "Informe um nome para o aplicativo",
-  "appSelectMessage": "Selecione um aplicativo para gerencia-lo",
+  "appSelectMessage": "Selecione um aplicativo",
   "appSelectedMessage": "Gerencie o aplicativo selecionado",
 
   "model": "Modelo",
@@ -14,7 +14,7 @@
   "modelNew": "Novo Modelo",
   "modelEdit": "Editar Modelo",
   "modelEmptyNameMessage": "Informe um nome para o modelo",
-  "modelSelectMessage": "Selecione um modelo para gerencia-lo",
+  "modelSelectMessage": "Selecione um modelo",
   "modelSelectedMessage": "Gerencie o modelo selecionado",
 
   "record": "Registro",
@@ -22,7 +22,7 @@
   "recordList": "Lista de Registros",
   "recordNew": "Novo Registro",
   "recordEdit": "Editar Registro",
-  "recordSelectMessage": "Selecione um registro para gerencia-lo",
+  "recordSelectMessage": "Selecione um registro",
   "recordSelectedMessage": "Gerencie o registro selecionado",
 
   "field": "Campo",
