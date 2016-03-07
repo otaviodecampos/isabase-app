@@ -19,7 +19,7 @@
         }, navigation.back);
 
         this.save = function () {
-            this.record.$save($stateParams, function (record) {
+            this.record.$save({appName: appName, modelName: modelName, recordId: that.record.id == 'new' ? '' : that.record.id}, function (record) {
                 notification.success('record', that.record.id, 'saveSuccess');
                 navigation.setParamsAndBack({recordId: record.id});
             }, function (e) {
