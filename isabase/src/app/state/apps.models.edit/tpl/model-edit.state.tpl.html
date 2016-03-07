@@ -47,11 +47,11 @@
                         {{ 'edit' | translate }}
                     </a>
 
-                    <button ng-click="ctrl.selected && ctrl.removeField()" ng-class="{blue: ctrl.selected}"
+                    <a ng-click="ctrl.selected && ctrl.removeField()" ng-class="{blue: ctrl.selected}"
                             class="ui tiny button">
                         <i class="trash icon"></i>
                         {{ 'remove' | translate }}
-                    </button>
+                    </a>
 
                     <table class="ui very basic table striped selectable">
                         <thead>
