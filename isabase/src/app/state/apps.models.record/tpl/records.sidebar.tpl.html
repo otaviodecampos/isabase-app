@@ -3,7 +3,7 @@
         <i ng-if="ctrl.selected" ui-popup="{inline: true}"
            data-content="{{ 'remove' | translate:{name: ('record' | translate) } | capitalize }}"
            data-position="left center" ng-click="ctrl.removeSelected()"
-           class="small right aligned trash icon link"></i>
+           class="small right aligned link icon-trash"></i>
         {{ 'manage' | translate }}
 
         <div class="sub header" ng-switch="ctrl.selected == null">
@@ -16,7 +16,7 @@
         <div ng-if="ctrl.selected">
             <a ui-sref="admin.apps.models.records.edit({ recordId: ctrl.selected.id })"
                class="ui fluid action labeled blue button icon">
-                <i class="edit icon"></i>
+                <i class="icon icon-pencil"></i>
                 {{ 'edit' | translate }}
             </a>
 
@@ -27,23 +27,17 @@
 
         <a ui-sref="admin.apps.models.records.edit({ recordId: 'new' })"
            class="ui fluid action labeled blue button icon">
-            <i class="add circle icon"></i>
+            <i class="icon icon-plus"></i>
             {{ 'recordNew' | translate }}
         </a>
 
-        <a ui-sref="admin.apps.models.edit({ modelName: ctrl.model.name })"
-           class="ui fluid action labeled blue button icon">
-            <i class="edit icon"></i>
-            {{ 'modelEdit' | translate }}
-        </a>
-
         <a ui-sref="admin.apps.models" class="ui fluid action labeled blue button icon">
-            <i class="list icon"></i>
+            <i class="icon icon-layers"></i>
             {{ 'modelList' | translate }}
         </a>
 
         <a ui-sref="admin.apps" class="ui fluid action labeled blue button icon">
-            <i class="list icon"></i>
+            <i class="icon icon-folder"></i>
             {{ 'appList' | translate }}
         </a>
 

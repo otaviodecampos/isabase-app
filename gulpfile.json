@@ -41,7 +41,7 @@
       "themes": true
     }
   },
-  "appCss": {
+  "appCssCopy": {
     "path": {
       "build-name": "isabase-app",
       "build-dir": "isabase/dist",
@@ -59,7 +59,8 @@
     "task-dir": "tasks/dist",
     "task": {
       "css": true,
-      "concatApp": true
+      "concatApp": true,
+      "copy": true
     }
   },
   "app": {

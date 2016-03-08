@@ -2,8 +2,8 @@
     <div class="eleven wide column">
         <div class="ui raised segment">
             <h2 class="ui header">
-                {{ 'appList' | translate }}
-                <div class="sub header">{{ ctrl.myapps.length }} {{ 'apps' | translate }}</div>
+                {{ 'appsHeader' | translate }}
+                <div class="sub header">{{ 'appsSubheader' | translate: {appSize: ctrl.myapps.length} | capitalize }}</div>
             </h2>
 
             <table class="ui very basic table striped selectable">

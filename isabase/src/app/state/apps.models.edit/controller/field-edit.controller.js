@@ -5,13 +5,14 @@
         .controller('FieldEditCtrl', Controller);
 
     /* @ngInject */
-    function Controller($scope, $stateParams, models, FIELD_TYPES, $q) {
+    function Controller($scope, $stateParams, $q, models, FIELD_TYPES, MODEL_FIELDS) {
         var that = this
             , appName = $stateParams.appName
             , modelCtrl = $scope.ctrl
             , field = modelCtrl.editingField;
 
         this.isNew = !field.name;
+        this.fields = MODEL_FIELDS;
         this.field = angular.copy(field);
         this.types = FIELD_TYPES;
         this.models = models.query({appName: appName});
@@ -87,19 +88,21 @@
         }
 
         this.save = function ($event) {
-            this.message = null;
-
+            
+            var form = $scope.form;
+            
+            if(!form.name.$validators.fieldSameNameMessage) {
+                form.name.$validators.fieldSameNameMessage = function(modelValue, viewValue) {
+                    return modelValue.trim().length && modelValue != field.name && !_findField(modelValue);
+                }
+            }
+            
             try {
-                if (!this.field.name) {
-                    throw new Error('fieldEmptyNameMessage');
-                }
-
-                if (this.field.name != field.name && _findField(this.field.name)) {
-                    throw new Error('fieldSameNameMessage');
-                }
-
-                if (this.field.type == 'model' && !this.field.target) {
-                    throw new Error('fieldTargetEmptyMessage');
+                form.name.$validate();
+                form.name.$setValidity("fieldTargetEmptyMessage", this.field.type == 'model' && !this.field.target ? false : null);
+                
+                if (form.$invalid) {
+                    throw new Error();
                 }
 
                 if (this.isNew) {
@@ -108,10 +111,10 @@
                 } else {
                     angular.extend(_findField(field.name), this.field);
                 }
+                
             } catch (e) {
-                this.message = e.message;
+                $scope.form.$setSubmitted();
                 $event.stopPropagation();
-                console.log(e);
             }
 
         }

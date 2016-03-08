@@ -2,7 +2,7 @@
     <div class="eleven wide column">
         <div class="ui raised segment">
             <h2 class="ui header">
-                {{ ctrl.record.$new ? 'recordNew' : 'recordEdit' | translate }}
+                {{ ctrl.record.$$new ? 'recordNew' : 'recordEdit' | translate }}
                 <div class="sub header">{{ ::ctrl.record.$new ? '' : ctrl.record.id }}</div>
             </h2>
 

@@ -1,6 +1,6 @@
 <div class="ui raised segment">
     <h3 class="ui header">
-        <i class="small right aligned trash icon link"
+        <i class="small right aligned link icon-trash"
            ui-popup="{inline: true}"
            data-content="{{ 'remove' | translate:{name: ('app' | translate) } | capitalize }}"
            data-position="left center" ng-click="ctrl.remove()"
@@ -14,7 +14,7 @@
 
     <span class="ui container center aligned actions">
         <a ui-sref="admin.apps" class="ui fluid action labeled blue button icon">
-            <i class="list icon"></i>
+            <i class="icon icon-list"></i>
             {{ 'appList' | translate }}
         </a>
     </span>

@@ -3,7 +3,7 @@
         <i ng-if="ctrl.selected" ui-popup="{inline: true}"
            data-content="{{ 'remove' | translate:{name: ('model' | translate) } | capitalize }}"
            data-position="left center" ng-click="ctrl.removeSelected()"
-           class="small right aligned trash icon link"></i>
+           class="small right aligned trash icon-trash link"></i>
         {{ 'manage' | translate }}
 
         <div class="sub header" ng-switch="ctrl.selected == null">
@@ -16,13 +16,13 @@
         <div ng-if="ctrl.selected">
             <a ui-sref="admin.apps.models.edit({ modelName: ctrl.selected.name })"
                class="ui fluid action labeled blue button icon">
-                <i class="edit icon"></i>
+                <i class="icon icon-pencil"></i>
                 {{ 'modelEdit' | translate }}
             </a>
 
             <a ui-sref="admin.apps.models.records({ modelName: ctrl.selected.name })"
                class="ui fluid action labeled blue button icon">
-                <i class="cubes icon"></i>
+                <i class="icon icon-book-open"></i>
                 {{ 'recordList' | translate }}
             </a>
 
@@ -33,12 +33,12 @@
 
         <a ui-sref="admin.apps.models.edit({ modelName: 'new' })"
            class="ui fluid action labeled blue button icon">
-            <i class="add circle icon"></i>
+            <i class="icon icon-plus"></i>
             {{ 'modelNew' | translate }}
         </a>
 
         <a ui-sref="admin.apps" class="ui fluid action labeled blue button icon">
-            <i class="list icon"></i>
+            <i class="icon icon-folder"></i>
             {{ 'appList' | translate }}
         </a>
 

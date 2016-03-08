@@ -3,7 +3,7 @@
         <i ng-if="!ctrl.model.$new" ui-popup="{inline: true}"
            data-content="{{ 'remove' | translate:{name: ('model' | translate) } | capitalize }}"
            data-position="left center" ng-click="ctrl.remove()"
-           class="small right aligned trash icon link"></i>
+           class="small right aligned link icon-trash"></i>
         {{ 'manage' | translate }}
 
         <div class="sub header">
@@ -13,15 +13,8 @@
 
     <span class="ui container center aligned actions">
         <a ui-sref="admin.apps.models" class="ui fluid action labeled blue button icon">
-            <i class="list icon"></i>
+            <i class="icon icon-layers"></i>
             {{ 'modelList' | translate }}
-        </a>
-
-        <a class="ui fluid action labeled blue button icon"
-           ui-sref="admin.apps.models.records({ modelName: ctrl.model.name })"
-           ng-if="!ctrl.model.$new">
-            <i class="cubes icon"></i>
-            {{ 'recordList' | translate }}
         </a>
 
     </span>

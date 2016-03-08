@@ -4,16 +4,18 @@
     </div>
     <div class="content">
 
-        <div ui-message ng-if="fieldCtrl.message" class="ui negative message">
+        <!--<div ui-message ng-if="fieldCtrl.message" class="ui negative message">
             <i ng-click="fieldCtrl.message = null" class="close icon"></i>
             <div class="header">
                 {{ 'checkBelowInconsistencies' | translate }}
             </div>
             <p>{{ fieldCtrl.message | translate }}</p>
-        </div>
-
-        <div class="ui container stackable grid form">
-            <div class="row middle aligned">
+        </div>-->
+        
+        <isa-messages form="form" fields="fieldCtrl.fields.field"></isa-messages>
+        
+        <form class="ui container stackable grid form" name="form" ng-submit="form.$valid && ctrl.save($event);" novalidate>
+            <!--<div class="row middle aligned">
                 <div class="four wide column right aligned field label required">
                     <label>{{ 'name' | translate }}</label>
                 </div>
@@ -23,8 +25,14 @@
                         <input type="text" ng-model="fieldCtrl.field.name" placeholder="{{ 'name' | translate }}">
                     </div>
                 </div>
+            </div>-->
+            
+            <div class="row middle aligned"
+                 ng-init="model = fieldCtrl.field; small = true"
+                 ng-repeat="field in fieldCtrl.fields.field"
+                 ng-include="'isabase-app/' + field.type + '.tpl.html'">
             </div>
-
+            
             <div class="ui top attached tabular menu margin top">
                 <a ng-click="fieldCtrl.field.type = type.name" ng-repeat="type in fieldCtrl.types" class="item"
                    ng-class="{ active: fieldCtrl.field.type == type.name}"
@@ -43,7 +51,7 @@
 
             </div>
 
-        </div>
+        </form>
     </div>
     <div class="actions">
         <div class="ui cancel button">{{ 'cancel' | translate }}</div>

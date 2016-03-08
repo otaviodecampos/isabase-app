@@ -2,7 +2,7 @@
     <div class="eleven wide column">
         <div class="ui raised segment">
             <h2 class="ui header">
-                {{ ctrl.model.$new ? 'modelNew' : 'modelEdit' | translate }}
+                {{ ctrl.model.$$new ? 'modelNew' : 'modelEdit' | translate }}
                 <div class="sub header">{{ ::(ctrl.model.$new ? '' : ctrl.model.name | capitalize) }}</div>
             </h2>
 
@@ -37,19 +37,19 @@
                 <div class="ui bottom attached tab segment basic spaced-none spaced-top" data-tab="second">
 
                     <a class="ui tiny blue button" ng-click="ctrl.newField()">
-                        <i class="add circle icon"></i>
+                        <i class="icon icon-plus"></i>
                         {{ 'new' | translate }}
                     </a>
 
                     <a ng-click="ctrl.selected && ctrl.editField(ctrl.selected)" ng-class="{blue: ctrl.selected}"
                        class="ui tiny button">
-                        <i class="edit icon"></i>
+                        <i class="icon icon-pencil"></i>
                         {{ 'edit' | translate }}
                     </a>
 
                     <a ng-click="ctrl.selected && ctrl.removeField()" ng-class="{blue: ctrl.selected}"
                             class="ui tiny button">
-                        <i class="trash icon"></i>
+                        <i class="icon icon-trash"></i>
                         {{ 'remove' | translate }}
                     </a>
 
@@ -72,9 +72,9 @@
 
                 <div class="ui container stackable grid form margin top half">
                     <div class="row">
-                        <div class="fourteen wide column center aligned">
+                        <div class="sixteen wide column center aligned">
                             <button type="submit" class="ui labeled button icon" ng-class="{ green: form.$valid }">
-                                <i class="save icon"></i>
+                                <i class="icon icon-check"></i>
                                 {{ 'saveChanges' | translate }}
                             </button>
                             <a ng-click="navigation.back()" class="ui button">

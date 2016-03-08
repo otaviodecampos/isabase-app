@@ -2,8 +2,8 @@
     <div class="eleven wide column">
         <div class="ui raised segment">
             <h2 class="ui header">
-                {{ 'recordList' | translate }}
-                <div class="sub header">{{ ctrl.records.length }} {{ 'records' | translate }}</div>
+                {{ 'recordsHeader' | translate }}
+                <div class="sub header">{{ 'recordsSubheader' | translate:{ modelName: ctrl.model.name, recordSize: ctrl.records.length } | capitalize }}</div>
             </h2>
             <div ui-popup="{inline: true}"
                  data-content="{{ 'model' | translate }}" data-position="left center"
