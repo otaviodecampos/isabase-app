@@ -5,7 +5,8 @@
     <ul class="list" ng-messages="form[field.name].$error" ng-messages-multiple ng-repeat="field in fields">
         <li ng-message="required" ng-bind-html="(field.message.required | translate) || ('fieldRequiredMessage' | translate:{name: (field.name | translate)})"></li>
         <li ng-message="pattern" ng-bind-html="(field.message.pattern | translate) || ('fieldInvalidMessage' | translate:{name: (field.name | translate)})"></li>
-        <li ng-message="fieldSameNameMessage">{{ 'fieldSameNameMessage' | translate }} </li> 
-        <li ng-message="fieldTargetEmptyMessage">{{ 'fieldTargetEmptyMessage' | translate }} </li>
+        <li class="list extend">
+            <ul ng-transclude></ul>
+        </li>
     </ul>
 </div>

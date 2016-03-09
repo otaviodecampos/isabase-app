@@ -11,6 +11,7 @@
                 fields: "="
             },
             templateUrl: 'isabase-app/isa-messages.tpl.html',
+            transclude: true,
             replace: true
         };
     }

@@ -4,7 +4,9 @@
     </div>
     <div class="content">
         
-        <isa-messages form="form" fields="[{name: 'name'}, {name: 'target'}, {name: 'displayField'}]"></isa-messages>
+        <isa-messages form="form" fields="[{name: 'name'}, {name: 'target'}, {name: 'displayField'}]">
+            <li ng-message="fieldSameNameMessage">{{ 'fieldSameNameMessage' | translate }}</li>
+        </isa-messages>
         
         <form class="ui container stackable grid form" name="form" ng-submit="form.$valid && ctrl.save($event);" novalidate>
 
