@@ -41,7 +41,7 @@
       "themes": true
     }
   },
-  "appCssCopy": {
+  "develop": {
     "path": {
       "build-name": "isabase-app",
       "build-dir": "isabase/dist",
