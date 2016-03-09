@@ -26,7 +26,7 @@
             }
         });
 
-        $scope.$watch('fieldCtrl.field.type', function(){
+        $scope.$watch('fieldCtrl.field.type', function () {
             initModelFields();
         });
 
@@ -36,9 +36,9 @@
 
         function initModelFields() {
             var modelLevel = {};
-            
-            if(that.field.type == 'model' && that.field.target) {
-                getModelFields(that.field.target, '').then(function(fields) {
+
+            if (that.field.type == 'model' && that.field.target) {
+                getModelFields(that.field.target, '').then(function (fields) {
                     that.modelFields = _.flattenDeep(fields);
                 });
             }
@@ -51,7 +51,7 @@
                     angular.forEach(model.fields, function (field) {
                         promises.push(getFields(field, prefix));
                     });
-                    $q.all(promises).then(function(fields) {
+                    $q.all(promises).then(function (fields) {
                         deferred.resolve(fields);
                     });
                 });
@@ -64,16 +64,17 @@
 
                 if (field.type == "model") {
                     var key = field.name + field.target;
-                    if(modelLevel[key] == undefined) {
+                    if (modelLevel[key] == undefined) {
                         modelLevel[key] = 0;
                     }
                     modelLevel[key] = modelLevel[key] + 1;
-                    
+
                     prefix = prefix + field.name + '.';
-                    
-                    if(modelLevel[key] < 2) {
-                        getModelFields(field.target, prefix).then(function(fields) {
-                            modelLevel[key] = modelLevel[key] - 1;;
+
+                    if (modelLevel[key] < 2) {
+                        getModelFields(field.target, prefix).then(function (fields) {
+                            modelLevel[key] = modelLevel[key] - 1;
+                            ;
                             deferred.resolve(fields);
                         });
                     } else {
@@ -88,33 +89,25 @@
         }
 
         this.save = function ($event) {
-            
-            var form = $scope.form;
-            
-            if(!form.name.$validators.fieldSameNameMessage) {
-                form.name.$validators.fieldSameNameMessage = function(modelValue, viewValue) {
-                    return modelValue.trim().length && modelValue != field.name && !_findField(modelValue);
-                }
-            }
-            
-            try {
-                form.name.$validate();
-                form.name.$setValidity("fieldTargetEmptyMessage", this.field.type == 'model' && !this.field.target ? false : null);
-                
-                if (form.$invalid) {
-                    throw new Error();
-                }
 
+            var form = $scope.form;
+
+            form.name.$validators.fieldSameNameMessage = function (modelValue, viewValue) {
+                return !(modelValue && modelValue != field.name && _findField(modelValue));
+            }
+
+            form.name.$validate();
+
+            if (form.$invalid) {
+                $scope.form.$setSubmitted();
+                $event.stopPropagation();
+            } else {
                 if (this.isNew) {
                     modelCtrl.model.fields.push(this.field);
                     modelCtrl.selected = this.field;
                 } else {
                     angular.extend(_findField(field.name), this.field);
                 }
-                
-            } catch (e) {
-                $scope.form.$setSubmitted();
-                $event.stopPropagation();
             }
 
         }

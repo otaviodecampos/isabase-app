@@ -1,21 +1,22 @@
-<div class="four wide column right aligned field label" ng-class="{required: field.required}">
+<div class="four wide column right aligned field label" ng-class="{required: field.required && data.length, error: form[field.name].$invalid && (form[field.name].$touched || form.$submitted)}">
     <label>{{ field.name | translate | capitalize }}</label>
 </div>
 
-<div class="wide column field" ng-class="{seven: small, ten: !small}" ng-switch="field.collection == true">
+<div class="wide column field" ng-class="{seven: small, ten: !small, error: form[field.name].$invalid && (form[field.name].$touched || form.$submitted)}"
+     ng-switch="field.collection == true">
 
-    <select ui-dropdown ng-switch-when="false" ng-model="model[field.name]"
+    <select name="{{ field.name }}" ui-dropdown ng-switch-when="false" ng-model="model[field.name]"
             ng-options="option[field.property] || option as option[field.property] || option for option in {{ field.data }}"
-            class="ui fluid dropdown">
+            class="ui fluid dropdown" ng-required="{{ field.required }}">
 
         <option value="">- {{ 'chooseSelect' | translate | capitalize }} {{ (field.placeholderLabel || field.name) |
             translate | capitalize }} -
         </option>
     </select>
 
-    <select ui-dropdown ng-switch-when="true" multiple="" ng-model="model[field.name]"
+    <select name="{{ field.name }}" ui-dropdown ng-switch-when="true" multiple="" ng-model="model[field.name]"
             ng-options="option[field.property] || option as option[field.property] || option for option in {{ field.data }}"
-            class="ui fluid dropdown">
+            class="ui fluid dropdown" ng-required="{{ field.required }}">
 
         <option value="">- {{ 'chooseSelect' | translate | capitalize }} {{ (field.placeholderLabel || field.name) |
             translate | capitalize }} -

@@ -58,7 +58,8 @@
         "name": "target",
         "type": "select",
         "property": "name",
-        "data": "fieldCtrl.models"
+        "data": "fieldCtrl.models",
+        "required": "fieldCtrl.field.type == 'model'"
       },
       {
         "name": "displayField",
@@ -66,7 +67,8 @@
         "type": "select",
         "property": "name",
         "data": "fieldCtrl.modelFields",
-        "collection": true
+        "collection": true,
+        "required": "fieldCtrl.field.target"
       }
     ]
   },
