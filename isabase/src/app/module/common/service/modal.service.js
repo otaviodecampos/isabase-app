@@ -5,7 +5,7 @@
         .service('modal', Service);
 
     /* @ngInject */
-    function Service($templateRequest, $document, $compile, $rootScope, $q, $controller) {
+    function Service($templateRequest, $document, $compile, $rootScope, $q, $controller, $timeout) {
 
         var defaultSettings = {
             blurring: true,
@@ -60,6 +60,12 @@
                     onHidden: function() {
                         scope.$destroy();
                     }
+                });
+
+                element.click(function() {
+                    $timeout(function() {
+                        element.modal('refresh');
+                    });
                 });
 
                 element.modal('show');

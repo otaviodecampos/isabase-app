@@ -38,6 +38,6 @@
     </div>
     <div class="actions">
         <div class="ui cancel button">{{ 'cancel' | translate }}</div>
-        <div ng-click="fieldCtrl.save($event)" class="ui ok button">{{ 'save' | translate }}</div>
+        <div ng-click="fieldCtrl.save($event)" class="ui ok button" ng-class="{ green: form.$valid }">{{ 'save' | translate }}</div>
     </div>
 </div>
