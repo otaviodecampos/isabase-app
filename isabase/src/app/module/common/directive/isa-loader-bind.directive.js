@@ -9,21 +9,41 @@
             require: '^isaLoader',
             transclude: true,
             link: function (scope, element, attr, ctrl, transcludeFn) {
+                
+                var transcluded = false;
+                
                 element.hide();
                 scope.$watch(attr.isaLoaderBind, function (value) {
-                    value = value == undefined ? '' : value;
-                    element.text(value);
-                    element.fadeIn('slow');
+                    $timeout(function() {
+                        value = value == undefined ? '' : value;
+                        if(ctrl.data.$resolved) {
+                            transclude(false);
+                        } else {
+                            element.text(value);
+                            element.fadeIn('fast');
+                        }
+                    }, 100);
                 });
 
                 ctrl.onLoaded(function () {
-                    transcludeFn(function (clone) {
-                        element.fadeOut(200, function () {
-                            element.html(clone);
-                            element.fadeIn(100);
-                        });
-                    });
+                    transclude(true);
                 });
+                
+                function transclude(animate) {
+                    if(!transcluded) {
+                        transcludeFn(function (clone) {
+                            if(animate) {
+                                element.fadeOut('fast', function () {
+                                    element.html(clone);
+                                    element.fadeIn('fast');
+                                });   
+                            } else {
+                                element.html(clone);
+                            }
+                            transcluded = true;
+                        });   
+                    }
+                }
             }
         };
     }
