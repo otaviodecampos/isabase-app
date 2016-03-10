@@ -83,6 +83,7 @@
   "displayField": "Campo de Exibição",
   "checkBelowInconsistencies": "Verifique as inconsistências abaixo",
   "id": "Id",
+  "loading": "Aguarde..",
 
   "isabase": {
     "name": "Isabase beta"

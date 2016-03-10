@@ -1,9 +1,9 @@
 <div class="ui two column doubling stackable grid">
     <div class="eleven wide column">
-        <div class="ui raised segment">
-            <h2 class="ui header">
+        <div class="ui raised segment" isa-loader="ctrl.records">
+            <h2 class="ui header" isa-loader-visible>
                 {{ 'recordsHeader' | translate }}
-                <div class="sub header">{{ 'recordsSubheader' | translate:{ modelName: ctrl.model.name, recordSize: ctrl.records.length } | capitalize }}</div>
+                <div class="sub header" isa-loader-bind="'loading' | translate">{{ 'recordsSubheader' | translate:{ modelName: ctrl.model.name, recordSize: ctrl.records.length } | capitalize }}</div>
             </h2>
             <div ui-popup="{inline: true}"
                  data-content="{{ 'model' | translate }}" data-position="left center"
