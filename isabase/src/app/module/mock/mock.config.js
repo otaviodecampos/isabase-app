@@ -12,7 +12,7 @@
                     var _this = this
                         , _arguments = arguments;
 
-                    var delay = DELAY_CONFIG[url] || 0;
+                    var delay = DELAY_CONFIG[url] || 1000;
 
                     setTimeout(function() {
                         callback.apply(_this, _arguments);

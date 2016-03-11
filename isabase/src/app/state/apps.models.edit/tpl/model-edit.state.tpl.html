@@ -1,9 +1,9 @@
 <div class="ui two column doubling stackable grid">
     <div class="eleven wide column">
-        <div class="ui raised segment">
-            <h2 class="ui header">
+        <div class="ui raised segment" isa-loader="ctrl.model">
+            <h2 class="ui header" isa-loader-visible>
                 {{ ctrl.model.$$new ? 'modelNew' : 'modelEdit' | translate }}
-                <div class="sub header">{{ ::(ctrl.model.$new ? '' : ctrl.model.name | capitalize) }}</div>
+                <div class="sub header" isa-loader-bind="'loading' | translate">{{ ::(ctrl.model.$new ? '' : ctrl.model.name | capitalize) }}</div>
             </h2>
 
             <div class="ui absolute floated right ribbon blue label"

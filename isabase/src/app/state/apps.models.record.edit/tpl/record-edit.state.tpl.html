@@ -1,9 +1,9 @@
 <div class="ui two column doubling stackable grid">
     <div class="eleven wide column">
-        <div class="ui raised segment">
-            <h2 class="ui header">
+        <div class="ui raised segment" isa-loader="ctrl.records">
+            <h2 class="ui header" isa-loader-visible>
                 {{ ctrl.record.$$new ? 'recordNew' : 'recordEdit' | translate }}
-                <div class="sub header">{{ ::ctrl.record.$new ? '' : ctrl.record.id }}</div>
+                <div class="sub header" isa-loader-bind="'loading' | translate">{{ ::ctrl.record.$new ? '' : ctrl.record.id }}</div>
             </h2>
 
             <div ui-popup="{inline: true}"
