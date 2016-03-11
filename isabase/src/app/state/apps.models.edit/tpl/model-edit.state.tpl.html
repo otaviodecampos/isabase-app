@@ -3,19 +3,21 @@
         <div class="ui raised segment" isa-loader="ctrl.model">
             <h2 class="ui header" isa-loader-visible>
                 {{ ctrl.model.$$new ? 'modelNew' : 'modelEdit' | translate }}
-                <div class="sub header" isa-loader-bind="'loading' | translate">{{ ::(ctrl.model.$new ? '' : ctrl.model.name | capitalize) }}</div>
+                <div class="sub header" isa-loader-bind="'loading' | translate">{{ ::(ctrl.model.$new ? '' :
+                    ctrl.model.name | capitalize) }}
+                </div>
             </h2>
 
             <div class="ui absolute floated right ribbon blue label"
                  ui-popup="{inline: true}"
                  data-content="{{ 'app' | translate }}"
-                 data-position="left center">
+                 data-position="left center" isa-loader-invisible>
                 {{ ctrl.app.name | capitalize }}
             </div>
 
             <isa-messages form="form" fields="ctrl.fields.model"></isa-messages>
 
-            <form name="form" ng-submit="form.$valid && ctrl.save($event);" novalidate>
+            <form name="form" ng-submit="form.$valid && ctrl.save($event);" novalidate isa-loader-invisible>
 
                 <div ui-tab class="ui top attached tabular menu margin top">
                     <a class="item active" data-tab="first">{{ 'model' | translate }}</a>
@@ -48,7 +50,7 @@
                     </a>
 
                     <a ng-click="ctrl.selected && ctrl.removeField()" ng-class="{blue: ctrl.selected}"
-                            class="ui tiny button">
+                       class="ui tiny button">
                         <i class="icon icon-trash"></i>
                         {{ 'remove' | translate }}
                     </a>

@@ -7,10 +7,10 @@
             </h2>
             <div ui-popup="{inline: true}"
                  data-content="{{ 'model' | translate }}" data-position="left center"
-                 class="ui absolute floated right ribbon blue label">{{ ctrl.model.name | capitalize }}
+                 class="ui absolute floated right ribbon blue label" isa-loader-invisible>{{ ctrl.model.name | capitalize }}
             </div>
 
-            <table class="ui very basic table striped selectable">
+            <table class="ui very basic table striped selectable" isa-loader-invisible>
                 <thead>
                 <tr>
                     <th>{{ 'id' | translate }}</th>

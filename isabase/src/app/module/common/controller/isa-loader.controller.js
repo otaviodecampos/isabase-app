@@ -4,17 +4,27 @@
         .controller('IsaLoaderCtrl', Controller);
 
     /* @ngInject */
-    function Controller($element) {
+    function Controller($scope, $element) {
 
-        var afterFn = [];
+        var that = this
+            , onLoadedFn = []
+            , afterLoadedFn = [];
 
         this.onLoaded = function (fn) {
-            this.data.$promise.then(fn);
+            onLoadedFn.push(fn);
         }
+
+        $scope.$watch('isaLoaderCtrl.data', function (data) {
+            if (data) {
+                angular.forEach(onLoadedFn, function (fn) {
+                    that.data.$promise.then(fn)
+                });
+            }
+        });
 
         this.onLoaded(function () {
 
-            angular.forEach(afterFn, function (fn) {
+            angular.forEach(afterLoadedFn, function (fn) {
                 fn();
             });
 
@@ -25,7 +35,7 @@
         });
 
         this.afterLoaded = function (fn) {
-            afterFn.push(fn);
+            afterLoadedFn.push(fn);
         }
 
     }

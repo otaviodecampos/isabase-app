@@ -16,7 +16,7 @@
                 scope.$watch(attr.isaLoaderBind, function (value) {
                     $timeout(function() {
                         value = value == undefined ? '' : value;
-                        if(ctrl.data.$resolved) {
+                        if(ctrl.data && ctrl.data.$resolved) {
                             transclude(false);
                         } else {
                             element.text(value);
