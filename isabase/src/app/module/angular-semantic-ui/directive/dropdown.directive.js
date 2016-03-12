@@ -17,6 +17,7 @@
                     scope.$watch(function () {
                         return ngModel.$modelValue;
                     }, function (newValue) {
+                        console.log(newValue);
                         if (!newValue || (angular.isArray(newValue) && !newValue.length) ) {
                             element.parent().children('[data-value]').remove();
                             defaultText = element.find('option').first().text();
