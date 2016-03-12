@@ -5,8 +5,9 @@
         .controller('ModelsCtrl', Controller);
 
     /* @ngInject */
-    function Controller($stateParams, $previousState, notification, apps, models, navigation) {
+    function Controller($stateParams, $previousState, notification, apps, models, navigation, util) {
         var that = this
+            , selectable = true
             , appName = $stateParams.appName;
 
         this.selected = null;
@@ -16,7 +17,16 @@
         this.models = models.query($stateParams);
 
         this.select = function (model) {
-            this.selected = this.selected == model ? null : model;
+            util.doubleTimeout(function() {
+                if (selectable) {
+                    that.selected = that.selected == model ? null : model;
+                }
+            });
+        }
+
+        this.open = function(model) {
+            selectable = false;
+            navigation.go('admin.apps.models.records', { appName: appName, modelName: model.name });
         }
 
         this.removeSelected = function () {

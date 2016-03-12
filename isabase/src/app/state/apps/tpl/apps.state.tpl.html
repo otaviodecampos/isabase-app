@@ -3,7 +3,9 @@
         <div class="ui raised segment" isa-loader="ctrl.myapps">
             <h2 class="ui header" isa-loader-visible>
                 {{ 'appsHeader' | translate }}
-                <div class="sub header" isa-loader-bind="'loading' | translate">{{ 'appsSubheader' | translate: {appSize: ctrl.myapps.length} | capitalize }}</div>
+                <div class="sub header" isa-loader-bind="'loading' | translate">{{ 'appsSubheader' | translate:
+                    {appSize: ctrl.myapps.length} | capitalize }}
+                </div>
             </h2>
 
             <table class="ui very basic table striped selectable" isa-loader-invisible>
@@ -16,7 +18,7 @@
                 </thead>
                 <tbody>
                 <tr class="link" ng-init="ctrl.init(app)" ng-class="{selected: ctrl.selected == app}"
-                    ng-click="ctrl.select(app)"
+                    ng-click="ctrl.select(app)" ng-dblclick="ctrl.open(app)"
                     ng-repeat="app in ctrl.myapps">
                     <td>{{ app.name }}</td>
                     <td>{{ app.description }}</td>

@@ -21,7 +21,7 @@
                 </thead>
                 <tbody>
                 <tr class="link" ng-init="ctrl.init(record)" ng-class="{selected: ctrl.selected == record}"
-                    ng-click="ctrl.select(record)"
+                    ng-click="ctrl.select(record)" ng-dblclick="ctrl.open(record)"
                     ng-repeat="record in ctrl.records">
                     <td>{{ record.id }}</td>
                     <td ng-repeat="field in ctrl.model.fields" ng-switch="field.type">

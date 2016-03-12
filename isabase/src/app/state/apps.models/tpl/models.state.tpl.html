@@ -23,7 +23,7 @@
                 </thead>
                 <tbody>
                 <tr class="link" ng-init="ctrl.init(model)" ng-class="{selected: ctrl.selected == model}"
-                    ng-click="ctrl.select(model)"
+                    ng-click="ctrl.select(model)" ng-dblclick="ctrl.open(model)"
                     ng-repeat="model in ctrl.models">
                     <td>{{ model.name }}</td>
                     <td>{{ model.description }}</td>

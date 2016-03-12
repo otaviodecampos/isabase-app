@@ -5,8 +5,9 @@
         .controller('RecordsCtrl', Controller);
 
     /* @ngInject */
-    function Controller($stateParams, $previousState, notification, navigation, models, records, jsUtil) {
+    function Controller($stateParams, $previousState, notification, navigation, models, records, jsUtil, util) {
         var that = this
+            , selectable = true
             , appName = $stateParams.appName
             , modelName = $stateParams.modelName;
 
@@ -27,7 +28,14 @@
         }
 
         this.select = function (record) {
-            this.selected = this.selected == record ? null : record;
+            util.doubleTimeout(function() {
+                that.selected = that.selected == record ? null : record;
+            });
+        }
+
+        this.open = function(record) {
+            selectable = false;
+            navigation.go('admin.apps.models.records.edit', { appName: appName, modelName: modelName, recordId: record.id });
         }
 
         this.removeSelected = function () {

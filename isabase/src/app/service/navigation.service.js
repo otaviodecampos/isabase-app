@@ -22,6 +22,10 @@
                 that.back(params);
             });
         }
+
+        this.go = function(stateName, params) {
+            $state.go(stateName, params);
+        }
         
     };
 

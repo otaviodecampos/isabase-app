@@ -5,14 +5,25 @@
         .controller('AppsCtrl', Controller);
 
     /* @ngInject */
-    function Controller($previousState, apps, notification) {
-        var that = this;
+    function Controller($previousState, apps, notification, navigation, util) {
+        var that = this
+            , selectable = true;
 
         this.selected = null;
         this.myapps = apps.query();
 
         this.select = function (app) {
-            this.selected = this.selected == app ? null : app;
+            util.doubleTimeout(function() {
+                if (selectable) {
+                    console.log(1);
+                    that.selected = that.selected == app ? null : app;
+                }
+            });
+        }
+
+        this.open = function(app) {
+            selectable = false;
+            navigation.go('admin.apps.models', { appName: app.name });
         }
 
         this.removeSelected = function () {
