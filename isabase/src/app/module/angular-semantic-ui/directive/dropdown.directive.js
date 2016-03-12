@@ -24,10 +24,8 @@
                             textElement.addClass('default').text(defaultText);
                         } else {
                             $timeout(function () {
-                                $timeout(function () {
-                                    element.dropdown('set selected', element.val());
-                                }, 100);
-                            }, 100);
+                                element.dropdown('set selected', element.val());
+                            });
                         }
                     });
                 }
