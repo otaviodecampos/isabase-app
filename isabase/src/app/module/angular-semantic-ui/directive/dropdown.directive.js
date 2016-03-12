@@ -17,7 +17,6 @@
                     scope.$watch(function () {
                         return ngModel.$modelValue;
                     }, function (newValue) {
-                        console.log(newValue);
                         if (!newValue || (angular.isArray(newValue) && !newValue.length) ) {
                             element.parent().children('[data-value]').remove();
                             defaultText = element.find('option').first().text();
@@ -26,13 +25,7 @@
                         } else {
                             $timeout(function () {
                                 $timeout(function () {
-                                    if(angular.isArray(newValue)) {
-                                        angular.forEach(newValue, function(value) {
-                                            element.dropdown('set selected', typeof(value) + ':' + value);
-                                        });
-                                    } else {
-                                        element.dropdown('set selected', typeof(newValue) + ':' + newValue);
-                                    }
+                                    element.dropdown('set selected', element.val());
                                 }, 100);
                             }, 100);
                         }
