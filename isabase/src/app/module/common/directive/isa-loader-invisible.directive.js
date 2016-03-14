@@ -10,7 +10,10 @@
             link: function (scope, element, attr, ctrl) {
 
                 var className = 'isa-loader-invisible';
-                element.addClass(className);
+
+                ctrl.beforeLoad(function() {
+                    element.addClass(className);
+                });
 
                 ctrl.afterLoaded(function () {
                     element.removeClass(className);
