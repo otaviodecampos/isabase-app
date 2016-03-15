@@ -6,6 +6,10 @@
   border-color: #2BA8E5 transparent transparent !important;
 }
 
+.isa-loader-above {
+  z-index: 1001;
+}
+
 .isa-loader-visible {
   position: relative;
   z-index: 1001;
@@ -21,28 +25,4 @@
 
 .isa-loader:first-child + * {
   margin-top: -.14285em;
-}
-
-[isa-loader].isa-save .ribbon {
-  visibility: visible;
-  position: relative;
-  z-index: 1001;
-}
-
-[isa-loader].isa-save form {
-  visibility: visible;
-}
-
-[isa-loader].isa-remove form {
-  visibility: visible;
-}
-
-[isa-loader].isa-remove table {
-  visibility: visible;
-}
-
-[isa-loader].isa-remove .ribbon {
-  visibility: visible;
-  position: relative;
-  z-index: 1001;
 }

@@ -9,7 +9,7 @@
             <isa-messages form="form" fields="ctrl.fields"></isa-messages>
 
             <form name="form" class="ui container stackable grid form margin top"
-                  ng-submit="form.$valid && ctrl.save($event);" novalidate isa-loader-invisible>
+                  ng-submit="form.$valid && ctrl.save($event);" novalidate isa-loader-invisible="{save: false}">
 
                 <div class="row middle aligned"
                      ng-init="model = ctrl.app;"

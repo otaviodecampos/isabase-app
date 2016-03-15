@@ -3,14 +3,18 @@
         <div class="ui raised segment" isa-loader="ctrl.records">
             <h2 class="ui header" isa-loader-visible>
                 {{ 'recordsHeader' | translate }}
-                <div class="sub header" isa-loader-bind="'loading' | translate">{{ 'recordsSubheader' | translate:{ modelName: ctrl.model.name, recordSize: ctrl.records.length } | capitalize }}</div>
+                <div class="sub header" isa-loader-bind="'loading' | translate">{{ 'recordsSubheader' | translate:{
+                    modelName: ctrl.model.name, recordSize: ctrl.records.length } | capitalize }}
+                </div>
             </h2>
-            <div ui-popup="{inline: true}"
+
+            <div isa-loader-invisible="{remove: false}" ui-popup="{inline: true}"
                  data-content="{{ 'model' | translate }}" data-position="left center"
-                 class="ui absolute floated right ribbon blue label" isa-loader-invisible>{{ ctrl.model.name | capitalize }}
+                 class="ui absolute floated right ribbon blue label isa-loader-above">{{
+                ctrl.model.name | capitalize }}
             </div>
 
-            <table class="ui very basic table striped selectable" isa-loader-invisible>
+            <table class="ui very basic table striped selectable" isa-loader-invisible="{remove: false}">
                 <thead>
                 <tr>
                     <th>{{ 'id' | translate }}</th>

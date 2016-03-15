@@ -8,16 +8,17 @@
                 </div>
             </h2>
 
-            <div class="ui absolute floated right ribbon blue label"
+            <div isa-loader-invisible="{save: false, remove: false}"
+                 class="ui absolute floated right ribbon blue label isa-loader-above"
                  ui-popup="{inline: true}"
                  data-content="{{ 'app' | translate }}"
-                 data-position="left center" isa-loader-invisible>
+                 data-position="left center">
                 {{ ctrl.app.name | capitalize }}
             </div>
 
             <isa-messages form="form" fields="ctrl.fields.model"></isa-messages>
 
-            <form name="form" ng-submit="form.$valid && ctrl.save($event);" novalidate isa-loader-invisible>
+            <form name="form" ng-submit="form.$valid && ctrl.save($event);" novalidate isa-loader-invisible="{save: false}">
 
                 <div ui-tab class="ui top attached tabular menu margin top">
                     <a class="item active" data-tab="first">{{ 'model' | translate }}</a>

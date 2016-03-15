@@ -12,27 +12,46 @@
             , afterLoadedFn = []
             , loader = $element.children('.isa-loader');
 
-        var callBeforeLoad = function() {
+        var callBeforeLoad = function (type) {
             angular.forEach(beforeLoadFn, function (fn) {
-                fn.call(that.data);
+                fn.call(that.data, type);
             });
         }
 
-        var callAfterLoaded = function() {
+        var callAfterLoaded = function (type) {
             angular.forEach(afterLoadedFn, function (fn) {
-                fn();
+                fn.call(that.data, type);
             });
         };
 
-        var bindRemove = function(data) {
-            var $remove = data.$remove;
-            data.$remove = function() {
-                $element.addClass('isa-remove');
+        var bindSave = function (data) {
+            var type = 'save'
+                , $save = data.$save;
+
+            data.$save = function () {
+                $element.addClass('isa-' + type);
                 loader.fadeIn();
-                callBeforeLoad();
+                callBeforeLoad(type);
+
+                $save.apply(this, arguments).then(function () {
+                    loader.fadeOut();
+                    callAfterLoaded(type);
+                });
+            }
+        }
+
+        var bindRemove = function (data) {
+            var type = 'remove'
+                , $remove = data.$remove;
+
+            data.$remove = function () {
+                $element.addClass('isa-' + type);
+                loader.fadeIn();
+                callBeforeLoad(type);
+
                 $remove.apply(this, arguments).then(function () {
                     loader.fadeOut();
-                    callAfterLoaded();
+                    callAfterLoaded(type);
                 });
             }
         }
@@ -45,7 +64,7 @@
             afterLoadedFn.push(fn);
         }
 
-        this.beforeLoad = function(fn) {
+        this.beforeLoad = function (fn) {
             beforeLoadFn.push(fn);
         }
 
@@ -55,24 +74,15 @@
             callAfterLoaded();
             loader.fadeOut();
 
-            that.data.$save = function () {
-                $element.addClass('isa-save');
-                loader.fadeIn();
-                callBeforeLoad();
-                $save.apply(this, arguments).then(function () {
-                    loader.fadeOut();
-                    callAfterLoaded();
-                });
-            }
-
-            if(angular.isArray(that.data)) {
-                angular.forEach(that.data, function(data) {
-                   bindRemove(data);
+            if (angular.isArray(that.data)) {
+                angular.forEach(that.data, function (data) {
+                    bindSave(data);
+                    bindRemove(data);
                 });
             } else {
+                bindSave(that.data);
                 bindRemove(that.data);
             }
-
 
 
         });

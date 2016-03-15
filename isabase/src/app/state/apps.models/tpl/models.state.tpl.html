@@ -8,12 +8,12 @@
                 </div>
             </h2>
 
-            <div isa-loader-invisible ui-popup="{inline: true}"
+            <div isa-loader-invisible="{remove: false}" ui-popup="{inline: true}"
                  data-content="{{ 'app' | translate }}" data-position="left center"
-                 class="ui absolute floated right ribbon blue label">{{ ctrl.myapp.name | capitalize }}
+                 class="ui absolute floated right ribbon blue label isa-loader-above">{{ ctrl.myapp.name | capitalize }}
             </div>
 
-            <table class="ui very basic table striped selectable" isa-loader-invisible>
+            <table class="ui very basic table striped selectable" isa-loader-invisible="{remove: false}">
                 <thead>
                 <tr>
                     <th>{{ 'name' | translate }}</th>
