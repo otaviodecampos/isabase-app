@@ -23,7 +23,7 @@
 
   "record": "Registro",
   "records": "Registros",
-  "recordsHeader": "Modelos",
+  "recordsHeader": "Registros",
   "recordsSubheader": "{{ modelName }} possuí {{ recordSize }} registros",
   "recordList": "Mostrar Registros",
   "recordNew": "Novo Registro",

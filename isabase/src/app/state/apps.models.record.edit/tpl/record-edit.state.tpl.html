@@ -8,15 +8,15 @@
                 </div>
             </h2>
 
-            <div isa-loader-invisible ui-popup="{inline: true}"
+            <div isa-loader-invisible="{save: false, remove: false}" ui-popup="{inline: true}"
                  data-content="{{ 'model' | translate }}" data-position="left center"
-                 class="ui absolute floated right ribbon blue label">{{ ctrl.model.name | capitalize }}
+                 class="ui absolute floated right ribbon blue label isa-loader-above">{{ ctrl.model.name | capitalize }}
             </div>
 
             <isa-messages form="form" fields="ctrl.model.fields"></isa-messages>
 
             <form name="form" class="ui container stackable grid form margin top"
-                  ng-submit="form.$valid && ctrl.save($event);" novalidate isa-loader-invisible>
+                  ng-submit="form.$valid && ctrl.save($event);" novalidate isa-loader-invisible="{save: false}">
 
                 <div ng-controller="RecordFieldCtrl as fieldCtrl" ng-include="'isabase-app/' + field.type + '.tpl.html'"
                      ng-repeat="field in ctrl.model.fields" class="row middle aligned">

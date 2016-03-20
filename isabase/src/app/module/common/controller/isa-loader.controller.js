@@ -89,6 +89,7 @@
 
         $scope.$watch('isaLoaderCtrl.data', function (data) {
             if (data) {
+                $element.addClass('isa-loader-data');
                 callBeforeLoad();
 
                 angular.forEach(onLoadedFn, function (fn) {

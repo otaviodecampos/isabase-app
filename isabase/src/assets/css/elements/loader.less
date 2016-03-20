@@ -6,17 +6,42 @@
   border-color: #2BA8E5 transparent transparent !important;
 }
 
+[isa-loader-invisible] {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: visibility 0.2s linear, opacity 0.2s linear; 
+  -moz-transition: visibility 0.2s linear, opacity 0.2s linear; 
+  -o-transition: visibility 0.2s linear, opacity 0.2s linear;
+}
+
+[isa-loader-visible] {
+  position: relative;
+  z-index: 1001;
+}
+
+.isa-loader-data [isa-loader-invisible] {
+  visibility: inherit;
+}
+
+.isa-loader-data [isa-loader-invisible]:not(.isa-loader-invisible) {
+  opacity: 1;
+}
+
+.isa-loader-data [isa-loader-visible] {
+  z-index: inherit;
+}
+
 .isa-loader-above {
   z-index: 1001;
 }
 
 .isa-loader-visible {
-  position: relative;
-  z-index: 1001;
+  position: relative !important;
+  z-index: 1001 !important;
 }
 
 .isa-loader-invisible {
-  visibility: hidden;
+  visibility: hidden !important;
 }
 
 .ui.table:last-child {
