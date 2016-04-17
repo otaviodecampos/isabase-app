@@ -8,12 +8,10 @@
                 </div>
             </h2>
 
-            <div isa-loader-invisible="{save: false, remove: false}"
-                 class="ui absolute floated right ribbon blue label isa-loader-above"
-                 ui-popup="{inline: true}"
+            <div ui-popup="{inline: true}"
                  data-content="{{ 'app' | translate }}"
-                 data-position="left center">
-                {{ ctrl.app.name | capitalize }}
+                 data-position="left center" isa-loader-invisible="{save: false, remove: false}" class="ui floating dropdown button absolute app isa-loader-above">
+                <span class="text">{{ ctrl.app.name | capitalize }}</span>
             </div>
 
             <isa-messages form="form" fields="ctrl.fields.model"></isa-messages>

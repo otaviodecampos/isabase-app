@@ -5,26 +5,41 @@
         .controller('RecordsCtrl', Controller);
 
     /* @ngInject */
-    function Controller($stateParams, $previousState, notification, navigation, models, records, jsUtil, util) {
+    function Controller($stateParams, $previousState, notification, navigation, apps, models, records, jsUtil, util) {
         var that = this
             , selectable = true
             , appName = $stateParams.appName
             , modelName = $stateParams.modelName;
 
         this.selected = null;
-        this.model = models.get($stateParams);
+        this.apps = apps.query();
+
+        if(appName) {
+            this.myapp = apps.get($stateParams);
+            this.models = models.query($stateParams);
+        }
+
+        /*this.models = models.query({appName: 'all'});*/
+        /*this.model = models.get($stateParams);
 
         this.model.$promise.then(function (model) {
             that.records = records.query($stateParams);
-        }, navigation.back);
+        }, navigation.back);*/
 
-        this.getModelFieldValue = function (object, field) {
-            if (angular.isArray(object)) {
-                return object.map(function (value, i) {
-                    return jsUtil.getObjectValue(value, field.displayField);
-                }).join(',  ');
+        this.selectApp = function (app) {
+            if(!this.myapp || this.myapp.name != app.name) {
+                this.myapp = app;
+                this.models = models.query({appName: app.name});
+                navigation.setParams({appName: app.name});
             }
-            return jsUtil.getObjectValue(object, field.displayField);
+        }
+
+        this.selectModel = function (app, model) {
+            if(!this.model || this.model.name != model.name) {
+                this.model = model;
+                this.records = records.query({appName: app.name, modelName: model.name});
+                navigation.setParams({appName: app.name, modelName: model.name});
+            }
         }
 
         this.select = function (record) {
@@ -53,6 +68,15 @@
             if ($previousState.get() && record.id == $previousState.get().params.recordId) {
                 that.selected = record;
             }
+        }
+
+        this.getModelFieldValue = function (object, field) {
+            if (angular.isArray(object)) {
+                return object.map(function (value, i) {
+                    return jsUtil.getObjectValue(value, field.displayField);
+                }).join(',  ');
+            }
+            return jsUtil.getObjectValue(object, field.displayField);
         }
 
     }

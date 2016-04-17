@@ -1,6 +1,6 @@
 {
-    "name": "admin.apps.models.records",
-    "url": "/:modelName/records",
+    "name": "admin.records",
+    "url": "/records/:appName?/:modelName?",
     "views": {
         "@admin": {
             "templateUrl": "isabase-app/records.state.tpl.html",

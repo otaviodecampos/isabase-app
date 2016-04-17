@@ -11,10 +11,20 @@
             , appName = $stateParams.appName;
 
         this.selected = null;
-        this.myapp = apps.get($stateParams);
-        this.myapp.$promise.then(null, navigation.back);
+        this.apps = apps.query();
 
-        this.models = models.query($stateParams);
+        if(appName) {
+            this.myapp = apps.get($stateParams);
+            this.models = models.query($stateParams);
+        }
+
+        this.selectApp = function (app) {
+            if(!this.myapp || this.myapp.name != app.name) {
+                this.myapp = app;
+                this.models = models.query({appName: app.name});
+                navigation.setParams({appName: app.name});
+            }
+        }
 
         this.select = function (model) {
             util.doubleTimeout(function() {
@@ -26,7 +36,7 @@
 
         this.open = function(model) {
             selectable = false;
-            navigation.go('admin.apps.models.records', { appName: appName, modelName: model.name });
+            navigation.go('admin.models.records', { appName: appName, modelName: model.name });
         }
 
         this.removeSelected = function () {

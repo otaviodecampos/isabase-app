@@ -1,14 +1,14 @@
 [
   {
-    "label": "account",
-    "url": "/#/account"
-  },
-  {
     "label": "apps",
-    "url": "/#/apps"
+    "sref": "admin.apps"
   },
   {
-    "label": "logout",
-    "url": "/#/logout"
+    "label": "models",
+    "sref": "admin.models"
+  },
+  {
+    "label": "records",
+    "sref": "admin.records"
   }
 ]

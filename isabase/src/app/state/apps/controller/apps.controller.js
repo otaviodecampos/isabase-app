@@ -15,7 +15,6 @@
         this.select = function (app) {
             util.doubleTimeout(function() {
                 if (selectable) {
-                    console.log(1);
                     that.selected = that.selected == app ? null : app;
                 }
             });

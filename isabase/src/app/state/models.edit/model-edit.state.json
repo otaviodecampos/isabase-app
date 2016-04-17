@@ -1,6 +1,6 @@
 {
-    "name": "admin.apps.models.edit",
-    "url": "/:modelName/edit",
+    "name": "admin.models.edit",
+    "url": "/edit/:modelName",
     "views": {
         "@admin": {
             "templateUrl": "isabase-app/model-edit.state.tpl.html",

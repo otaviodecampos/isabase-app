@@ -3,6 +3,11 @@
 *******************************/
 
 .ui.menu.topmenu .item {
+  padding: .93333333em 0.13333333em;
+}
+
+.ui.menu.topmenu .item.dropdown {
+  padding: .93333333em 1.13333333em;
   padding-left: 30px;
 }
 
@@ -32,4 +37,16 @@
 
 .ui.menu .dropdown.item .menu {
   box-shadow: rgba(34, 36, 38, 0.0980392) 0px 2px 4px 0px, rgba(34, 36, 38, 0.00784314) 0px 2px 10px 0px;
+}
+
+.topmenu .ui.primary.active.button, .ui.primary.buttons .active.button {
+  background-color: #1397D8;
+  color: #FFF;
+  text-shadow: none;
+}
+
+@media only screen and (max-width: 767px) {
+  .ui.menu.topmenu .item.header {
+    margin-left: -10px !important;
+  }
 }
