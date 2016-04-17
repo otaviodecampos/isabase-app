@@ -88,5 +88,12 @@
 
   "isabase": {
     "name": "Isabase beta"
-  }
+  },
+
+  "loginHeader": "Entre na sua conta",
+  "loginSubmit": "Entrar",
+  "username": "Usuário",
+  "password": "Senha",
+  "loginRememberMe": "Mantenha-me conectado"
+
 }

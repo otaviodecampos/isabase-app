@@ -1,0 +1,6 @@
+{
+    "name": "login",
+    "url": "/login",
+    "templateUrl": "isabase-app/login.state.tpl.html",
+    "controller": "LoginCtrl as ctrl"
+}
