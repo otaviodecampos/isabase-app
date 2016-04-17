@@ -36,7 +36,7 @@
 
         this.open = function(model) {
             selectable = false;
-            navigation.go('admin.models.records', { appName: appName, modelName: model.name });
+            navigation.go('admin.records', { appName: appName, modelName: model.name });
         }
 
         this.removeSelected = function () {

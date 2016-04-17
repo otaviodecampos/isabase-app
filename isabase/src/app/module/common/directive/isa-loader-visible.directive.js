@@ -3,7 +3,7 @@
     angular.module('common')
         .directive('isaLoaderVisible', Directive);
 
-    function Directive($parse) {
+    function Directive($parse, $timeout) {
         return {
             restrict: 'A',
             require: '^isaLoader',
@@ -20,7 +20,9 @@
 
                 ctrl.afterLoaded(function (type) {
                     if(settings[type] == undefined || settings[type]) {
-                        element.removeClass(className);
+                        $timeout(function() {
+                            element.removeClass(className);
+                        }, 1000);
                     }
                 });
 

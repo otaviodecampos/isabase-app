@@ -14,7 +14,7 @@
 
     <span class="ui container center aligned actions">
         <div ng-if="ctrl.selected">
-            <a ui-sref="admin.apps.models.records.edit({ recordId: ctrl.selected.id })"
+            <a ui-sref="admin.records.edit({ recordId: ctrl.selected.id })"
                class="ui fluid action labeled blue button icon">
                 <i class="icon icon-pencil"></i>
                 {{ 'edit' | translate }}
@@ -25,13 +25,13 @@
             </div>
         </div>
 
-        <a ui-sref="admin.apps.models.records.edit({ recordId: 'new' })"
+        <a ng-if="ctrl.model" ui-sref="admin.records.edit({ recordId: 'new' })"
            class="ui fluid action labeled blue button icon">
             <i class="icon icon-plus"></i>
             {{ 'recordNew' | translate }}
         </a>
 
-        <a ui-sref="admin.apps.models" class="ui fluid action labeled blue button icon">
+        <a ui-sref="admin.models" class="ui fluid action labeled blue button icon">
             <i class="icon icon-layers"></i>
             {{ 'modelList' | translate }}
         </a>

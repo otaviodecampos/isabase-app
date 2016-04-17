@@ -3,7 +3,7 @@
     angular.module('common')
         .directive('isaLoaderInvisible', Directive);
 
-    function Directive($parse) {
+    function Directive($parse, $timeout) {
         return {
             restrict: 'A',
             require: '^isaLoader',

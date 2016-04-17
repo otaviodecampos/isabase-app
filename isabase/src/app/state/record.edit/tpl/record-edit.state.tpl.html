@@ -8,11 +8,6 @@
                 </div>
             </h2>
 
-            <div isa-loader-invisible="{save: false, remove: false}" ui-popup="{inline: true}"
-                 data-content="{{ 'model' | translate }}" data-position="left center"
-                 class="ui absolute floated right ribbon blue label isa-loader-above">{{ ctrl.model.name | capitalize }}
-            </div>
-
             <isa-messages form="form" fields="ctrl.model.fields"></isa-messages>
 
             <form name="form" class="ui container stackable grid form margin top"

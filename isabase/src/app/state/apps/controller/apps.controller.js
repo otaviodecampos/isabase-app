@@ -22,7 +22,7 @@
 
         this.open = function(app) {
             selectable = false;
-            navigation.go('admin.apps.models', { appName: app.name });
+            navigation.go('admin.models', { appName: app.name });
         }
 
         this.removeSelected = function () {

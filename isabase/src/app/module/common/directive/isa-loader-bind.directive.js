@@ -9,26 +9,25 @@
             require: '^isaLoader',
             transclude: true,
             link: function (scope, element, attr, ctrl, transcludeFn) {
-                
-                var transcluded = false
+
+                var transcluded
                     , loaderText;
 
                 transcludeFn(function (clone) {
                     element.html(clone);
                 });
 
-                ctrl.beforeLoad(function(type) {
-                    element.hide();
+                ctrl.beforeLoad(function (type) {
+                    transcluded = false;
 
                     scope.$watch(attr.isaLoaderBind, function (value) {
-                        $timeout(function() {
+                        $timeout(function () {
                             value = value == undefined ? '' : value;
-                            if(ctrl.data && ctrl.data.$resolved) {
+                            if (ctrl.data && ctrl.data.$resolved) {
                                 transclude(false);
                             } else {
                                 loaderText = value;
                                 element.text(value);
-                                element.fadeIn('fast');
                             }
                         }, 100);
                     });
@@ -38,15 +37,9 @@
                     });
 
                     function transclude(animate) {
-                        if(!transcluded) {
+                        if (!transcluded) {
                             transcludeFn(function (clone) {
-                                if(animate) {
-                                    element.hide();
-                                    element.html(clone);
-                                    element.fadeIn();
-                                } else {
-                                    element.html(clone);
-                                }
+                                element.html(clone);
                                 transcluded = true;
                             });
                         }

@@ -1,6 +1,6 @@
 {
-    "name": "admin.apps.models.records.edit",
-    "url": "/:recordId/edit",
+    "name": "admin.records.edit",
+    "url": "/edit/:recordId",
     "views": {
         "@admin": {
             "templateUrl": "isabase-app/record-edit.state.tpl.html",

@@ -9,6 +9,7 @@
   "appEmptyNameMessage": "Informe um nome para o aplicativo",
   "appSelectMessage": "Selecione um aplicativo",
   "appSelectedMessage": "Gerencie o aplicativo selecionado",
+  "appModelSelectMessage": "Selecione um aplicativo e um modelo",
 
   "model": "Modelo",
   "models": "Modelos",

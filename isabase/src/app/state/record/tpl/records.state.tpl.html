@@ -3,22 +3,20 @@
         <div class="ui raised segment" isa-loader="ctrl.records">
             <h2 class="ui header" isa-loader-visible>
                 {{ 'recordsHeader' | translate }}
-                <!--<div class="sub header" isa-loader-bind="'loading' | translate">{{ 'recordsSubheader' | translate:{
-                    modelName: ctrl.model.name, recordSize: ctrl.records.length } | capitalize }}
-                </div>-->
+
+                <div class="sub header" isa-loader-bind="'loading' | translate">
+                    {{ ctrl.myapp && ctrl.model && ('recordsSubheader' | translate: {modelName: ctrl.model.name, recordSize:
+                    ctrl.records.length} | capitalize) || 'appModelSelectMessage' | translate }}
+                </div>
             </h2>
 
-            <!--<div isa-loader-invisible="{remove: false}" ui-popup="{inline: true}"
-                 data-content="{{ 'model' | translate }}" data-position="left center"
-                 class="ui absolute floated right ribbon blue label isa-loader-above">{{
-                ctrl.model.name | capitalize }}
-            </div>-->
             <div class="button group absolute top right">
                 <div ui-dropdown="{selectBy: 'name'}" ng-model="ctrl.myapp"
                      class="ui floating dropdown button">
                     <span class="text">{{ ctrl.myapp && ctrl.myapp.name || 'Selecione um Aplicativo' }}</span>
                     <div class="menu">
-                        <div class="item" ng-click="ctrl.selectApp(app)" ng-repeat="app in ctrl.apps">{{ app.name }}</div>
+                        <div class="item" ng-click="ctrl.selectApp(app)" ng-repeat="app in ctrl.apps">{{ app.name }}
+                        </div>
                     </div>
                 </div>
 
@@ -26,12 +24,14 @@
                      class="ui floating dropdown button">
                     <span class="text">{{ ctrl.model && ctrl.model.name || 'Selecione um Modelo' }}</span>
                     <div class="menu">
-                        <div class="item" ng-click="ctrl.selectModel(ctrl.myapp, model)" ng-repeat="model in ctrl.models">{{ model.name }}</div>
+                        <div class="item" ng-click="ctrl.selectModel(ctrl.myapp, model)"
+                             ng-repeat="model in ctrl.models">{{ model.name }}
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <table class="ui very basic table striped selectable"><!--isa-loader-invisible="{remove: false}"-->
+            <table class="ui very basic table striped selectable" isa-loader-invisible="{remove: false}">
                 <thead>
                 <tr>
                     <th>{{ 'id' | translate }}</th>

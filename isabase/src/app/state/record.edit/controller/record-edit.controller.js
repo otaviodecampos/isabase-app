@@ -12,11 +12,10 @@
 
         this.selected = null;
         this.model = models.get($stateParams);
+        this.model.$promise.then(null, navigation.back);
 
-        this.model.$promise.then(function (model) {
-            that.record = records.get($stateParams);
-            that.record.$promise.then(null, navigation.back);
-        }, navigation.back);
+        that.record = records.get($stateParams);
+        that.record.$promise.then(null, navigation.back);
 
         this.save = function () {
             this.record.$save({appName: appName, modelName: modelName, recordId: that.record.id == 'new' ? '' : that.record.id}, function (record) {

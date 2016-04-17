@@ -1,6 +1,11 @@
 {
     "name": "admin.models",
-    "url": "/models/:appName?",
+    "url": "/models/:appName",
+    "params": {
+        "appName": {
+            "squash": true
+        }
+    },
     "views": {
         "@admin": {
             "templateUrl": "isabase-app/models.state.tpl.html",

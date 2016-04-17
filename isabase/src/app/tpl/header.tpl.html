@@ -4,7 +4,7 @@
             <img class="logo" src="assets/images/logo.png">
         </a>
         <div class="item" ng-repeat="item in header.items">
-            <a ui-sref-active="active" ui-sref="{{ item.sref }}" ng-class="{active: item.url}"class="ui primary button">{{ item.label | translate }}</a>
+            <a ui-sref-active="active" ui-sref="{{ item.sref }}" class="ui primary button">{{ item.label | translate }}</a>
         </div>
         <div ui-dropdown="{action: 'hide'}" class="ui pointing dropdown link item top right">
             <span class="text">otaviodecampos</span>

@@ -12,32 +12,35 @@
             , modelName = $stateParams.modelName;
 
         this.selected = null;
+        this.myapp = null;
         this.apps = apps.query();
 
         if(appName) {
-            this.myapp = apps.get($stateParams);
-            this.models = models.query($stateParams);
+            apps.get($stateParams, function(app) {
+                that.selectApp(app);
+            });
         }
 
-        /*this.models = models.query({appName: 'all'});*/
-        /*this.model = models.get($stateParams);
-
-        this.model.$promise.then(function (model) {
-            that.records = records.query($stateParams);
-        }, navigation.back);*/
+        if(appName && modelName) {
+            models.get($stateParams, function(model) {
+                that.selectModel(that.myapp, model);
+            });
+        }
 
         this.selectApp = function (app) {
             if(!this.myapp || this.myapp.name != app.name) {
                 this.myapp = app;
                 this.models = models.query({appName: app.name});
+                this.records = null;
                 navigation.setParams({appName: app.name});
             }
         }
 
         this.selectModel = function (app, model) {
             if(!this.model || this.model.name != model.name) {
-                this.model = model;
-                this.records = records.query({appName: app.name, modelName: model.name});
+                this.records = records.query({appName: app.name, modelName: model.name}, function() {
+                    that.model = model;
+                });
                 navigation.setParams({appName: app.name, modelName: model.name});
             }
         }
@@ -50,7 +53,7 @@
 
         this.open = function(record) {
             selectable = false;
-            navigation.go('admin.apps.models.records.edit', { appName: appName, modelName: modelName, recordId: record.id });
+            navigation.go('admin.records.edit', { appName: appName, modelName: modelName, recordId: record.id });
         }
 
         this.removeSelected = function () {

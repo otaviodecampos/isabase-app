@@ -1,6 +1,14 @@
 {
     "name": "admin.records",
-    "url": "/records/:appName?/:modelName?",
+    "url": "/records/{appName}/{modelName}",
+    "params": {
+        "appName": {
+            "squash": true
+        },
+        "modelName": {
+            "squash": true
+        }
+    },
     "views": {
         "@admin": {
             "templateUrl": "isabase-app/records.state.tpl.html",

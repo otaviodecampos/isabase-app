@@ -88,6 +88,7 @@
         });
 
         $scope.$watch('isaLoaderCtrl.data', function (data) {
+            loader.fadeIn();
             if (data) {
                 $element.addClass('isa-loader-data');
                 callBeforeLoad();
