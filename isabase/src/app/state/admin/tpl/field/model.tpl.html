@@ -7,7 +7,7 @@
      ng-class="{seven: small, ten: !small, error: form[field.name].$invalid && (form[field.name].$touched || form.$submitted)}"
      ng-switch="field.collection == true">
 
-    <select name="{{ field.name }}" ng-switch-when="false" ui-dropdown ng-model="model[field.name]"
+    <select name="{{ field.name }}" ng-switch-when="false" ui-dropdown="{selectBy: 'id', wait: data}" ng-model="model[field.name]"
             ng-options="{{ 'record as record.$displayField.value for record in data track by record.id' }}"
             class="ui fluid dropdown" ng-required="field.required && data.length">
 
@@ -15,7 +15,7 @@
         </option>
     </select>
 
-    <select name="{{ field.name }}" ng-switch-when="true" multiple="" ui-dropdown ng-model="model[field.name]"
+    <select name="{{ field.name }}" ng-switch-when="true" multiple="" ui-dropdown="{wait: data}" ng-model="model[field.name]"
             ng-options="{{ 'record as record.$displayField.value for record in data track by record.id' }}"
             class="ui fluid dropdown" ng-required="field.required && data.length">
 

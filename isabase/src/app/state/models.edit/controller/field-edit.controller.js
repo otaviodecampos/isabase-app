@@ -38,7 +38,9 @@
             var modelLevel = {};
 
             if (that.field.type == 'model' && that.field.target) {
-                getModelFields(that.field.target, '').then(function (fields) {
+                var promise = getModelFields(that.field.target, '');
+                that.modelFields.$promise = promise;
+                promise.then(function (fields) {
                     that.modelFields = _.flattenDeep(fields);
                 });
             }

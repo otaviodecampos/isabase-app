@@ -12,18 +12,12 @@
                 var settings = $parse(attrs.uiDropdown)(scope) || {}
                     , defaultText
                     , textElement;
-
-                /*console.log(ngModel);
-
-                settings.onChange = function(value, text, $choice) {
-                    console.log(arguments);
-                }*/
-
+    
                 if (ngModel) {
                     scope.$watch(function () {
                         return ngModel.$modelValue;
                     }, function (newValue) {
-                        if (!newValue || (angular.isArray(newValue) && !newValue.length)) {
+                        if (newValue == undefined || (angular.isArray(newValue) && !newValue.length)) {
                             element.parent().children('[data-value]').remove();
                             defaultText = element.find('option').first().text();
                             textElement = element.parent().children('.text');
@@ -31,10 +25,10 @@
                         } else {
                             if (newValue.$promise) {
                                 newValue.$promise.then(function() {
-                                    setSelected(newValue);
+                                    initValue(newValue);
                                 });
                             } else {
-                                setSelected(newValue);
+                                initValue(newValue);
                             }
                         }
                     });
@@ -43,7 +37,17 @@
                 $timeout(function () {
                     element.dropdown(settings);
                 });
-
+                
+                function initValue(value) {
+                    if(settings.wait && settings.wait.$promise) {
+                        settings.wait.$promise.then(function() {
+                            setSelected(value);    
+                        });
+                    } else {
+                        setSelected(value);
+                    }
+                }
+                
                 function setSelected(value) {
                     $timeout(function () {
                         $timeout(function () {
@@ -51,6 +55,9 @@
                             if(settings.selectBy) {
                                 val = value[settings.selectBy];
                             };
+                            if(!angular.isArray(val)) {
+                                val = val + '';
+                            }
                             element.dropdown('set selected', val);
                         });
                     });
