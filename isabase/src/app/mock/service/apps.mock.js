@@ -73,7 +73,6 @@
                     angular.forEach(storage, function (item, i) {
                         if (item.name == appName) {
                             storage = item;
-                            return false;
                         }
                     });
                 }

@@ -5,7 +5,7 @@
         .config(Config);
 
     /* @ngInject */
-    function Config($translateProvider, $locationProvider, $breadcrumbProvider, $urlRouterProvider, uiCalendarProvider, APP_CONFIG, CALENDAR_CONFIG) {
+    function Config($translateProvider, $locationProvider, $httpProvider, $breadcrumbProvider, $urlRouterProvider, uiCalendarProvider, APP_CONFIG, CALENDAR_CONFIG) {
 
         $locationProvider.html5Mode(false);
 
@@ -23,6 +23,8 @@
         });
 
         uiCalendarProvider.setSetting('text', CALENDAR_CONFIG[APP_CONFIG.locale.preferredLanguage.replace('-', '')]);
+
+        $httpProvider.interceptors.push('authInterceptor');
 
     };
 

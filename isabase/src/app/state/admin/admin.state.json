@@ -3,5 +3,6 @@
     "url": "",
     "abstract": true,
     "templateUrl": "isabase-app/admin.tpl.html",
-    "controller": "AdminCtrl as admin"
+    "controller": "AdminCtrl as admin",
+    "authenticate": true
 }
