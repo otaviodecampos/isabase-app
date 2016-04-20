@@ -1,6 +1,6 @@
 {
     "name": "admin.records",
-    "url": "/records/{appName}/{modelName}",
+    "url": "/records/:appName/:modelName",
     "params": {
         "appName": {
             "squash": true

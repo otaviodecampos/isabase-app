@@ -1,10 +1,10 @@
 [
   {
     "label": "account",
-    "url": "/#/account"
+    "stateName": "admin.account"
   },
   {
     "label": "logout",
-    "url": "/#/logout"
+    "stateName": "admin.account.logout"
   }
 ]

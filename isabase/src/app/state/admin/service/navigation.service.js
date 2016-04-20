@@ -7,13 +7,15 @@
     /* @ngInject */
     function Service($state) {
 
-        var that = this;
+        var that = this,
+            currentParams = {};
 
         this.back = function(params) {
             $state.go('^', params);
         };
 
         this.setParams = function(params) {
+            angular.extend(currentParams, params);
             return $state.go('.', params, {notify:false});
         }
 
@@ -25,6 +27,14 @@
 
         this.go = function(stateName, params) {
             $state.go(stateName, params);
+        }
+
+        this.setCurrentParam = function(paramName, paramValue) {
+            currentParams[paramName] = paramValue;
+        }
+
+        this.getCurrentParam = function(paramName) {
+            return currentParams[paramName] || null;
         }
         
     };

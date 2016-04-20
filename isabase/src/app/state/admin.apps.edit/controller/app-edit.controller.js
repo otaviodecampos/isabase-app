@@ -7,7 +7,7 @@
     /* @ngInject */
     function Controller($stateParams, apps, navigation, notification, APP_FIELDS) {
         var that = this
-            , appName = $stateParams.appName;
+            , appName = $stateParams.appName || navigation.getCurrentParam('appName');
 
         this.fields = APP_FIELDS;
         this.app = apps.get($stateParams);

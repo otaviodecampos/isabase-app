@@ -8,14 +8,14 @@
     function Controller($stateParams, $previousState, notification, apps, models, navigation, util) {
         var that = this
             , selectable = true
-            , appName = $stateParams.appName;
+            , appName = $stateParams.appName || navigation.getCurrentParam('appName');
 
         this.selected = null;
         this.apps = apps.query();
 
         if(appName) {
-            this.myapp = apps.get($stateParams);
-            this.models = models.query($stateParams);
+            this.myapp = apps.get({appName: appName});
+            this.models = models.query({appName: appName});
         }
 
         this.selectApp = function (app) {
@@ -40,7 +40,7 @@
         }
 
         this.removeSelected = function () {
-            this.selected.$remove($stateParams, function () {
+            this.selected.$remove({appName: appName}, function () {
                 var index = that.models.indexOf(that.selected);
                 that.models.splice(index, 1);
                 notification.success('model', that.selected.name, 'removeSuccess');

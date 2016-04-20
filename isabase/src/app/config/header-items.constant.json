@@ -1,14 +1,14 @@
 [
   {
     "label": "apps",
-    "sref": "admin.apps"
+    "stateName": "admin.apps"
   },
   {
     "label": "models",
-    "sref": "admin.models"
+    "stateName": "admin.models"
   },
   {
     "label": "records",
-    "sref": "admin.records"
+    "stateName": "admin.records"
   }
 ]

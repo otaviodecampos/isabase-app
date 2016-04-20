@@ -7,15 +7,15 @@
     /* @ngInject */
     function Controller($scope, $stateParams, apps, models, notification, modal, navigation, MODEL_FIELDS) {
         var that = this
-            , modelName = $stateParams.modelName
-            , appName = $stateParams.appName;
+            , modelName = $stateParams.modelName || navigation.getCurrentParam('modelName')
+            , appName = $stateParams.appName || navigation.getCurrentParam('appName');
 
         this.selected = null;
         this.fields = MODEL_FIELDS;
-        this.app = apps.get($stateParams);
+        this.app = apps.get({appName: appName});
         this.app.$promise.then(null, navigation.back);
 
-        this.model = models.get($stateParams);
+        this.model = models.get({appName: appName, modelName: modelName});
         this.model.$promise.then(function(model) {
             if(!model.fields) {
                 model.fields = [];
@@ -39,7 +39,7 @@
         }
 
         this.remove = function() {
-            this.model.$remove($stateParams, function() {
+            this.model.$remove({appName: appName, modelName: modelName}, function() {
                 notification.success('model', that.model.name, 'removeSuccess');
                 navigation.back();
             }, function(e) {
