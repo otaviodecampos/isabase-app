@@ -5,11 +5,9 @@
         .run(Run);
 
     /* @ngInject */
-    function Run($httpBackend, appsMock, modelsMock, recordsMock) {
+    function Run($httpBackend, appsMock, modelsMock, recordsMock, authMock) {
 
         $httpBackend.whenGET(/^\/assets/).passThrough();
-
-        $httpBackend.whenGET('http://api.isabase.com.br/v1/auth').passThrough();
 
     };
 
