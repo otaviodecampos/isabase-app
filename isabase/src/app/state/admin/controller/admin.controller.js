@@ -22,6 +22,7 @@
 
         $rootScope.$on('$stateChangeStart', function (event, toState) {
             that.moveToParent = $state.includes(toState.name);
+            that.moveToChild = toState.$$state().includes[$state.current.name];
         });
 
     }
