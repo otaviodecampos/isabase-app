@@ -1,6 +1,11 @@
 {
     "name": "login",
     "url": "/login",
+    "params": {
+        "redirectUrl": {
+            "squash": true
+        }
+    },
     "templateUrl": "isabase-app/login.state.tpl.html",
     "controller": "LoginCtrl as loginCtrl"
 }

@@ -24,7 +24,7 @@
 
         uiCalendarProvider.setSetting('text', CALENDAR_CONFIG[APP_CONFIG.locale.preferredLanguage.replace('-', '')]);
 
-        /*$httpProvider.interceptors.push('authInterceptor');*/
+        $httpProvider.interceptors.push('authInterceptor');
 
     };
 

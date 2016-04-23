@@ -12,6 +12,10 @@
             , afterLoadedFn = []
             , loader = $element.children('.isa-loader');
 
+        that.settings = {
+            leaveOnlyFail: false
+        };
+
         var callBeforeLoad = function (type) {
             angular.forEach(beforeLoadFn, function (fn) {
                 fn.call(that.data, type);
@@ -28,6 +32,10 @@
             var type = 'save'
                 , $save = data.$save;
 
+            if(!$save) {
+                return;
+            }
+
             data.$save = function () {
                 $element.addClass('isa-' + type);
                 loader.fadeIn();
@@ -43,6 +51,10 @@
         var bindRemove = function (data) {
             var type = 'remove'
                 , $remove = data.$remove;
+
+            if(!$remove) {
+                return;
+            }
 
             data.$remove = function () {
                 $element.addClass('isa-' + type);
@@ -69,8 +81,6 @@
         }
 
         this.onLoaded(function () {
-            var $save = that.data.$save;
-
             callAfterLoaded();
             loader.fadeOut();
 
@@ -90,11 +100,18 @@
         $scope.$watch('isaLoaderCtrl.data', function (data) {
             loader.fadeIn();
             if (data) {
+                var promise = that.data.$promise || that.data;
+
                 $element.addClass('isa-loader-data');
                 callBeforeLoad();
 
                 angular.forEach(onLoadedFn, function (fn) {
-                    that.data.$promise.then(fn)
+                    if(that.settings.leaveOnlyFail) {
+                        promise.then(null, fn);
+                    } else {
+                        promise.then(fn, fn);
+                    }
+
                 });
             }
         });

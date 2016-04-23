@@ -4,7 +4,7 @@
         .factory('authInterceptor', Service);
 
     /* @ngInject */
-    function Service($q, $window, $location) {
+    function Service($location) {
         return {
             'response': function (response) {
                 if (response.status === 401) {

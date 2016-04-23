@@ -3,7 +3,7 @@
     angular.module('common')
         .directive('isaLoader', Directive);
 
-    function Directive() {
+    function Directive($parse) {
         return {
             restrict: 'A',
             scope: {
@@ -14,7 +14,14 @@
             controller: 'IsaLoaderCtrl',
             controllerAs: 'isaLoaderCtrl',
             bindToController: true,
-            link: function (scope, element, attr, ctrl, transcludeFn) {
+            link: function (scope, element, attrs, ctrl, transcludeFn) {
+                var ctrl = scope.isaLoaderCtrl;
+                var settings = $parse(attrs.isaLoaderSettings)(scope);
+
+                if(settings) {
+                    angular.extend(ctrl.settings, settings);
+                }
+
                 transcludeFn(function (clone) {
                     element.append(clone);
                 });

@@ -5,6 +5,6 @@
   },
   {
     "label": "logout",
-    "stateName": "admin.account.logout"
+    "stateName": "login"
   }
 ]

@@ -5,10 +5,22 @@
         .service('navigation', Service);
 
     /* @ngInject */
-    function Service($state) {
+    function Service($state, $location) {
 
         var that = this,
             currentParams = {};
+
+        this.goDefaultState = function() {
+            $location.path('/');
+        }
+
+        this.go = function(stateName, params) {
+            $state.go(stateName, params);
+        }
+
+        this.goUrl = function(url) {
+            $location.path(url);
+        }
 
         this.back = function(params) {
             $state.go('^', params);
@@ -23,10 +35,6 @@
             this.setParams(params).then(function() {
                 that.back(params);
             });
-        }
-
-        this.go = function(stateName, params) {
-            $state.go(stateName, params);
         }
 
         this.setCurrentParam = function(paramName, paramValue) {
