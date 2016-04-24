@@ -1,8 +1,11 @@
 {
   "name": "isabase-app",
   "dependencies": [
-    "common",
-    "angular-semantic-ui",
+    "isa-mock",
+    "isa-common",
+    "isa-semantic",
+    "isa-loader",
+    "isa-form",
     "ngAnimate",
     "ngSanitize",
     "ngResource",
@@ -12,7 +15,6 @@
     "ui.router",
     "ct.ui.router.extras",
     "toaster",
-    "base64",
-    "isabase-mock"
+    "base64"
   ]
 }

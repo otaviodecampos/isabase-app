@@ -1,5 +1,5 @@
 {
-  "name": "isabase-mock",
+  "name": "isa-mock",
   "dependencies": [
     "restfulNgMock",
     "ngMockE2E"

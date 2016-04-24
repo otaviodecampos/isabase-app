@@ -1,0 +1,9 @@
+{
+  "default-url": "/apps",
+  "notification": {
+    "timeout": 5000,
+    "position-class": "toast-top-right",
+    "close-button": true,
+    "history": 5
+  }
+}

@@ -1,6 +1,6 @@
 (function () {
 
-    angular.module('common')
+    angular.module('isa-common')
         .service('util', Service);
 
     /* @ngInject */

@@ -1,7 +1,7 @@
 (function() {
 
     /* global angular */
-    angular.module('angular-semantic-ui')
+    angular.module('isa-semantic')
         .directive('uiPopup', Directive);
 
     function Directive($parse) {

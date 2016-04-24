@@ -1,7 +1,7 @@
 (function () {
     'use strict'
 
-    angular.module('isabase-app')
+    angular.module('isa-semantic')
         .filter('uiCalendar', Filter);
 
     function Filter(uiCalendar) {

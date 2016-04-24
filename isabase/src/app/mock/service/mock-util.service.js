@@ -1,7 +1,7 @@
 (function() {
     'use strict'
 
-    angular.module('isabase-mock')
+    angular.module('isa-mock')
         .service('mockUtil', Service);
 
     /* @ngInject */

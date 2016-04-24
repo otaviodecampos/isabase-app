@@ -1,10 +1,10 @@
 (function () {
 
-    angular.module('isabase-mock')
+    angular.module('isa-mock')
         .config(Config);
 
     /* @ngInject */
-    function Config($provide, DELAY_CONFIG) {
+    function Config($provide, MOCKDELAY) {
 
         $provide.decorator('$httpBackend', function($delegate) {
             var proxy = function(method, url, data, callback, headers) {
@@ -12,7 +12,7 @@
                     var _this = this
                         , _arguments = arguments;
 
-                    var delay = DELAY_CONFIG[url] || 750;
+                    var delay = MOCKDELAY[url] || 750;
 
                     setTimeout(function() {
                         callback.apply(_this, _arguments);

@@ -1,6 +1,6 @@
 (function () {
 
-    angular.module('angular-semantic-ui')
+    angular.module('isa-semantic')
         .provider('uiCalendar', Provider);
 
     /* @ngInject */

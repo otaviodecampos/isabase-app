@@ -1,7 +1,7 @@
 (function() {
     'use strict'
 
-    angular.module('common')
+    angular.module('isa-common')
         .filter('capitalize', Filter);
 
     function Filter() {

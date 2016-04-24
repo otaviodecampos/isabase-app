@@ -1,6 +1,6 @@
 (function () {
 
-    angular.module('isabase-app')
+    angular.module('isa-common')
         .service('resourceUtil', Service);
 
     function Service() {
