@@ -55,7 +55,7 @@
     },
     "clean": false,
     "default": true,
-    "watch": true,
+    "watch": false,
     "task-dir": "tasks/dist",
     "task": {
       "css": true,

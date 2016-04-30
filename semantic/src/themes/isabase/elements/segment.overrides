@@ -7,7 +7,7 @@
 --------------------*/
 
 .ui.raised.segments, .ui.raised.segment {
-    border-top: 0;
+    border: 0;
 }
 
 /*-------------------

@@ -1,6 +1,4 @@
-<div class="ui container">
-    <div class="ui large breadcrumb">
-        <a ng-repeat-start="step in steps" ng-href="{{ $last ? '' : step.ncyBreadcrumbLink }}" ng-class="{active: $last}" class="section">{{ step.ncyBreadcrumbLabel || step.name | substringlast:'.':1 | translate | capitalize}}</a>
-        <i ng-if="!$last" ng-repeat-end class="right chevron icon divider"></i>
-    </div>
+<div class="ui breadcrumb">
+    <a ng-repeat-start="step in steps" ng-href="{{ $last ? '' : step.ncyBreadcrumbLink }}" ng-class="{active: $last}" class="section">{{ step.ncyBreadcrumbLabel || step.name | substringlast:'.':1 | translate | capitalize}}</a>
+    <i ng-if="!$last" ng-repeat-end class="right chevron icon divider"></i>
 </div>

@@ -1,14 +1,47 @@
 <div class="ui two column doubling stackable grid">
-    <div class="eleven wide column">
+    <div class="sixteen wide column">
         <div class="ui raised segment" isa-loader="ctrl.myapps">
             <h2 class="ui header" isa-loader-visible>
                 {{ 'appsHeader' | translate }}
-                <div class="sub header" isa-loader-bind="'loading' | translate">{{ 'appsSubheader' | translate:
+                <!--<div class="sub header" isa-loader-bind="'loading' | translate">{{ 'appsSubheader' | translate:
                     {appSize: ctrl.myapps.length} | capitalize }}
-                </div>
+                </div>-->
             </h2>
 
-            <table class="ui very basic table striped selectable" isa-loader-invisible>
+            <div class="ui three stackable cards">
+              <div class="card limit height" ng-repeat="app in ctrl.myapps">
+                <div class="content">
+                    <a ui-sref="admin.apps.edit({ appName: app.name })">
+                        <i class="right floated setting icon"></i>
+                    </a>
+                    <div class="header">{{ app.name }}</div>
+                    <div class="description">
+                      <p>{{ app.description }}</p>
+                    </div>
+                </div>
+                <div class="extra content">
+                    <a class="left floated">
+                      <i class="icon icon-layers"></i>
+                      {{ 'models' | translate }}
+                    </a>
+                    <a class="right floated">
+                      <i class="icon icon-book-open"></i>
+                      {{ 'records' | translate }}
+                    </a>
+                  </div>
+              </div>
+              
+              <div ui-sref="admin.apps.edit({ appName: 'new' })" class="card limit height">
+                <div class="content center">
+                    <div class="description link">
+                      <i class="add circle icon big"></i>
+                      <p>Criar novo aplicativo</p>
+                    </div>
+                </div>
+              </div>
+            </div>
+              
+            <!--<table class="ui very basic table striped selectable" isa-loader-invisible>
                 <thead>
                 <tr>
                     <th>{{ 'name' | translate }}</th>
@@ -25,8 +58,8 @@
                     <td>{{ app.modelsSize }}</td>
                 </tr>
                 </tbody>
-            </table>
+            </table>-->
         </div>
     </div>
-    <div class="five wide column" ng-include="'isabase-app/apps.sidebar.tpl.html'"></div>
+    <!--<div class="five wide column" ng-include="'isabase-app/apps.sidebar.tpl.html'"></div>-->
 </div>

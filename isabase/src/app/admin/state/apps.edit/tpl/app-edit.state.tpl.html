@@ -1,9 +1,9 @@
 <div class="ui two column doubling stackable grid">
-    <div class="eleven wide column">
+    <div class="sixteen wide column">
         <div class="ui raised segment" isa-loader="ctrl.app">
             <h2 class="ui header" isa-loader-visible>
-                {{ ctrl.app.$$new ? 'appNew' : 'appEdit' | translate }}
-                <div class="sub header" isa-loader-bind="'loading' | translate">{{ ::(ctrl.app.$$new ? ''  : ctrl.app.name | capitalize) }}</div>
+                {{ ctrl.app.$$new ? 'appNew' : ctrl.app.name | translate }}
+                <div class="sub header" isa-loader-invisible><ncy-breadcrumb></ncy-breadcrumb></div>
             </h2>
 
             <isa-messages form="form" fields="ctrl.fields"></isa-messages>
@@ -17,16 +17,15 @@
                      ng-include="'isabase-app/' + field.type + '.tpl.html'">
                 </div>
 
-                <div class="row">
-                    <div class="fourteen wide right floated column">
-                        <button type="submit" class="ui labeled button icon" ng-class="{ green: form.$valid }">
-                            <i class="save icon"></i>
-                            {{ 'saveChanges' | translate }}
-                        </button>
+                <div class="row form footer">
+                    <div class="fourteen wide right floated column form footer">
                         <a ng-click="navigation.back()" class="ui button">
                             {{ 'cancel' | translate }}
                         </a>
-                        <a class="ui labeled button" ng-click="ctrl.clear()">
+                        <button type="submit" class="ui right floated button" ng-class="{ green: form.$valid }">
+                            {{ 'saveChanges' | translate }}
+                        </button>
+                        <a class="ui labeled right floated button" ng-click="ctrl.clear()">
                             {{ 'clear' | translate }}
                         </a>
                     </div>
@@ -37,5 +36,5 @@
         </div>
     </div>
 
-    <div class="five wide column" ng-include="'isabase-app/app-edit.sidebar.tpl.html'"></div>
+    <!--<div class="five wide column" ng-include="'isabase-app/app-edit.sidebar.tpl.html'"></div>-->
 </div>
