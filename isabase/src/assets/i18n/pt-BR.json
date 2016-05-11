@@ -5,7 +5,7 @@
   "appsSubheader": "Sua conta possuí {{ appSize }} aplicativos",
   "appList": "Mostrar Aplicativos",
   "appEdit": "Editar {{ name }}",
-  "appNew": "Novo Aplicativo",
+  "appNew": "Criar novo aplicativo",
   "appEmptyNameMessage": "Informe um nome para o aplicativo",
   "appSelectMessage": "Selecione um aplicativo",
   "appSelectedMessage": "Gerencie o aplicativo selecionado",

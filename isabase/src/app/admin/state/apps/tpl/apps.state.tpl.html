@@ -20,11 +20,11 @@
                     </div>
                 </div>
                 <div class="extra content">
-                    <a class="left floated">
+                    <a class="left floated" ui-sref="admin.models({ appName: app.name })">
                       <i class="icon icon-layers"></i>
                       {{ 'models' | translate }}
                     </a>
-                    <a class="right floated">
+                    <a class="right floated" ui-sref="admin.records({ appName: app.name })">
                       <i class="icon icon-book-open"></i>
                       {{ 'records' | translate }}
                     </a>
@@ -35,30 +35,12 @@
                 <div class="content center">
                     <div class="description link">
                       <i class="add circle icon big"></i>
-                      <p>Criar novo aplicativo</p>
+                      <p>{{ 'appNew' | translate }}</p>
                     </div>
                 </div>
               </div>
             </div>
-              
-            <!--<table class="ui very basic table striped selectable" isa-loader-invisible>
-                <thead>
-                <tr>
-                    <th>{{ 'name' | translate }}</th>
-                    <th>{{ 'description' | translate }}</th>
-                    <th>{{ 'models' | translate }}</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr class="link" ng-init="ctrl.init(app)" ng-class="{selected: ctrl.selected == app}"
-                    ng-click="ctrl.select(app)" ng-dblclick="ctrl.open(app)"
-                    ng-repeat="app in ctrl.myapps">
-                    <td>{{ app.name }}</td>
-                    <td>{{ app.description }}</td>
-                    <td>{{ app.modelsSize }}</td>
-                </tr>
-                </tbody>
-            </table>-->
+
         </div>
     </div>
     <!--<div class="five wide column" ng-include="'isabase-app/apps.sidebar.tpl.html'"></div>-->
