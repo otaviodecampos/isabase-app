@@ -18,8 +18,9 @@
         }
 
         that.invalidate = function() {
-            $http.defaults.headers.common.Authorization = null;
-            $http.delete(RESOURCE_URL.auth);
+            $http.delete(RESOURCE_URL.auth).then(function() {
+                $http.defaults.headers.common.Authorization = null;
+            });
         }
 
         that.encode = function (username, password) {

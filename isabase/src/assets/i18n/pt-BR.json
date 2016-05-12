@@ -6,6 +6,7 @@
   "appList": "Mostrar Aplicativos",
   "appEdit": "Editar {{ name }}",
   "appNew": "Criar novo aplicativo",
+  "appRemove": "Remover Aplicativo",
   "appEmptyNameMessage": "Informe um nome para o aplicativo",
   "appSelectMessage": "Selecione um aplicativo",
   "appSelectedMessage": "Gerencie o aplicativo selecionado",

@@ -7,8 +7,8 @@
     /* @ngInject */
     function Controller($scope, $stateParams, apps, models, notification, modal, navigation, MODEL_FIELDS) {
         var that = this
-            , modelName = $stateParams.modelName || navigation.getCurrentParam('modelName')
-            , appName = $stateParams.appName || navigation.getCurrentParam('appName');
+            , appName = $stateParams.appName || navigation.getCurrentParam('appName')
+            , modelName = $stateParams.modelName || navigation.getCurrentParam('modelName');
 
         this.selected = null;
         this.fields = MODEL_FIELDS;

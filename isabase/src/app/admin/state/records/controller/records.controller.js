@@ -23,7 +23,7 @@
 
         if(appName && modelName) {
             models.get({appName: appName, modelName: modelName}, function(model) {
-                that.selectModel(that.myapp, model);
+                that.selectModel(appName, model);
             });
         }
 
@@ -32,16 +32,17 @@
                 this.myapp = app;
                 this.models = models.query({appName: app.name});
                 this.records = null;
-                navigation.setParams({appName: app.name});
+                navigation.setCurrentParam('appName', app.name);
             }
         }
 
-        this.selectModel = function (app, model) {
+        this.selectModel = function (appName, model) {
             if(!this.model || this.model.name != model.name) {
-                this.records = records.query({appName: app.name, modelName: model.name}, function() {
+                this.records = records.query({appName: appName, modelName: model.name}, function() {
                     that.model = model;
                 });
-                navigation.setParams({appName: app.name, modelName: model.name});
+                navigation.setCurrentParam('appName', appName);
+                navigation.setCurrentParam('modelName', model.name);
             }
         }
 

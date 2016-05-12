@@ -1,7 +1,6 @@
 {
   "name": "isabase-app",
   "dependencies": [
-    "isa-mock",
     "isa-common",
     "isa-semantic",
     "isa-loader",

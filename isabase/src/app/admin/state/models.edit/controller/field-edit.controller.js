@@ -5,9 +5,9 @@
         .controller('FieldEditCtrl', Controller);
 
     /* @ngInject */
-    function Controller($scope, $stateParams, $q, models, FIELD_TYPES, MODEL_FIELDS) {
+    function Controller($scope, $stateParams, $q, models, navigation, FIELD_TYPES, MODEL_FIELDS) {
         var that = this
-            , appName = $stateParams.appName
+            , appName = $stateParams.appName || navigation.getCurrentParam('appName')
             , modelCtrl = $scope.ctrl
             , field = modelCtrl.editingField;
 

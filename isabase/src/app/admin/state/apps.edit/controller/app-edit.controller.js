@@ -24,7 +24,7 @@
         }
 
         this.remove = function () {
-            this.myapp.$remove(function () {
+            this.app.$remove(function () {
                 notification.success('app', that.app.name, 'removeSuccess');
                 navigation.back();
             }, function (e) {

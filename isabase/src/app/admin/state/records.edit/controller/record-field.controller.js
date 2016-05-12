@@ -20,7 +20,7 @@
                     $scope.data.$promise.then(function (data) {
                         angular.forEach(data, function (record) {
                             var displayValue = jsUtil.getObjectValue(record, field.displayField);
-                            record.$displayField = {
+                            record.$$displayField = {
                                 value: displayValue
                             }
                         })

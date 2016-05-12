@@ -29,42 +29,46 @@
         };
 
         var bindSave = function (data) {
-            var type = 'save'
-                , $save = data.$save;
+            if(data) {
+                var type = 'save'
+                    , $save = data.$save;
 
-            if(!$save) {
-                return;
-            }
+                if(!$save) {
+                    return;
+                }
 
-            data.$save = function () {
-                $element.addClass('isa-' + type);
-                loader.fadeIn();
-                callBeforeLoad(type);
+                data.$save = function () {
+                    $element.addClass('isa-' + type);
+                    loader.fadeIn();
+                    callBeforeLoad(type);
 
-                $save.apply(this, arguments).then(function () {
-                    loader.fadeOut();
-                    callAfterLoaded(type);
-                });
+                    $save.apply(this, arguments).then(function () {
+                        loader.fadeOut();
+                        callAfterLoaded(type);
+                    });
+                }
             }
         }
 
         var bindRemove = function (data) {
-            var type = 'remove'
-                , $remove = data.$remove;
+            if(data) {
+                var type = 'remove'
+                    , $remove = data.$remove;
 
-            if(!$remove) {
-                return;
-            }
+                if(!$remove) {
+                    return;
+                }
 
-            data.$remove = function () {
-                $element.addClass('isa-' + type);
-                loader.fadeIn();
-                callBeforeLoad(type);
+                data.$remove = function () {
+                    $element.addClass('isa-' + type);
+                    loader.fadeIn();
+                    callBeforeLoad(type);
 
-                $remove.apply(this, arguments).then(function () {
-                    loader.fadeOut();
-                    callAfterLoaded(type);
-                });
+                    $remove.apply(this, arguments).then(function () {
+                        loader.fadeOut();
+                        callAfterLoaded(type);
+                    });
+                }
             }
         }
 

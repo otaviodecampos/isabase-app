@@ -17,6 +17,17 @@
                      ng-include="'isabase-app/' + field.type + '.tpl.html'">
                 </div>
 
+                <div class="row middle aligned" ng-if="!ctrl.app.$$new">
+                    <div class="four wide column right aligned field label"></div>
+
+                    <div class="wide column field ten">
+                        <a ng-click="ctrl.remove()" class="ui action red button">
+                            {{ 'appRemove' | translate }}
+                        </a>
+                    </div>
+
+                </div>
+
                 <div class="row form footer">
                     <div class="fourteen wide right floated column form footer">
                         <a ng-click="navigation.back()" class="ui button">

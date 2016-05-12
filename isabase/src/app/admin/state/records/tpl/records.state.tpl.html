@@ -24,7 +24,7 @@
                      class="ui floating dropdown button">
                     <span class="text">{{ ctrl.model && ctrl.model.name || 'Selecione um Modelo' }}</span>
                     <div class="menu">
-                        <div class="item" ng-click="ctrl.selectModel(ctrl.myapp, model)"
+                        <div class="item" ng-click="ctrl.selectModel(ctrl.myapp.name, model)"
                              ng-repeat="model in ctrl.models">{{ model.name }}
                         </div>
                     </div>
