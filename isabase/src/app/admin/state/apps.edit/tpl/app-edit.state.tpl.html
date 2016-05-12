@@ -3,7 +3,9 @@
         <div class="ui raised segment" isa-loader="ctrl.app">
             <h2 class="ui header" isa-loader-visible>
                 {{ ctrl.app.$$new ? 'appNew' : ctrl.app.name | translate }}
-                <div class="sub header" isa-loader-invisible><ncy-breadcrumb></ncy-breadcrumb></div>
+                <div class="sub header" isa-loader-invisible>
+                    <ncy-breadcrumb></ncy-breadcrumb>
+                </div>
             </h2>
 
             <isa-messages form="form" fields="ctrl.fields"></isa-messages>
@@ -46,6 +48,4 @@
 
         </div>
     </div>
-
-    <!--<div class="five wide column" ng-include="'isabase-app/app-edit.sidebar.tpl.html'"></div>-->
 </div>

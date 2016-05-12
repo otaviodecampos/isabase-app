@@ -42,6 +42,7 @@
   "fieldTargetEmptyMessage": "Informe um modelo",
   "fieldRequiredMessage": "Informe um valor para o campo <strong>{{ name }}</strong>",
   "fieldInvalidMessage": "Informe um valor válido para o campo <strong>{{ name }}</strong>",
+  "fieldInvalidEmailMessage": "E-mail informado não é válido",
 
   "removeSuccess": "Removido com sucesso",
   "removeFail": "Não foi possível remover",
@@ -65,6 +66,7 @@
 
   "account": "Minha Conta",
   "settings": "Configurações",
+  "profile": "Perfil",
 
   "true": "Sim",
   "false": "Não",
@@ -93,8 +95,15 @@
 
   "loginHeader": "Entre na sua conta",
   "loginSubmit": "Entrar",
-  "username": "Usuário",
+  "username": "Nome de Usuário",
+  "usernameInvalid": "Nome de usuário não pode conter espaços, caracteres especiais e deve começar com uma letra",
+  "email": "E-mail",
   "password": "Senha",
-  "loginRememberMe": "Mantenha-me conectado"
+  "currentPassword": "Senha Atual",
+  "newPassword": "Nova Senha",
+  "changePassword": "Alterar senha",
+  "loginRememberMe": "Mantenha-me conectado",
+  "The current password does not match.": "A senha atual não confere",
+  "changePasswordSuccess": "Sua senha foi alterada com sucesso."
 
 }

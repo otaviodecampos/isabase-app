@@ -1,6 +1,16 @@
 <div class="ui raised segment">
     <h3 class="ui header">
-        {{ 'settings' | translate }}
+        {{ 'account' | translate }}
     </h3>
+
+    <span class="ui container center aligned actions">
+        <a ui-sref="admin.account.profile" class="ui fluid action blue button" ui-sref-active="active">
+            {{ 'profile' | translate }}
+        </a>
+
+        <a ui-sref="admin.account.changePassword" class="ui fluid action blue button" ui-sref-active="active">
+            {{ 'changePassword' | translate }}
+        </a>
+    </span>
 
 </div>

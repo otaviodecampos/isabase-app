@@ -104,7 +104,7 @@
         $scope.$watch('isaLoaderCtrl.data', function (data) {
             loader.fadeIn();
             if (data) {
-                var promise = that.data.$promise || that.data;
+                var promise = that.data.$promise || that.data.promise || that.data;
 
                 $element.addClass('isa-loader-data');
                 callBeforeLoad();

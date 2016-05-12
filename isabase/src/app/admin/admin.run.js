@@ -4,9 +4,10 @@
         .run(Run);
 
     /* @ngInject */
-    function Run($rootScope, navigation) {
+    function Run($rootScope, navigation, Auth) {
 
         $rootScope.navigation = navigation;
+        $rootScope.auth = Auth;
 
     }
 

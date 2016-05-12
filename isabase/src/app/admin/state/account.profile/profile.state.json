@@ -1,0 +1,6 @@
+{
+    "name": "admin.account.profile",
+    "url": "/profile",
+    "templateUrl": "isabase-app/profile.state.tpl.html",
+    "controller": "ProfileCtrl as profileCtrl"
+}

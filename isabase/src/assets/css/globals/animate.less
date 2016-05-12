@@ -1,11 +1,19 @@
+.grid.account {
+  position: relative;
+}
+
 [ui-view].ng-enter, [ui-view].ng-leave {
-  position: absolute;
+  position: absolute !important;
   left: 0;
   right: 0;
   -webkit-transition:all .4s ease-in-out;
   -moz-transition:all .4s ease-in-out;
   -o-transition:all .4s ease-in-out;
   transition:all .4s ease-in-out;
+}
+
+.ui.column.grid > .column.ng-leave {
+  position: absolute;
 }
 
 [ui-view].ng-enter {

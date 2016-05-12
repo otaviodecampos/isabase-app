@@ -1,11 +1,4 @@
-<div class="ui two column doubling stackable grid">
-    <div class="eleven wide column">
-        <div class="ui raised segment">
-            <h2 class="ui header">
-                {{ 'account' | translate }}
-            </h2>
-
-        </div>
-    </div>
-    <div class="five wide column" ng-include="'isabase-app/account.sidebar.tpl.html'"></div>
+<div class="ui two column doubling stackable grid account">
+    <div class="eleven wide column" ui-view=""></div>
+    <div class="five wide column sidebar right floated" ng-include="'isabase-app/account.sidebar.tpl.html'"></div>
 </div>

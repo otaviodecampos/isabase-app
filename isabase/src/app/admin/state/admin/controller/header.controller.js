@@ -5,7 +5,7 @@
         .controller('HeaderCtrl', Controller);
 
     /* @ngInject */
-    function Controller(HEADER) {
+    function Controller(HEADER, Auth) {
 
         this.items = HEADER.topbar;
         this.dropdownItems = HEADER.userMenu;

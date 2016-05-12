@@ -1,6 +1,7 @@
 {
     "name": "admin.account",
     "url": "/account",
+    "abstract": true,
     "templateUrl": "isabase-app/account.state.tpl.html",
     "controller": "AccountCtrl as ctrl"
 }

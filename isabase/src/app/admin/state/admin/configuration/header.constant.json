@@ -16,7 +16,7 @@
   "userMenu": [
     {
       "label": "account",
-      "stateName": "admin.account"
+      "stateName": "admin.account.profile"
     },
     {
       "label": "logout",

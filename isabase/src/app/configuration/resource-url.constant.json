@@ -2,5 +2,7 @@
   "apps": "http://api.isabase.com.br/v1/apps/:appName",
   "models": "http://api.isabase.com.br/v1/apps/:appName/models/:modelName",
   "records": "http://api.isabase.com.br/v1/apps/:appName/models/:modelName/records/:recordId",
-  "auth": "http://api.isabase.com.br/v1/auth"
+  "auth": "http://api.isabase.com.br/v1/auth",
+  "profile": "http://api.isabase.com.br/v1/account/profile",
+  "changepassword": "http://api.isabase.com.br/v1/account/changepassword"
 }

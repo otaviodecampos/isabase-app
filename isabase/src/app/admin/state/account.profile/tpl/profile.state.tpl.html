@@ -1,0 +1,49 @@
+<div class="ui raised segment" isa-loader="profileCtrl.loader">
+    <h2 class="ui header">
+        {{ 'profile' | translate }}
+    </h2>
+
+    <isa-messages form="form" fields="[{name: 'username', message: {pattern: 'usernameInvalid'}}, {name: 'email'}]"></isa-messages>
+
+    <form name="form" class="ui container stackable grid form margin top"
+          ng-submit="form.$valid && profileCtrl.save($event);" novalidate isa-loader-invisible="{save: false}">
+
+        <div class="row middle aligned">
+            <div class="four wide column right aligned field label required" ng-class="{error: form.username.$invalid && (form.username.$touched || form.$submitted)}">
+                <label class="no break line">{{ 'username' | translate }}</label>
+            </div>
+
+            <div class="wide column field ten" ng-class="{error: form.username.$invalid && (form.username.$touched || form.$submitted)}">
+                <div class="ui fluid input">
+                    <input type="text" name="username" ng-pattern="'^[a-zA-Z][a-zA-Z0-9]*$'" ng-model="profileCtrl.profile.username"
+                           placeholder="{{ 'username' | translate }}" ng-required disabled>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row middle aligned">
+            <div class="four wide column right aligned field label required" ng-class="{error: form.email.$invalid && (form.email.$touched || form.$submitted)}">
+                <label>{{ 'email' | translate }}</label>
+            </div>
+
+            <div class="wide column field ten" ng-class="{error: form.email.$invalid && (form.email.$touched || form.$submitted)}">
+                <div class="ui fluid input">
+                    <input type="email" name="email" ng-model="profileCtrl.profile.email"
+                           placeholder="{{ 'email' | translate }}" ng-required>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row form footer">
+            <div class="fourteen wide right floated column form footer">
+                <button type="submit" class="ui right floated button" ng-class="{ green: form.$valid }">
+                    {{ 'saveChanges' | translate }}
+                </button>
+            </div>
+        </div>
+
+    </form>
+
+</div>

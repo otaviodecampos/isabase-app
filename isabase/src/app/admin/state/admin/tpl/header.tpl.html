@@ -7,7 +7,7 @@
             <a ui-sref-active="active" ui-sref="{{ item.stateName }}" class="ui primary button">{{ item.label | translate }}</a>
         </div>
         <div ui-dropdown="{action: 'hide'}" class="ui pointing dropdown link item top right">
-            <span class="text">otaviodecampos</span>
+            <span class="text">{{ auth.data.loginName }}</span>
             <i class="angle down icon"></i>
             <div class="menu">
                 <a class="item" ui-sref="{{ item.stateName }}" ng-repeat="item in header.dropdownItems">{{ item.label | translate }}</a>

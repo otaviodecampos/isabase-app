@@ -8,13 +8,22 @@
 
         var that = this;
 
+        that.data = null;
+
         that.isAuthenticated = function () {
             return $http.get(RESOURCE_URL.auth);
         }
 
         that.authenticate = function (username, password) {
             $http.defaults.headers.common.Authorization = that.encode(username, password);
-            return $http.post(RESOURCE_URL.auth);
+
+            var authPromise = $http.post(RESOURCE_URL.auth);
+
+            authPromise.then(function(response) {
+                that.data = response.data;
+            });
+
+            return authPromise;
         }
 
         that.invalidate = function() {
