@@ -25,6 +25,10 @@
   "directories": {
     "example": "example"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-replace": "^0.5.4",
+    "yargs": "^4.7.1"
+  },
   "description": ""
 }

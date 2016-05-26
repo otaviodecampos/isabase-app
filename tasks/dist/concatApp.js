@@ -4,7 +4,10 @@ var gulp = require('gulp')
     , templateCache = require('gulp-angular-templatecache')
     , es = require('event-stream')
     , order = require("gulp-order")
-    , ngAnnotate = require('gulp-ng-annotate');
+    , ngAnnotate = require('gulp-ng-annotate')
+    , replace = require('gulp-replace')
+    , isProduction = require('yargs').argv.env === 'production'
+    , properties = require('../../properties.json');
 
 module.exports = function () {
 
@@ -43,6 +46,11 @@ module.exports = function () {
         .pipe(ngAnnotate({
             add: true,
             single_quotes: true
+        }))
+        .pipe(replace(/\$\{[\w\.]+\}/g, function(prop) {
+            var env = isProduction && 'production' || 'develop';
+            prop = prop.replace(/^\${|}$/g, '');
+            return properties[env][prop];
         }))
         .pipe(concat(this.buildName + '.js'))
         .pipe(gulp.dest(this.concatOutputDir));

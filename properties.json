@@ -1,0 +1,8 @@
+{
+  "develop": {
+    "server.url": "http://localhost:8080"
+  },
+  "production": {
+    "server.url": "http://isabase-otaviodecampos.rhcloud.com"
+  }
+}

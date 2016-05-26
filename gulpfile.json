@@ -1,4 +1,5 @@
-{"all": {
+{
+  "build": {
     "path": {
       "build-name": "isabase-app",
       "build-dir": "isabase/dist",
@@ -41,7 +42,7 @@
       "themes": true
     }
   },
-  "develop": {
+  "build-app": {
     "path": {
       "build-name": "isabase-app",
       "build-dir": "isabase/dist",
@@ -60,55 +61,6 @@
     "task": {
       "css": true,
       "concatApp": true,
-      "copy": true
-    }
-  },
-  "app": {
-    "path": {
-      "build-name": "isabase-app",
-      "build-dir": "isabase/dist",
-      "src-dir": "isabase/src",
-      "app-dir": "isabase/src/app",
-      "concat-output-dir": "isabase/dist/assets/js"
-    },
-    "clean": false,
-    "default": false,
-    "task-dir": "tasks/dist",
-    "task": {
-      "concatApp": true
-    }
-  },
-  "css": {
-    "path": {
-      "build-name": "isabase-app",
-      "build-dir": "isabase/dist",
-      "src-dir": "isabase/src",
-      "app-dir": "isabase/src/app",
-      "concat-output-dir": "isabase/dist/assets/js",
-      "css-dir": "isabase/src/assets/css",
-      "css-output-dir": "isabase/dist/assets/css",
-      "themes-dir": "semantic/dist/themes",
-      "themes-output-dir": "isabase/dist/assets/css/themes"
-    },
-    "clean": false,
-    "default": false,
-    "task-dir": "tasks/dist",
-    "task": {
-      "css": true,
-      "themes": true
-    }
-  },
-  "copy": {
-    "path": {
-      "build-name": "isabase-app",
-      "build-dir": "isabase/dist",
-      "src-dir": "isabase/src",
-      "app-dir": "isabase/src/app"
-    },
-    "clean": false,
-    "default": false,
-    "task-dir": "tasks/dist",
-    "task": {
       "copy": true
     }
   }
