@@ -15,11 +15,16 @@
                 controller: "AdminCtrl as admin",
                 resolve: {
                     authentication: function (Auth, $log, $state, $location) {
+                        var redirectUrl;
+                        if($location.path() != '/login') {
+                            redirectUrl = $location.path();
+                        }
+
                         return Auth.isAuthenticated().then(function (authenticated) {
                             return authenticated;
                         }, function () {
                             $state.go('login', {
-                                redirectUrl: $location.path()
+                                redirectUrl: redirectUrl
                             });
                         });
                     }
