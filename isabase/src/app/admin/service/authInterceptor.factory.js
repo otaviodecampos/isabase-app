@@ -4,14 +4,13 @@
         .factory('authInterceptor', Service);
 
     /* @ngInject */
-    function Service($location) {
+    function Service($location, $q) {
         return {
-            'response': function (response) {
-                if (response.status === 401) {
+            'responseError': function (response) {
+                if (response.status === 401 && $location.url() != '/login') {
                     $location.url('/login');
                 }
-
-                return response;
+                return $q.reject(response);
             }
         }
     }
