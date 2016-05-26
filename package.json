@@ -1,11 +1,11 @@
 {
   "name": "isabase-app",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "main": "server.js",
   "author": "otaviodecampos <otaviodecampos@hotmail.com>",
   "license": "MIT",
   "dependencies": {
@@ -20,13 +20,7 @@
     "gulp-ng-json": "0.0.15",
     "gulp-order": "^1.1.1",
     "semantic-ui": "^2.1.4",
-    "serve-static": "^1.10.0"
-  },
-  "directories": {
-    "example": "example"
-  },
-  "devDependencies": {
-    "gulp": "^3.9.1",
+    "serve-static": "^1.10.0",
     "gulp-replace": "^0.5.4",
     "yargs": "^4.7.1"
   },
