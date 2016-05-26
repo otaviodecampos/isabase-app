@@ -46,6 +46,10 @@
             };
         }
 
+        that.getUsername = function() {
+            return that.data.loginName;
+        }
+
     }
 
 })();

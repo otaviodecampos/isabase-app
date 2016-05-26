@@ -5,7 +5,7 @@
         .controller('ChangePasswordCtrl', Controller);
 
     /* @ngInject */
-    function Controller($q, $http, notification, navigation, RESOURCE_URL) {
+    function Controller($q, $http, notification, Auth, RESOURCE_URL) {
 
         var that = this;
 
@@ -20,6 +20,7 @@
 
             that.loader.success(function() {
                 notification.success('changePasswordSuccess');
+                Auth.authenticate(Auth.getUsername(), that.model.newPassword);
                 that.model = {};
             });
 
