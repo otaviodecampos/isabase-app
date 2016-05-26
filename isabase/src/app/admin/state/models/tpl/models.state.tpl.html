@@ -1,13 +1,38 @@
 <div class="ui two column doubling stackable grid">
-    <div class="eleven wide column">
+    <div class="sixteen wide column">
         <div class="ui raised segment" isa-loader="ctrl.models">
             <h2 class="ui header" isa-loader-visible>
                 {{ 'modelsHeader' | translate }}
-                <div class="sub header" isa-loader-bind="'loading' | translate">
-                    {{ ctrl.myapp && ('modelsSubheader' | translate: {appName: ctrl.myapp.name, modelSize:
-                    ctrl.models.length } | capitalize) || 'appSelectMessage' | translate }}
-                </div>
             </h2>
+
+            <div class="ui three stackable cards" ng-if="ctrl.myapp">
+                <div class="card limit height" ng-repeat="model in ctrl.models">
+                    <div class="content">
+                        <a ui-sref="admin.models.edit({ modelName: model.name })">
+                            <i class="right floated setting icon"></i>
+                        </a>
+                        <div class="header">{{ model.name }}</div>
+                        <div class="description">
+                            <p>{{ model.description }}</p>
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <a class="left floated" ui-sref="admin.records({ appName: ctrl.myapp.name, modelName: model.name })">
+                            <i class="icon icon-book-open"></i>
+                            {{ 'records' | translate }}
+                        </a>
+                    </div>
+                </div>
+
+                <div ui-sref="admin.models.edit({ modelName: 'new' })" class="card limit height">
+                    <div class="content center">
+                        <div class="description link">
+                            <i class="add circle icon big"></i>
+                            <p>{{ 'modelNew' | translate }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div ui-dropdown="{selectBy: 'name'}" ng-model="ctrl.myapp"
                  class="ui floating dropdown button absolute top right">
@@ -17,25 +42,6 @@
                 </div>
             </div>
 
-            <table class="ui very basic table striped selectable" isa-loader-invisible="{remove: false}">
-                <thead>
-                <tr>
-                    <th>{{ 'name' | translate }}</th>
-                    <th>{{ 'description' | translate }}</th>
-                    <th>{{ 'records' | translate }}</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr class="link" ng-init="ctrl.init(model)" ng-class="{selected: ctrl.selected == model}"
-                    ng-click="ctrl.select(model)" ng-dblclick="ctrl.open(model)"
-                    ng-repeat="model in ctrl.models">
-                    <td>{{ model.name }}</td>
-                    <td>{{ model.description }}</td>
-                    <td>{{ model.records }}</td>
-                </tr>
-                </tbody>
-            </table>
         </div>
     </div>
-    <div class="five wide column" ng-include="'isabase-app/models.sidebar.tpl.html'"></div>
 </div>

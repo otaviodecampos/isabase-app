@@ -19,6 +19,7 @@
   "modelList": "Mostrar Modelos",
   "modelNew": "Novo Modelo",
   "modelEdit": "Editar Modelo",
+  "modelRemove": "Remover Modelo",
   "modelEmptyNameMessage": "Informe um nome para o modelo",
   "modelSelectMessage": "Selecione um modelo",
   "modelSelectedMessage": "Gerencie o modelo selecionado",

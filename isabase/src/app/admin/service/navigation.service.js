@@ -39,10 +39,12 @@
 
         this.setCurrentParam = function(paramName, paramValue) {
             currentParams[paramName] = paramValue;
+            that.setParams(currentParams);
             return paramValue;
         }
 
         this.getCurrentParam = function(paramName) {
+            that.setParams(currentParams);
             return currentParams[paramName] || null;
         }
         
