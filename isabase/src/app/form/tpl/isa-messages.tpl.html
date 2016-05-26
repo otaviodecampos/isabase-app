@@ -1,4 +1,4 @@
-<div class="ui error message" ui-message ng-show="form.$invalid">
+<div class="ui error message" ui-message ng-show="form.$dirty && !form.$pending && form.$invalid">
     <div class="header">
         {{ 'checkBelowInconsistencies' | translate }}
     </div>
