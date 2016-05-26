@@ -17,6 +17,10 @@ ensure_node_is_installed
 # Set custom node version
 setup_path_for_custom_node_version
 
+# Run bower
+cd $OPENSHIFT_REPO_DIR
+bower install
+
 # Run semantic gulp
 cd $OPENSHIFT_REPO_DIR/semantic
 gulp build
