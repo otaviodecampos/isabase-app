@@ -5,13 +5,15 @@
         .controller('LoginCtrl', Controller);
 
     /* @ngInject */
-    function Controller($stateParams, Auth, navigation) {
+    function Controller($stateParams, Auth, navigation, $previousState) {
 
         var that = this;
         that.form = null;
         that.authPromise = null;
 
-        Auth.invalidate();
+        if($previousState.get()) {
+            Auth.invalidate();
+        }
 
         that.setValidity = function (valid) {
             that.form.username.$setValidity("wrong", valid);

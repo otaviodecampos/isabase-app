@@ -22,7 +22,7 @@
             if(!this.myapp || this.myapp.name != app.name) {
                 this.myapp = app;
                 this.models = models.query({appName: app.name});
-                navigation.setCurrentParam('appName', app.name);
+                appName = navigation.setCurrentParam('appName', app.name);
             }
         }
 

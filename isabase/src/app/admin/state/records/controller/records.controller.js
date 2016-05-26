@@ -32,7 +32,7 @@
                 this.myapp = app;
                 this.models = models.query({appName: app.name});
                 this.records = null;
-                navigation.setCurrentParam('appName', app.name);
+                appName = navigation.setCurrentParam('appName', app.name);
             }
         }
 
@@ -41,8 +41,8 @@
                 this.records = records.query({appName: appName, modelName: model.name}, function() {
                     that.model = model;
                 });
-                navigation.setCurrentParam('appName', appName);
-                navigation.setCurrentParam('modelName', model.name);
+                appName = navigation.setCurrentParam('appName', appName);
+                modelName = navigation.setCurrentParam('modelName', model.name);
             }
         }
 
