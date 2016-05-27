@@ -1,12 +1,16 @@
 <div class="ui two column doubling stackable grid">
-    <div class="eleven wide column">
+    <div class="sixteen wide column">
         <div class="ui raised segment" isa-loader="ctrl.record">
             <h2 class="ui header" isa-loader-visible>
-                {{ ctrl.record.$$new ? 'recordNew' : 'recordEdit' | translate }}
-                <div class="sub header" isa-loader-bind="'loading' | translate">{{ ::ctrl.record.$new ? '' :
-                    ctrl.record.id }}
+                {{ ::ctrl.model.name }}
+                <div class="sub header" isa-loader-invisible>
+                    <ncy-breadcrumb></ncy-breadcrumb>
                 </div>
             </h2>
+
+            <p isa-loader-invisible>
+                <small>Id: {{ ::(ctrl.record.$$new ? 'recordNew' : ctrl.record.id | translate) }}</small>
+            </p>
 
             <isa-messages form="form" fields="ctrl.model.fields"></isa-messages>
 
@@ -17,16 +21,26 @@
                      ng-repeat="field in ctrl.model.fields" class="row middle aligned">
                 </div>
 
-                <div class="row">
-                    <div class="fourteen wide right floated column">
-                        <button type="submit" class="ui labeled button icon" ng-class="{ green: form.$valid }">
-                            <i class="save icon"></i>
-                            {{ 'saveChanges' | translate }}
-                        </button>
+                <div class="row middle aligned" ng-if="!ctrl.record.$$new">
+                    <div class="four wide column right aligned field label"></div>
+
+                    <div class="wide column field ten">
+                        <a ng-click="ctrl.remove()" class="ui action red button">
+                            {{ 'recordRemove' | translate }}
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="row form footer">
+                    <div class="fourteen wide right floated column form footer">
                         <a ng-click="navigation.back()" class="ui button">
                             {{ 'cancel' | translate }}
                         </a>
-                        <a ng-click="ctrl.clear()" class="ui labeled button">
+                        <button type="submit" class="ui right floated button" ng-class="{ green: form.$valid }">
+                            {{ 'saveChanges' | translate }}
+                        </button>
+                        <a class="ui labeled right floated button" ng-click="ctrl.clear()">
                             {{ 'clear' | translate }}
                         </a>
                     </div>
@@ -37,5 +51,4 @@
         </div>
     </div>
 
-    <div class="five wide column" ng-include="'isabase-app/record-edit.sidebar.tpl.html'"></div>
 </div>

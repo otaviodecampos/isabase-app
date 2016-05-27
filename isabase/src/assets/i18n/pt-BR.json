@@ -30,6 +30,7 @@
   "recordsSubheader": "{{ modelName }} possuí {{ recordSize }} registros",
   "recordList": "Mostrar Registros",
   "recordNew": "Novo Registro",
+  "recordRemove": "Remover Registro",
   "recordEdit": "Editar Registro",
   "recordSelectMessage": "Selecione um registro",
   "recordSelectedMessage": "Gerencie o registro selecionado",
